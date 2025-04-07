@@ -1,15 +1,19 @@
+import React from 'react';
 import { m as motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
-  CheckCircleIcon, 
-  LightBulbIcon, 
-  ShieldCheckIcon, 
-  UserGroupIcon, 
-  BuildingOffice2Icon, 
-  TrophyIcon
-} from '@heroicons/react/24/outline';
+  FiCheckCircle,
+  FiTarget,
+  FiShield,
+  FiUsers,
+  FiHome,
+  FiClock,
+  FiGlobe,
+  FiAward,
+  FiSettings
+} from 'react-icons/fi';
 
 const About = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -38,19 +42,19 @@ const About = () => {
     {
       title: 'Quality',
       description: 'We maintain the highest standards in all our products and services.',
-      icon: <CheckCircleIcon className="w-10 h-10" />,
+      icon: <FiCheckCircle className="w-10 h-10" />,
       color: 'from-blue-600 to-blue-400'
     },
     {
       title: 'Innovation',
       description: 'We continuously evolve and adapt to meet the changing needs of our industry.',
-      icon: <LightBulbIcon className="w-10 h-10" />,
+      icon: <FiTarget className="w-10 h-10" />,
       color: 'from-purple-600 to-purple-400'
     },
     {
       title: 'Trust',
       description: 'We build lasting relationships with our clients through transparency and reliability.',
-      icon: <ShieldCheckIcon className="w-10 h-10" />,
+      icon: <FiShield className="w-10 h-10" />,
       color: 'from-green-600 to-green-400'
     },
   ];

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -37,40 +37,23 @@ const ThemeToggle = () => {
   };
 
   return (
-    <motion.button
-      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+    <button
       onClick={toggleDarkMode}
-      className="relative w-10 h-10 flex items-center justify-center rounded-full focus:outline-none"
-      whileTap={{ scale: 0.9 }}
-      whileHover={{ scale: 1.1 }}
+      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="fixed bottom-4 right-4 lg:bottom-8 lg:right-8 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 focus:outline-none z-50"
     >
       <motion.div
         initial={false}
-        animate={{ 
-          rotate: isDarkMode ? 45 : 0,
-          scale: isDarkMode ? 0.8 : 1
-        }}
+        animate={{ scale: [0.8, 1], opacity: [0.5, 1] }}
         transition={{ duration: 0.3 }}
-        className={`absolute transition-colors duration-300 ${
-          isDarkMode ? 'opacity-0' : 'opacity-100 text-yellow-500'
-        }`}
       >
-        <SunIcon className="h-6 w-6" />
+        {isDarkMode ? (
+          <FiSun className="h-6 w-6 text-amber-500" />
+        ) : (
+          <FiMoon className="h-6 w-6 text-gray-700" />
+        )}
       </motion.div>
-      <motion.div
-        initial={false}
-        animate={{ 
-          rotate: isDarkMode ? 0 : -45,
-          scale: isDarkMode ? 1 : 0.8
-        }}
-        transition={{ duration: 0.3 }}
-        className={`absolute transition-colors duration-300 ${
-          isDarkMode ? 'opacity-100 text-blue-400' : 'opacity-0'
-        }`}
-      >
-        <MoonIcon className="h-6 w-6" />
-      </motion.div>
-    </motion.button>
+    </button>
   );
 };
 

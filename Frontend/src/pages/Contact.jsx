@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { FiPhone, FiMail, FiMapPin, FiCheck } from 'react-icons/fi';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,19 +41,19 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <PhoneIcon className="h-7 w-7" />,
+      icon: <FiPhone className="h-7 w-7" />,
       title: 'Phone',
       details: ['+1 (234) 567-890', '+91 7620348035'],
       action: 'tel:+917620348035',
     },
     {
-      icon: <EnvelopeIcon className="h-7 w-7" />,
+      icon: <FiMail className="h-7 w-7" />,
       title: 'Email',
       details: ['info@meehaan.com', 'sales@meehaan.com'],
       action: 'mailto:info@meehaan.com',
     },
     {
-      icon: <MapPinIcon className="h-7 w-7" />,
+      icon: <FiMapPin className="h-7 w-7" />,
       title: 'Address',
       details: ['123 Industrial Park, Business District', 'City, State 12345, United States'],
       action: 'https://maps.google.com/?q=123+Industrial+Park+Business+District',
@@ -111,9 +111,7 @@ const Contact = () => {
                 >
                   <div className="flex justify-center mb-4">
                     <div className="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                      <FiCheck className="w-8 h-8 text-green-500" />
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Message Sent!</h3>

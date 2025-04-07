@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline';
-import header from'../../public/images/header.png';
+import { FiArrowRight, FiCheck } from 'react-icons/fi';
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -92,7 +91,7 @@ const Home = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10" />
           <img
-            src={header}
+            src="/images/header.png"
             alt="Industrial background"
             className="w-full h-full object-cover"
           />
@@ -205,7 +204,7 @@ const Home = () => {
                     className="flex items-center"
                   >
                     <span className="flex-shrink-0 w-5 h-5 mr-3 rounded-full bg-primary flex items-center justify-center">
-                      <CheckIcon className="w-3 h-3 text-white" />
+                      <FiCheck className="w-3 h-3 text-white" />
                     </span>
                     <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                   </motion.li>
@@ -216,7 +215,7 @@ const Home = () => {
                 className="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300 group"
               >
                 Learn More About Us
-                <ArrowRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <FiArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </motion.div>
           </div>
@@ -275,7 +274,7 @@ const Home = () => {
                     className="inline-flex items-center font-medium text-primary hover:text-primary-dark transition-colors duration-300 group"
                   >
                     Explore Products
-                    <ArrowRightIcon className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    <FiArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
               </motion.div>

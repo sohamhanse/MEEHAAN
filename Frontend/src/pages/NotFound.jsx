@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { m as motion } from 'framer-motion';
-import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
+import { FiArrowLeft } from 'react-icons/fi';
 
 const NotFound = () => {
   return (
@@ -39,7 +39,7 @@ const NotFound = () => {
             to="/" 
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full hover:bg-gray-700 dark:hover:bg-gray-600 transition duration-300 text-lg"
           >
-            <ArrowLongLeftIcon className="h-5 w-5" />
+            <FiArrowLeft className="h-5 w-5" />
             Back to Home
           </Link>
         </motion.div>

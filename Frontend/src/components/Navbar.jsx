@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
@@ -79,7 +79,7 @@ const Navbar = () => {
                       onMouseLeave={() => setIsProductsOpen(false)}
                     >
                       <span>{item.name}</span>
-                      <ChevronDownIcon className="h-4 w-4" />
+                      <FiChevronDown className="h-4 w-4" />
                     </button>
                     <AnimatePresence>
                       {isProductsOpen && (
@@ -149,9 +149,9 @@ const Navbar = () => {
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? (
-                <XMarkIcon className="h-6 w-6" />
+                <FiX className="h-6 w-6" />
               ) : (
-                <Bars3Icon className="h-6 w-6" />
+                <FiMenu className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -177,7 +177,7 @@ const Navbar = () => {
                         className="flex items-center justify-between w-full py-2 text-gray-700 dark:text-gray-300"
                       >
                         <span>{item.name}</span>
-                        <ChevronDownIcon 
+                        <FiChevronDown 
                           className={`h-5 w-5 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} 
                         />
                       </button>

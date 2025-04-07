@@ -1,12 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
-  PhoneIcon, 
-  EnvelopeIcon, 
-  MapPinIcon, 
-  ArrowTopRightOnSquareIcon
-} from '@heroicons/react/24/outline';
+import { FiPhone, FiMail, FiMapPin, FiExternalLink } from 'react-icons/fi';
 
 const Footer = () => {
   const [ref, inView] = useInView({
@@ -112,7 +107,7 @@ const Footer = () => {
                     aria-label={`Follow on ${social.name}`}
                     className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors duration-300"
                   >
-                    <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+                    <FiExternalLink className="h-5 w-5" />
                   </a>
                 ))}
               </div>
@@ -168,7 +163,7 @@ const Footer = () => {
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <MapPinIcon className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                  <FiMapPin className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400">
                     123 Industrial Park, Business District<br />
                     City, State 12345<br />
@@ -176,19 +171,19 @@ const Footer = () => {
                   </span>
                 </li>
                 <li className="flex items-center">
-                  <PhoneIcon className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <FiPhone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                   <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors duration-300">
                     +1 (234) 567-890
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <PhoneIcon className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <FiPhone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                   <a href="tel:+917620348035" className="text-gray-400 hover:text-white transition-colors duration-300">
                     +91 7620348035
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <EnvelopeIcon className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                  <FiMail className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                   <a href="mailto:info@meehaan.com" className="text-gray-400 hover:text-white transition-colors duration-300">
                     info@meehaan.com
                   </a>
