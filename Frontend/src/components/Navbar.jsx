@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './ThemeToggle.jsx';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const location = useLocation();
 
   // Determine if the navbar should be transparent
@@ -25,6 +26,7 @@ const Navbar = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
+    setIsMobileProductsOpen(false);
   }, [location.pathname]);
 
   const navItems = [
@@ -176,8 +178,44 @@ const Navbar = () => {
             <div className="px-4 py-5 space-y-2">
               {navItems.map((item) => (
                 <div key={item.name}>
-                  {!item.dropdown ? (
-                    <NavLink
+                  {item.dropdown ? (
+                    <div>
+                      <button 
+                        onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
+                        className="flex items-center justify-between w-full py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary"
+                      >
+                        <span>{item.name}</span>
+                        <FiChevronDown className={`h-5 w-5 transition-transform duration-300 ${isMobileProductsOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {isMobileProductsOpen && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200 dark:border-gray-700"
+                          >
+                             {item.items.map((subItem) => (
+                              <NavLink
+                                key={subItem.name}
+                                to={subItem.path}
+                                className={({ isActive }) =>
+                                  `block py-2 text-base font-medium transition-colors ${
+                                    isActive
+                                      ? 'text-primary dark:text-secondary'
+                                      : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary'
+                                  }`
+                                }
+                              >
+                                {subItem.name}
+                              </NavLink>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
                         `block py-2 text-base font-medium transition-colors ${
@@ -189,21 +227,6 @@ const Navbar = () => {
                     >
                       {item.name}
                     </NavLink>
-                  ) : (
-                    <>
-                      <NavLink
-                        to={item.path}
-                        className={({ isActive }) =>
-                        `block py-2 text-base font-medium transition-colors ${
-                          isActive
-                            ? 'text-primary dark:text-secondary'
-                            : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary'
-                        }`
-                      }
-                      >
-                        {item.name}
-                      </NavLink>
-                    </>
                   )}
                 </div>
               ))}
@@ -224,3 +247,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
