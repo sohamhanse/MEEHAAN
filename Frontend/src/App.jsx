@@ -5,7 +5,7 @@ import About from './pages/About';
 import Products from './pages/Products';
 import ProductCategory from './pages/ProductCategory';
 import ProductOils from './pages/ProductOils';
-import ProductOilDetail from './pages/ProductOilDetail';
+import ProductCategoryPage from './pages/ProductCategoryPage';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import LoadingScreen from './components/LoadingScreen';
@@ -42,7 +42,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="products" element={<Products />} />
           <Route path="products/oils" element={<ProductOils />} />
-          <Route path="products/oils/:categoryId" element={<ProductOilDetail />} />
+          <Route path="products/oils/:categoryId" element={<ProductCategoryPage />} />
           <Route path="products/:category" element={<ProductCategory />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
