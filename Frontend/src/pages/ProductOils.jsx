@@ -46,7 +46,7 @@ const ProductOils = () => {
       title: 'Rust Preventives',
       description: 'A highly effective range of rust preventive solutions, available in oil, solvent, and water-based formulations, ensuring inter-operational protection and final packaging for all metals.',
       link: '/products/oils/rust-preventives',
-      fallbackImage: "/images/Products/Oil/Rust Preventives.jpg"
+      fallbackImage: "/images/Products/Oil/Rust_Preventive.jpg"
     },
     {
       id: 'die-casting',

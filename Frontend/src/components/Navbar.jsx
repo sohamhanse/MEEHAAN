@@ -35,8 +35,8 @@ const Navbar = () => {
         { name: 'All Products', path: '/products' },
         { name: 'Connectors', path: '/products/connectors' },
         { name: 'Industrial Oils', path: '/products/oils' },
-        { name: 'Grease', path: '/products/grease' },
-        { name: 'Sprays', path: '/products/sprays' },
+        // { name: 'Grease', path: '/products/grease' },
+        // { name: 'Sprays', path: '/products/sprays' },
       ]
     },
     { name: 'Contact', path: '/contact' },

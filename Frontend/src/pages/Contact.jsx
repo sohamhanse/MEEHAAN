@@ -43,7 +43,7 @@ const Contact = () => {
     {
       icon: <FiPhone className="h-7 w-7" />,
       title: 'Phone',
-      details: ['+1 (234) 567-890', '+91 7620348035'],
+      details: ['+91 9923588450', '+91 9403674126'],
       action: 'tel:+917620348035',
     },
     {
@@ -55,7 +55,7 @@ const Contact = () => {
     {
       icon: <FiMapPin className="h-7 w-7" />,
       title: 'Address',
-      details: ['123 Industrial Park, Business District', 'City, State 12345, United States'],
+      details: ['Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar', 'Chikhali, Dehu Road, Pune, Maharashtra 411062'],
       action: 'https://maps.google.com/?q=123+Industrial+Park+Business+District',
     },
   ];
@@ -70,7 +70,7 @@ const Contact = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <img
-            src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+            src="/images/Home/Contact_Us.jpg"
             alt="Contact background"
             className="w-full h-full object-cover"
           />

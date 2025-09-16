@@ -162,7 +162,7 @@ const ProductCategory = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <img
-            src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+            src="/images/Trusted_Brand/c1.jpg"
             alt={`${formatCategoryName(category)} background`}
             className="w-full h-full object-cover"
           />
@@ -285,7 +285,7 @@ const ProductCategory = () => {
             <div className="md:flex">
               <div className="md:w-1/2">
                 <img
-                  src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+                  src="/images/Trusted_Brand/C2.jpg"
                   alt="Product information"
                   className="w-full h-full object-cover"
                 />

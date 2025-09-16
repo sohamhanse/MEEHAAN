@@ -12,29 +12,38 @@ const Products = () => {
   const productCategories = [
     {
       title: 'Connectors',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      image: '/images/Home/connectors.jpg',
       description: 'High-quality automotive and industrial connectors for various applications',
       link: '/products/connectors',
     },
     {
       title: 'Industrial Oils',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      image: '/images/Home/Industrial_Lub.jpg',
       description: 'Premium industrial oils engineered for optimal performance',
       link: '/products/oils',
     },
-    {
-      title: 'Grease',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
-      description: 'Specialized grease solutions for machinery and automotive applications',
-      link: '/products/grease',
-    },
-    {
-      title: 'Sprays',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
-      description: 'Industrial sprays for maintenance, cleaning, and protection',
-      link: '/products/sprays',
-    },
+    // {
+    //   title: 'Grease',
+    //   image: '/images/Home/Industrial_Grease.jpg',
+    //   description: 'Specialized grease solutions for machinery and automotive applications',
+    //   link: '/products/grease',
+    // },
+    // {
+    //   title: 'Sprays',
+    //   image: '/images/Home/Industrial_Spray.png',
+    //   description: 'Industrial sprays for maintenance, cleaning, and protection',
+    //   link: '/products/sprays',
+    // },
   ];
+
+  const logos= [
+    "/images/Trusted_Brand/Savita.jpg",
+    "/images/Trusted_Brand/Condat.jpg",
+    "/images/Trusted_Brand/TE.jpg",
+    "/images/Trusted_Brand/Molex.jpg",
+    "/images/Trusted_Brand/Aarna.jpg",
+    "/images/Trusted_Brand/Savsol.jpg"
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,7 +73,7 @@ const Products = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <img
-            src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+            src="/images/Home/Header.png"
             alt="Industrial background"
             className="w-full h-full object-cover"
           />
@@ -104,7 +113,9 @@ const Products = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className={`grid gap-8 ${
+            productCategories.length === 2 ? 'grid-cols-2 justify-center' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+          }`}
         >
           {productCategories.map((category, index) => (
             <motion.div
@@ -136,7 +147,7 @@ const Products = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-800">
+      {/* <section className="py-20 bg-gray-100 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Featured Products</h2>
@@ -175,7 +186,7 @@ const Products = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Brands Section */}
       <section className="py-20 bg-white dark:bg-gray-900">
@@ -187,17 +198,17 @@ const Products = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((brand) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 ">
+            {logos.map((brand) => (
               <motion.div
                 key={brand}
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg"
               >
                 <img
-                  src={`https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg`}
+                  src={`${brand}`}
                   alt={`Brand ${brand}`}
-                  className="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  className="h-10 md:h-12 lg:h-16 w-auto transition-opacity duration-300"
                 />
               </motion.div>
             ))}

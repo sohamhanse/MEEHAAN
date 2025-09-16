@@ -20,35 +20,44 @@ const Home = () => {
   const productCategories = [
     {
       title: 'Connectors',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      image: '/images/Home/connectors.jpg',
       description: 'High-quality automotive and industrial connectors for reliable connections',
       link: '/products/connectors',
     },
     {
       title: 'Industrial Oils',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      image: '/images/Home/Industrial_Lub.jpg',
       description: 'Premium industrial oils engineered for optimal performance',
       link: '/products/oils',
     },
     {
       title: 'Grease',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      image: '/images/Home/Industrial_Grease.jpg',
       description: 'Specialized grease solutions for machinery and automotive applications',
       link: '/products/grease',
     },
     {
       title: 'Sprays',
-      image: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+      image: '/images/Home/Industrial_Spray.png',
       description: 'Industrial sprays for maintenance, cleaning, and protection',
       link: '/products/sprays',
     },
   ];
 
+  const logos= [
+    "/images/Company_Logos/Our_Costumers/Perfektion.jpg",
+    "/images/Company_Logos/Our_Costumers/Cu_Built.jpg",
+    "/images/Company_Logos/Our_Costumers/RFA.jpg",
+    "/images/Company_Logos/Our_Costumers/Suyog_Auto_Casat.jpg",
+    "/images/Company_Logos/Our_Costumers/Walter_Pack.jpg",
+    "/images/Company_Logos/Our_Costumers/Sunil_Minda.jpg"
+  ]
+
   const stats = [
-    { name: 'Years of Experience', value: '15+' },
+    { name: 'Years of Experience', value: '7+' },
     { name: 'Products Available', value: '1000+' },
     { name: 'Clients Served', value: '500+' },
-    { name: 'Countries', value: '25+' },
+    { name: 'Countries', value: '3+' },
   ];
 
   const features = [
@@ -91,7 +100,7 @@ const Home = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10" />
           <img
-            src="/images/header.png"
+            src="/images/Home/Header.png"
             alt="Industrial background"
             className="w-full h-full object-cover"
           />
@@ -189,10 +198,10 @@ const Home = () => {
                 About Us
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-                Your Premier Trading Partner Since 2008
+                Your Premier Trading Partner Since 2018
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                MEEHAAN is a leading trading company specializing in industrial oil and automotive connectors. With over 15 years of experience, we pride ourselves on delivering premium quality products and exceptional customer service.
+                MEEHAAN is a leading trading company specializing in industrial oil and automotive connectors. With over 7 years of experience, we pride ourselves on delivering premium quality products and exceptional customer service.
               </p>
               <ul className="space-y-3 mb-8">
                 {features.map((feature, index) => (
@@ -359,7 +368,7 @@ const Home = () => {
             animate={clientsInView ? "visible" : "hidden"}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-20"
           >
-            {[1, 2, 3, 4, 5, 6].map((logo) => (
+            {logos.map((logo) => (
               <motion.div
                 key={logo}
                 variants={fadeInUp}
@@ -367,46 +376,21 @@ const Home = () => {
                 className="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md"
               >
                 <img
-                  src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+                  src= {logo}
                   alt={`Client logo ${logo}`}
-                  className="max-h-12 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  className="max-h-12 hover:opacity-100 transition-opacity duration-300"
                 />
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Testimonial slider */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={clientsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="max-w-4xl mx-auto bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-10 relative"
-          >
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd"></path>
-                </svg>
-              </div>
-            </div>
-            <div className="text-center pt-6">
-              <p className="text-xl italic text-gray-600 dark:text-gray-300 mb-6">
-                "MEEHAAN has consistently delivered high-quality products that have significantly improved our manufacturing efficiency. Their team's expertise and responsiveness make them an invaluable partner for our business."
-              </p>
-              <div className="flex flex-col items-center">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">John Smith</h4>
-                <p className="text-gray-500 dark:text-gray-400">Chief Operations Officer, Global Industries</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-primary/95 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
+        <div className="absolute inset-0 z-0 opacity-40">
           <img
-            src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+            src="/images/Home/Supply_Chain.jpg"
             alt="Background pattern"
             className="w-full h-full object-cover"
           />

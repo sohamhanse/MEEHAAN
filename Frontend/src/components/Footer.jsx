@@ -43,8 +43,8 @@ const Footer = () => {
   const productCategories = [
     { name: 'Connectors', path: '/products/connectors' },
     { name: 'Industrial Oils', path: '/products/oils' },
-    { name: 'Grease', path: '/products/grease' },
-    { name: 'Sprays', path: '/products/sprays' },
+    // { name: 'Grease', path: '/products/grease' },
+    // { name: 'Sprays', path: '/products/sprays' },
   ];
 
   return (
@@ -95,7 +95,7 @@ const Footer = () => {
               </div>
               <p className="text-gray-400 mb-6">
                 Premium industrial oil and automotive connector trading solutions, 
-                delivering quality and excellence since 2008.
+                delivering quality and excellence since 2017.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -165,21 +165,21 @@ const Footer = () => {
                 <li className="flex items-start">
                   <FiMapPin className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400">
-                    123 Industrial Park, Business District<br />
-                    City, State 12345<br />
-                    United States
+                    Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar<br />
+                    Chikhali, Dehu Road<br />
+                    Pune, Maharashtra 411062
                   </span>
                 </li>
                 <li className="flex items-center">
                   <FiPhone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                   <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    +1 (234) 567-890
+                    +91 9923588450
                   </a>
                 </li>
                 <li className="flex items-center">
                   <FiPhone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                   <a href="tel:+917620348035" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    +91 7620348035
+                    +91 9403674126
                   </a>
                 </li>
                 <li className="flex items-center">
