@@ -30,19 +30,22 @@ const Home = () => {
       description: 'Premium industrial oils engineered for optimal performance',
       link: '/products/oils',
     },
-    {
-      title: 'Grease',
-      image: '/images/Home/Industrial_Grease.jpg',
-      description: 'Specialized grease solutions for machinery and automotive applications',
-      link: '/products/grease',
-    },
-    {
-      title: 'Sprays',
-      image: '/images/Home/Industrial_Spray.png',
-      description: 'Industrial sprays for maintenance, cleaning, and protection',
-      link: '/products/sprays',
-    },
   ];
+
+  /*
+  {
+        title: 'Grease',
+        image: '/images/Home/Industrial_Grease.jpg',
+        description: 'Specialized grease solutions for machinery and automotive applications',
+        link: '/products/grease',
+      },
+      {
+        title: 'Sprays',
+        image: '/images/Home/Industrial_Spray.png',
+        description: 'Industrial sprays for maintenance, cleaning, and protection',
+        link: '/products/sprays',
+      },
+  */
 
   const logos= [
     "/images/Company_Logos/Our_Costumers/Perfektion.jpg",
