@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import ProductCategoryPageComponent from '../components/ProductCategoryPage';
+import ProductCategorydetail from '../components/ProductCategorydetail';
 import productCategoryData from '../data/productCategoryData';
 
 const ProductCategoryPage = () => {
@@ -15,7 +15,7 @@ const ProductCategoryPage = () => {
   // Get the data for this category
   const categoryData = productCategoryData[categoryId];
   
-  return <ProductCategoryPageComponent {...categoryData} />;
+  return <ProductCategorydetail {...categoryData} />;
 };
 
 export default ProductCategoryPage; 
