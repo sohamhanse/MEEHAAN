@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
@@ -9,17 +9,20 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const location = useLocation();
-  
+
+  // Determine if the navbar should be transparent
+  const isTransparent = !isScrolled && location.pathname === '/';
+
+  // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when navigation occurs
+  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
@@ -27,58 +30,61 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { 
-      name: 'Products', 
+    {
+      name: 'Products',
       path: '/products',
       dropdown: true,
       items: [
         { name: 'All Products', path: '/products' },
         { name: 'Connectors', path: '/products/connectors' },
         { name: 'Industrial Oils', path: '/products/oils' },
-        // { name: 'Grease', path: '/products/grease' },
-        // { name: 'Sprays', path: '/products/sprays' },
-      ]
+      ],
     },
     { name: 'Contact', path: '/contact' },
   ];
 
+  // Common class strings for links to improve readability
+  const navLinkClasses = `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300`;
+  const transparentLinkClasses = `text-gray-200 hover:text-white`;
+  const solidLinkClasses = `text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary`;
+  const activeLinkClasses = `text-primary dark:text-secondary font-bold`;
+
   return (
-    <nav 
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md py-3' 
-          : 'bg-transparent py-5'
+        isTransparent
+          ? 'bg-transparent py-5'
+          : 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-md py-3 border-b border-gray-200 dark:border-gray-800'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <Link 
-              to="/" 
-              className="flex-shrink-0 flex items-center"
+          {/* Logo */}
+          <Link to="/" className="flex-shrink-0">
+            <span
+              className={`text-2xl font-bold transition-colors duration-300 ${
+                isTransparent ? 'text-white' : 'text-primary dark:text-white'
+              }`}
             >
-              <span className={`text-2xl font-bold ${isScrolled || location.pathname !== '/' ? 'text-primary dark:text-white' : 'text-white'}`}>
-                MEEHAAN
-              </span>
-            </Link>
-          </div>
+              MEEHAAN
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
             {navItems.map((item) => (
-              <div key={item.name} className="relative group">
+              <div key={item.name} className="relative">
                 {item.dropdown ? (
-                  <>
+                  <div
+                    onMouseEnter={() => setIsProductsOpen(true)}
+                    onMouseLeave={() => setIsProductsOpen(false)}
+                  >
                     <button
-                      className={`flex items-center space-x-1 ${
-                        isScrolled || location.pathname !== '/' 
-                          ? 'nav-link' 
-                          : 'text-white hover:text-white/80'
-                      }`}
-                      onMouseEnter={() => setIsProductsOpen(true)}
-                      onMouseLeave={() => setIsProductsOpen(false)}
+                      className={`${navLinkClasses} ${
+                        isTransparent ? transparentLinkClasses : solidLinkClasses
+                      } flex items-center gap-1`}
                     >
-                      <span>{item.name}</span>
+                      {item.name}
                       <FiChevronDown className="h-4 w-4" />
                     </button>
                     <AnimatePresence>
@@ -88,47 +94,51 @@ const Navbar = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute left-0 mt-2 min-w-[200px] rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black/5 dark:ring-white/10 z-50"
-                          onMouseEnter={() => setIsProductsOpen(true)}
-                          onMouseLeave={() => setIsProductsOpen(false)}
+                          className="absolute left-0 mt-2 w-48 rounded-lg shadow-xl bg-white dark:bg-gray-800 ring-1 ring-black/5 dark:ring-white/10"
                         >
                           <div className="py-2">
                             {item.items.map((subItem) => (
-                              <Link
+                              <NavLink
                                 key={subItem.name}
                                 to={subItem.path}
-                                className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-200"
+                                className={({ isActive }) =>
+                                  `block px-4 py-2 text-sm transition-colors ${
+                                    isActive
+                                      ? 'text-primary dark:text-secondary bg-primary/5 dark:bg-secondary/10'
+                                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                                  }`
+                                }
                               >
                                 {subItem.name}
-                              </Link>
+                              </NavLink>
                             ))}
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </>
+                  </div>
                 ) : (
-                  <Link
+                  <NavLink
                     to={item.path}
-                    className={
-                      isScrolled || location.pathname !== '/' 
-                        ? 'nav-link' 
-                        : 'text-white hover:text-white/80 transition-colors duration-300'
+                    className={({ isActive }) =>
+                      `${navLinkClasses} ${
+                        isTransparent ? transparentLinkClasses : solidLinkClasses
+                      } ${isActive && !isTransparent ? activeLinkClasses : ''}`
                     }
                   >
                     {item.name}
-                  </Link>
+                  </NavLink>
                 )}
               </div>
             ))}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 pl-4">
               <ThemeToggle />
-              <Link 
-                to="/contact" 
-                className={`px-5 py-2 rounded-full font-medium transition-colors duration-300 ${
-                  isScrolled || location.pathname !== '/' 
-                    ? 'bg-primary text-white hover:bg-primary-dark'
-                    : 'bg-white text-primary hover:bg-white/90'
+              <Link
+                to="/contact"
+                className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-px ${
+                  isTransparent
+                    ? 'bg-secondary text-white hover:bg-secondary-dark'
+                    : 'bg-primary text-white hover:bg-primary-dark'
                 }`}
               >
                 Get in Touch
@@ -136,86 +146,71 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`${
-                isScrolled || location.pathname !== '/' 
-                  ? 'text-gray-700 dark:text-gray-300' 
-                  : 'text-white'
+              className={`p-2 rounded-md transition-colors ${
+                isTransparent
+                  ? 'text-white hover:bg-white/10'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
               }`}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
-              {isOpen ? (
-                <FiX className="h-6 w-6" />
-              ) : (
-                <FiMenu className="h-6 w-6" />
-              )}
+              {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900 overflow-hidden shadow-lg"
+            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
           >
-            <div className="px-4 py-5 space-y-3">
+            <div className="px-4 py-5 space-y-2">
               {navItems.map((item) => (
                 <div key={item.name}>
-                  {item.dropdown ? (
-                    <div>
-                      <button
-                        onClick={() => setIsProductsOpen(!isProductsOpen)}
-                        className="flex items-center justify-between w-full py-2 text-gray-700 dark:text-gray-300"
-                      >
-                        <span>{item.name}</span>
-                        <FiChevronDown 
-                          className={`h-5 w-5 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} 
-                        />
-                      </button>
-                      <AnimatePresence>
-                        {isProductsOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 mt-2 space-y-2"
-                          >
-                            {item.items.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                to={subItem.path}
-                                className="block py-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light"
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
+                  {!item.dropdown ? (
+                    <NavLink
                       to={item.path}
-                      className="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                      className={({ isActive }) =>
+                        `block py-2 text-base font-medium transition-colors ${
+                          isActive
+                            ? 'text-primary dark:text-secondary'
+                            : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary'
+                        }`
+                      }
                     >
                       {item.name}
-                    </Link>
+                    </NavLink>
+                  ) : (
+                    <>
+                      <NavLink
+                        to={item.path}
+                        className={({ isActive }) =>
+                        `block py-2 text-base font-medium transition-colors ${
+                          isActive
+                            ? 'text-primary dark:text-secondary'
+                            : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary'
+                        }`
+                      }
+                      >
+                        {item.name}
+                      </NavLink>
+                    </>
                   )}
                 </div>
               ))}
               <div className="pt-4">
-                <Link 
-                  to="/contact" 
-                  className="block w-full py-3 bg-primary text-white text-center rounded-lg hover:bg-primary-dark transition-colors duration-300"
+                <Link
+                  to="/contact"
+                  className="block w-full py-3 bg-primary text-white text-center rounded-lg hover:bg-primary-dark font-semibold"
                 >
                   Get in Touch
                 </Link>
@@ -224,8 +219,8 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 };
 
-export default Navbar; 
+export default Navbar;

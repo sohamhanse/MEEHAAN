@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiPhone, FiMail, FiMapPin, FiExternalLink } from 'react-icons/fi';
+import {
+  FiMail,
+  FiMapPin,
+  FiPhone,
+  FiFacebook,
+  FiTwitter,
+  FiLinkedin,
+  FiInstagram,
+  FiArrowRight,
+} from 'react-icons/fi';
 
 const Footer = () => {
   const [ref, inView] = useInView({
@@ -11,7 +20,7 @@ const Footer = () => {
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   const staggerContainer = {
@@ -19,17 +28,17 @@ const Footer = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const socialLinks = [
-    { name: 'Facebook', url: 'https://facebook.com' },
-    { name: 'Twitter', url: 'https://twitter.com' },
-    { name: 'LinkedIn', url: 'https://linkedin.com' },
-    { name: 'Instagram', url: 'https://instagram.com' },
+    { name: 'Facebook', icon: <FiFacebook />, url: 'https://facebook.com' },
+    { name: 'Twitter', icon: <FiTwitter />, url: 'https://twitter.com' },
+    { name: 'LinkedIn', icon: <FiLinkedin />, url: 'https://linkedin.com' },
+    { name: 'Instagram', icon: <FiInstagram />, url: 'https://instagram.com' },
   ];
 
   const quickLinks = [
@@ -37,96 +46,61 @@ const Footer = () => {
     { name: 'Products', path: '/products' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Privacy Policy', path: '/privacy-policy' },
-    { name: 'Terms of Service', path: '/terms-of-service' },
   ];
 
   const productCategories = [
     { name: 'Connectors', path: '/products/connectors' },
     { name: 'Industrial Oils', path: '/products/oils' },
-    // { name: 'Grease', path: '/products/grease' },
-    // { name: 'Sprays', path: '/products/sprays' },
+    { name: 'Grease Solutions', path: '/products/grease' },
+    { name: 'Industrial Sprays', path: '/products/sprays' },
   ];
 
   return (
-    <footer ref={ref} className="bg-gray-900 text-white">
-      {/* Main Footer */}
+    <footer ref={ref} className="bg-gray-900 text-gray-300">
       <div className="relative overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 800 800"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-white opacity-10"
-          >
-            <defs>
-              <pattern
-                id="grid"
-                width="80"
-                height="80"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 80 0 L 0 0 0 80"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
+        {/* Decorative background grid */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")` }}></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            animate={inView ? 'visible' : 'hidden'}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
           >
             {/* Company Info */}
-            <motion.div variants={fadeIn}>
-              <div className="mb-5">
-                <Link to="/" className="text-3xl font-bold text-white">
-                  MEEHAAN
-                </Link>
-              </div>
+            <motion.div variants={fadeIn} className="col-span-1 md:col-span-2 lg:col-span-1">
+              <Link to="/" className="text-3xl font-bold text-white mb-4 block">
+                MEEHAAN
+              </Link>
               <p className="text-gray-400 mb-6">
-                Premium industrial oil and automotive connector trading solutions, 
-                delivering quality and excellence since 2017.
+                Your trusted partner for premium industrial oils and automotive connectors since 2018.
               </p>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Follow on ${social.name}`}
-                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors duration-300"
-                  >
-                    <FiExternalLink className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
+              <h4 className="font-semibold text-white mb-3">Stay Updated</h4>
+              <form className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-2 rounded-l-md bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <button
+                  type="submit"
+                  aria-label="Subscribe"
+                  className="p-2 bg-primary text-white rounded-r-md hover:bg-primary-dark transition-colors"
+                >
+                  <FiArrowRight className="h-5 w-5" />
+                </button>
+              </form>
             </motion.div>
 
             {/* Quick Links */}
             <motion.div variants={fadeIn}>
-              <h3 className="text-lg font-bold mb-6 relative inline-block">
-                Quick Links
-                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
-              </h3>
+              <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                {quickLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link 
-                      to={link.path}
-                      className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 flex items-center"
-                    >
-                      <span className="mr-2">→</span>
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link to={link.path} className="hover:text-white transition-colors flex items-center group">
+                      <FiArrowRight className="h-4 w-4 mr-2 text-primary transition-transform group-hover:translate-x-1" />
                       {link.name}
                     </Link>
                   </li>
@@ -136,18 +110,12 @@ const Footer = () => {
 
             {/* Products */}
             <motion.div variants={fadeIn}>
-              <h3 className="text-lg font-bold mb-6 relative inline-block">
-                Products
-                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
-              </h3>
+              <h3 className="text-lg font-bold text-white mb-6">Products</h3>
               <ul className="space-y-3">
-                {productCategories.map((category, index) => (
-                  <li key={index}>
-                    <Link 
-                      to={category.path}
-                      className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 flex items-center"
-                    >
-                      <span className="mr-2">→</span>
+                {productCategories.map((category) => (
+                  <li key={category.name}>
+                    <Link to={category.path} className="hover:text-white transition-colors flex items-center group">
+                      <FiArrowRight className="h-4 w-4 mr-2 text-primary transition-transform group-hover:translate-x-1" />
                       {category.name}
                     </Link>
                   </li>
@@ -157,34 +125,23 @@ const Footer = () => {
 
             {/* Contact Info */}
             <motion.div variants={fadeIn}>
-              <h3 className="text-lg font-bold mb-6 relative inline-block">
-                Contact Us
-                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
-              </h3>
+              <h3 className="text-lg font-bold text-white mb-6">Contact Us</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <FiMapPin className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">
-                    Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar<br />
-                    Chikhali, Dehu Road<br />
-                    Pune, Maharashtra 411062
+                  <FiMapPin className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                  <span>
+                    Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali, Dehu Road, Pune, Maharashtra 411062
                   </span>
                 </li>
                 <li className="flex items-center">
                   <FiPhone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <a href="tel:+919923588450" className="hover:text-white transition-colors">
                     +91 9923588450
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <FiPhone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="tel:+917620348035" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    +91 9403674126
-                  </a>
-                </li>
-                <li className="flex items-center">
                   <FiMail className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="mailto:info@meehaan.com" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <a href="mailto:info@meehaan.com" className="hover:text-white transition-colors">
                     info@meehaan.com
                   </a>
                 </li>
@@ -194,17 +151,26 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} MEEHAAN. All rights reserved.
+      {/* Copyright & Socials */}
+      <div className="bg-black/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+              &copy; {new Date().getFullYear()} MEEHAAN. All Rights Reserved.
             </p>
-            <div className="mt-4 md:mt-0">
-              <p className="text-gray-500 text-sm">
-                Designed with <span className="text-primary">♥</span> for premium industrial solutions
-              </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow on ${social.name}`}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -213,4 +179,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;
