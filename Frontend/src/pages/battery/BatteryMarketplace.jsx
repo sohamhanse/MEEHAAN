@@ -205,24 +205,25 @@ const BatteryMarketplace = () => {
 
   // Sync state with URL params
   useEffect(() => {
-    let foundSub = null;
     if (subcategoryId) {
-      foundSub = subcategories.find(s => s.id === subcategoryId);
-    } 
-    
-    if (!foundSub) {
-      foundSub = subcategories[0];
-      // Do not navigate automatically on mount to avoid infinite loops, just set state.
-      // But we should ensure the URL reflects the active state eventually.
-    }
+      const foundSub = subcategories.find(s => s.id === subcategoryId);
+      if (foundSub) {
+        setActiveSubcategory(foundSub);
+        setExpandedSubs(prev => ({ ...prev, [foundSub.id]: true }));
 
-    setActiveSubcategory(foundSub);
-    setExpandedSubs(prev => ({ ...prev, [foundSub.id]: true }));
-
-    if (productId && foundSub) {
-      const p = foundSub.products.find(prod => prod.id === productId);
-      setActiveProduct(p || null);
+        if (productId) {
+          const p = foundSub.products.find(prod => prod.id === productId);
+          setActiveProduct(p || null);
+        } else {
+          setActiveProduct(null);
+        }
+      } else {
+        setActiveSubcategory(null);
+        setActiveProduct(null);
+      }
     } else {
+      // No subcategory in URL — don't auto-select anything
+      setActiveSubcategory(null);
       setActiveProduct(null);
     }
   }, [subcategoryId, productId]);

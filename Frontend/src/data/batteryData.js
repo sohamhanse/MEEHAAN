@@ -13,7 +13,7 @@ const batteryData = {
               "id": "pg-7",
               "name": "PG 7 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG7.jpg"
               ],
               "attributes": {
                 "size": "PG7",
@@ -40,7 +40,7 @@ const batteryData = {
               "id": "pg-9",
               "name": "PG 9 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG9.jpg"
               ],
               "attributes": {
                 "size": "PG9",
@@ -62,7 +62,7 @@ const batteryData = {
               "id": "pg-11",
               "name": "PG 11 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG11.jpg"
               ],
               "attributes": {
                 "size": "PG11",
@@ -83,7 +83,7 @@ const batteryData = {
               "id": "pg-13.5",
               "name": "PG 13.5 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG13.jpg"
               ],
               "attributes": {
                 "size": "PG13.5",
@@ -104,7 +104,7 @@ const batteryData = {
               "id": "pg-16",
               "name": "PG 16 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG16.jpg"
               ],
               "attributes": {
                 "size": "PG16",
@@ -125,7 +125,7 @@ const batteryData = {
               "id": "pg-19",
               "name": "PG 19 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG19.jpg"
               ],
               "attributes": {
                 "size": "PG19",
@@ -146,7 +146,7 @@ const batteryData = {
               "id": "pg-21",
               "name": "PG 21 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG21.jpg"
               ],
               "attributes": {
                 "size": "PG21",
@@ -164,31 +164,32 @@ const batteryData = {
               "description": "Suitable for moderate to heavy-duty cable management with high sealing performance."
             },
             {
-              "id": "pg-24",
-              "name": "PG 24 Cable Gland",
+              "id": "pg-25",
+              "name": "PG 25 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG25.jpg"
               ],
               "attributes": {
-                "size": "PG24",
-                "cable_range": "15–22 mm",
+                "size": "PG25",
+                "cable_range": "16–21 mm",
                 "material": "Nylon / Brass",
                 "protection": "IP68"
               },
               "applications": [
                 "Cable management systems",
-                "Electrical panels"
+                "Electrical panels",
+                "Power distribution units"
               ],
               "tags": [
                 "Cable Gland"
               ],
-              "description": "Designed for thicker cables, ensuring durability and environmental protection."
+              "description": "PG 25 cable gland provides secure and sealed cable entry for medium to large cables. Ideal for industrial panels and power distribution systems, offering reliable strain relief and IP68-rated environmental protection."
             },
             {
               "id": "pg-29",
               "name": "PG 29 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG29.jpg"
               ],
               "attributes": {
                 "size": "PG29",
@@ -209,7 +210,7 @@ const batteryData = {
               "id": "pg-36",
               "name": "PG 36 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG36.jpg"
               ],
               "attributes": {
                 "size": "PG36",
@@ -230,7 +231,7 @@ const batteryData = {
               "id": "pg-42",
               "name": "PG 42 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG42.jpg"
               ],
               "attributes": {
                 "size": "PG42",
@@ -250,7 +251,7 @@ const batteryData = {
               "id": "pg-48",
               "name": "PG 48 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG48.jpg"
               ],
               "attributes": {
                 "size": "PG48",
@@ -270,7 +271,7 @@ const batteryData = {
               "id": "pg-63",
               "name": "PG 63 Cable Gland",
               "images": [
-                "/Battery_products/PGGlands/brass-pg9-cable-gland-1000x1000.jpg"
+                "/Battery_products/PGGlands/PG63.jpg"
               ],
               "attributes": {
                 "size": "PG63",
