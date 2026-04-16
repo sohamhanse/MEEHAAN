@@ -14,6 +14,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToAnchor from './components/ScrollToAnchor';
 import { useEffect } from 'react';
+import usePageTracking from './hooks/usePageTracking';
 
 import BatteryMarketplace from './pages/battery/BatteryMarketplace';
 import IndustrialLanding from './pages/solutions/IndustrialLanding';
@@ -25,7 +26,8 @@ import PageWrapper from './components/PageWrapper';
 function App() {
   const { isLoading, forceLoadComplete } = useLoading();
   const location = useLocation();
-  
+  usePageTracking();
+
   // Super emergency fallback - should never be needed
   useEffect(() => {
     const timer = setTimeout(() => {
