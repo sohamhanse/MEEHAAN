@@ -74,12 +74,12 @@ const ProductList = ({ category = null, limit = null }) => {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {[...Array(limit || 4)].map((_, index) => (
-          <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden animate-pulse">
-            <div className="h-52 bg-gray-300 dark:bg-gray-700"></div>
+          <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden animate-pulse">
+            <div className="h-52 bg-gray-300"></div>
             <div className="p-5">
-              <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-3/4 mb-2"></div>
-              <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-full mb-2"></div>
-              <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-2/3"></div>
+              <div className="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded w-2/3"></div>
             </div>
           </div>
         ))}
@@ -90,7 +90,7 @@ const ProductList = ({ category = null, limit = null }) => {
   // Error message
   if (error) {
     return (
-      <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/30 text-red-800 dark:text-red-200 rounded-lg p-4 text-center">
+      <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 text-center">
         {error}
       </div>
     );
@@ -107,8 +107,8 @@ const ProductList = ({ category = null, limit = null }) => {
               onClick={() => handleFilterChange(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
                 ${activeFilter === cat 
-                  ? 'bg-primary text-white dark:bg-primary-light dark:text-gray-900' 
-                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-primary text-white' 
+                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                 }`}
             >
               {cat}
@@ -129,7 +129,7 @@ const ProductList = ({ category = null, limit = null }) => {
             <ProductCard key={product.id} product={product} index={index} />
           ))
         ) : (
-          <div className="col-span-full text-center py-8 text-gray-500 dark:text-gray-400">
+          <div className="col-span-full text-center py-8 text-gray-500">
             No products found in this category.
           </div>
         )}

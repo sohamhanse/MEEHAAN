@@ -22,7 +22,7 @@ const ProductCard = ({ product, index }) => {
   
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg dark:shadow-gray-900/30"
+      className="bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg"
       variants={cardVariants}
       initial="hidden"
       animate="visible"
@@ -32,8 +32,8 @@ const ProductCard = ({ product, index }) => {
       <div className="relative h-52 overflow-hidden">
         {/* Placeholder if image is not available */}
         {!image ? (
-          <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-            <span className="text-gray-400 dark:text-gray-500 text-lg font-medium">
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-400 text-lg font-medium">
               Product Image
             </span>
           </div>
@@ -47,25 +47,25 @@ const ProductCard = ({ product, index }) => {
         
         {/* Category badge */}
         <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:text-blue-100">
+          <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
             {category}
           </span>
         </div>
       </div>
       
       <div className="p-5">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1">
           {name}
         </h3>
         
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
           {description}
         </p>
         
         <div className="flex justify-between items-center">
           <Link
             to={`/products/${id}`}
-            className="text-sm font-medium text-primary dark:text-primary-light hover:underline flex items-center gap-1"
+            className="text-sm font-medium text-primary hover:underline flex items-center gap-1"
           >
             View Details
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -74,7 +74,7 @@ const ProductCard = ({ product, index }) => {
           </Link>
           
           <button 
-            className="text-gray-400 hover:text-primary dark:hover:text-primary-light"
+            className="text-gray-400 hover:text-primary"
             aria-label="Add to favorites"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

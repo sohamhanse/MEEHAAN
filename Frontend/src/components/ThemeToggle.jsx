@@ -30,7 +30,7 @@ const ThemeToggle = () => {
     <button
       onClick={toggleDarkMode}
       aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="relative flex items-center justify-center w-10 h-10 p-2 rounded-full transition-colors duration-300 text-gray-700 dark:text-gray-300 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900"
+      className="relative flex items-center justify-center w-10 h-10 p-2 rounded-full transition-colors duration-300 text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
     >
       <motion.div
         key={isDarkMode ? 'moon' : 'sun'}

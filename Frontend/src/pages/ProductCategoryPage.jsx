@@ -15,7 +15,11 @@ const ProductCategoryPage = () => {
   // Get the data for this category
   const categoryData = productCategoryData[categoryId];
   
-  return <ProductCategorydetail {...categoryData} />;
+  return (
+    <div className="pt-[64px]">
+      <ProductCategorydetail {...categoryData} />
+    </div>
+  );
 };
 
-export default ProductCategoryPage; 
+export default ProductCategoryPage;

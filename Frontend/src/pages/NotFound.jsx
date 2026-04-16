@@ -1,55 +1,211 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { m as motion } from 'framer-motion';
-import { FiArrowLeft } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+});
 
 const NotFound = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800"
+    <div
+      style={{
+        background: '#0d0d0d',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
     >
-      <div className="text-center max-w-3xl mx-auto">
-        <motion.div
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          transition={{ 
-            duration: 0.6,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
+      {/* Orange glow orb */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '20%',
+          left: '30%',
+          width: 400,
+          height: 400,
+          borderRadius: '50%',
+          background: '#F5921E',
+          filter: 'blur(180px)',
+          opacity: 0.06,
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Teal glow orb */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '20%',
+          right: '20%',
+          width: 260,
+          height: 260,
+          borderRadius: '50%',
+          background: '#00B8A0',
+          filter: 'blur(140px)',
+          opacity: 0.05,
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Grid texture overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage:
+            'linear-gradient(rgba(245,146,30,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245,146,30,0.03) 1px, transparent 1px)',
+          backgroundSize: '52px 52px',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Content */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          textAlign: 'center',
+          padding: '0 24px',
+        }}
+      >
+        {/* Mono brand label */}
+        <motion.p
+          {...fadeUp(0)}
+          className="font-mono"
+          style={{
+            color: '#F5921E',
+            letterSpacing: '0.2em',
+            fontSize: 11,
+            textTransform: 'uppercase',
+            marginBottom: 16,
           }}
-          className="mb-8"
         >
-          <span className="text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">404</span>
-        </motion.div>
-        
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">Page Not Found</h1>
-        
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-          The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-        </p>
-        
+          MEEHAAN
+        </motion.p>
+
+        {/* 404 */}
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full hover:bg-gray-700 dark:hover:bg-gray-600 transition duration-300 text-lg"
+          <span
+            className="font-syne"
+            style={{
+              fontWeight: 800,
+              color: '#F5921E',
+              fontSize: 'clamp(80px, 15vw, 140px)',
+              lineHeight: 1,
+              display: 'block',
+              marginBottom: 12,
+            }}
           >
-            <FiArrowLeft className="h-5 w-5" />
+            404
+          </span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h1
+          {...fadeUp(0.15)}
+          className="font-syne"
+          style={{
+            fontWeight: 700,
+            color: '#EAEAEA',
+            fontSize: 'clamp(22px, 3.5vw, 36px)',
+            marginBottom: 16,
+            lineHeight: 1.2,
+          }}
+        >
+          Page not found.
+        </motion.h1>
+
+        {/* Description */}
+        <motion.p
+          {...fadeUp(0.25)}
+          className="font-dm"
+          style={{
+            color: '#777',
+            fontSize: 15,
+            maxWidth: 400,
+            margin: '0 auto 32px',
+            lineHeight: 1.75,
+          }}
+        >
+          The page you're looking for doesn't exist or has been moved.
+        </motion.p>
+
+        {/* Back to Home button */}
+        <motion.div {...fadeUp(0.35)}>
+          <Link
+            to="/"
+            className="font-dm"
+            style={{
+              background: '#F5921E',
+              color: '#1A1A1A',
+              fontWeight: 500,
+              padding: '12px 28px',
+              borderRadius: 4,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              textDecoration: 'none',
+              transition: 'transform 180ms ease, box-shadow 180ms ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(245,146,30,0.35)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
             Back to Home
           </Link>
         </motion.div>
+
+        {/* Contact link */}
+        <motion.div {...fadeUp(0.45)} style={{ marginTop: 20 }}>
+          <Link
+            to="/contact"
+            className="font-dm"
+            style={{
+              fontSize: 13,
+              color: '#555',
+              textDecoration: 'none',
+              transition: 'color 180ms ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#F5921E';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#555';
+            }}
+          >
+            Need help? Contact us →
+          </Link>
+        </motion.div>
       </div>
-      
-      {/* Background elements */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gray-100 dark:bg-primary-dark/20 rounded-full filter blur-3xl opacity-30 pulse-subtle" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gray-100 dark:bg-secondary-dark/20 rounded-full filter blur-3xl opacity-30 pulse-subtle" style={{ animationDelay: '700ms' }} />
-    </motion.div>
+    </div>
   );
 };
 
-export default NotFound; 
+export default NotFound;

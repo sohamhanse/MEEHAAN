@@ -115,7 +115,7 @@ const ProductOilDetail = ({ productData }) => {
     : applicationSections;
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen">
+    <div className="bg-gradient-to-b from-white to-gray-100 min-h-screen">
       <Helmet>
         <title>MEEHAAN | {title}</title>
         <meta name="description" content={metaDescription} />
@@ -187,7 +187,7 @@ const ProductOilDetail = ({ productData }) => {
       </section>
 
       {/* Navigation Tabs */}
-      <div className="sticky top-0 bg-white dark:bg-gray-800 shadow-md z-30">
+      <div className="sticky top-0 bg-white shadow-md z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto py-4 gap-6 no-scrollbar">
             <button 
@@ -195,7 +195,7 @@ const ProductOilDetail = ({ productData }) => {
               className={`whitespace-nowrap px-4 py-2 font-medium rounded-md transition-colors ${
                 activeTab === 'overview' 
                   ? 'bg-primary text-white' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               Overview
@@ -205,7 +205,7 @@ const ProductOilDetail = ({ productData }) => {
               className={`whitespace-nowrap px-4 py-2 font-medium rounded-md transition-colors ${
                 activeTab === 'technical' 
                   ? 'bg-primary text-white' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               Technical Specifications
@@ -215,7 +215,7 @@ const ProductOilDetail = ({ productData }) => {
               className={`whitespace-nowrap px-4 py-2 font-medium rounded-md transition-colors ${
                 activeTab === 'applications' 
                   ? 'bg-primary text-white' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               Applications
@@ -225,7 +225,7 @@ const ProductOilDetail = ({ productData }) => {
               className={`whitespace-nowrap px-4 py-2 font-medium rounded-md transition-colors ${
                 activeTab === 'product-finder' 
                   ? 'bg-primary text-white' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               Product Finder
@@ -235,7 +235,7 @@ const ProductOilDetail = ({ productData }) => {
               className={`whitespace-nowrap px-4 py-2 font-medium rounded-md transition-colors ${
                 activeTab === 'faq' 
                   ? 'bg-primary text-white' 
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               FAQs
@@ -246,9 +246,9 @@ const ProductOilDetail = ({ productData }) => {
 
       {/* Key Features with Infographics */}
       {activeTab === 'overview' && keyFeatures && keyFeatures.length > 0 && (
-        <section className="py-12 bg-white dark:bg-gray-800 relative z-10 shadow-lg">
+        <section className="py-12 bg-white relative z-10 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">Key Features</h2>
+            <h2 className="text-2xl font-bold mb-8 text-center text-gray-900">Key Features</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {keyFeatures.map((feature, index) => (
                 <motion.div
@@ -257,7 +257,7 @@ const ProductOilDetail = ({ productData }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  className="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="flex flex-col items-center text-center">
                     {feature.icon && (
@@ -265,8 +265,8 @@ const ProductOilDetail = ({ productData }) => {
                         {feature.icon}
                       </div>
                     )}
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -277,20 +277,20 @@ const ProductOilDetail = ({ productData }) => {
 
       {/* Product Finder Tab Content */}
       {activeTab === 'product-finder' && (
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Product Finder</h2>
-              <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Product Finder</h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
                 Find the perfect product for your specific application needs
               </p>
             </div>
 
             {/* Search and Filter Interface */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mb-10">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden mb-10">
               <div className="p-6">
                 <div className="mb-6">
-                  <label htmlFor="productSearch" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label htmlFor="productSearch" className="block text-sm font-medium text-gray-700 mb-1">
                     Search Products
                   </label>
                   <div className="relative rounded-md shadow-sm">
@@ -301,7 +301,7 @@ const ProductOilDetail = ({ productData }) => {
                       type="text"
                       name="productSearch"
                       id="productSearch"
-                      className="focus:ring-primary focus:border-primary block w-full pl-10 sm:text-sm border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md py-2"
+                      className="focus:ring-primary focus:border-primary block w-full pl-10 sm:text-sm border-gray-300 rounded-md py-2"
                       placeholder="Search by name, property, or application..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
@@ -310,13 +310,13 @@ const ProductOilDetail = ({ productData }) => {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 md:mb-0">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 md:mb-0">
                     Filter Options
                   </h3>
                   <div className="flex space-x-2">
                     <button 
                       onClick={() => setShowFilters(!showFilters)}
-                      className="inline-flex items-center px-3 py-1.5 border border-gray-300 dark:border-gray-600 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                      className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                     >
                       {showFilters ? 'Hide Filters' : 'Show Filters'}
                       <svg xmlns="http://www.w3.org/2000/svg" className={`ml-1.5 h-4 w-4 transition-transform duration-300 ${showFilters ? 'transform rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -325,7 +325,7 @@ const ProductOilDetail = ({ productData }) => {
                     </button>
                     <button 
                       onClick={clearAllFilters}
-                      className="inline-flex items-center px-3 py-1.5 border border-gray-300 dark:border-gray-600 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                      className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                     >
                       <FiRefreshCw className="mr-2 h-5 w-5" />
                       Clear All Filters
@@ -344,7 +344,7 @@ const ProductOilDetail = ({ productData }) => {
                   >
                     {filterCategories && filterCategories.map((category, categoryIndex) => (
                       <div key={categoryIndex} className="space-y-2">
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
+                        <h4 className="text-sm font-semibold text-gray-900">
                           {category.name}
                         </h4>
                         <div className="space-y-1">
@@ -375,11 +375,11 @@ const ProductOilDetail = ({ productData }) => {
                                   
                                   setActiveFilters(newActiveFilters);
                                 }}
-                                className="h-4 w-4 text-primary focus:ring-primary border-gray-300 dark:border-gray-600 rounded"
+                                className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
                               />
                               <label
                                 htmlFor={`filter-${categoryIndex}-${optionIndex}`}
-                                className="ml-2 text-sm text-gray-600 dark:text-gray-300"
+                                className="ml-2 text-sm text-gray-600"
                               >
                                 {option.label} {option.count && `(${option.count})`}
                               </label>
@@ -392,15 +392,15 @@ const ProductOilDetail = ({ productData }) => {
                     {/* Range Filters (if applicable) */}
                     {rangeFilters && rangeFilters.map((filter, filterIndex) => (
                       <div key={filterIndex} className="space-y-2">
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
+                        <h4 className="text-sm font-semibold text-gray-900">
                           {filter.name}
                         </h4>
                         <div className="px-2">
                           {/* Range Slider would go here - this is a placeholder */}
-                          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-full mt-4 mb-1">
+                          <div className="h-4 bg-gray-200 rounded-full mt-4 mb-1">
                             <div className="h-full bg-primary rounded-full" style={{ width: '60%' }}></div>
                           </div>
-                          <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                          <div className="flex justify-between text-xs text-gray-500">
                             <span>{filter.min} {filter.unit}</span>
                             <span>{filter.max} {filter.unit}</span>
                           </div>
@@ -412,8 +412,8 @@ const ProductOilDetail = ({ productData }) => {
 
                 {/* Active Filters */}
                 {Object.keys(activeFilters).length > 0 && (
-                  <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-gray-200">
+                    <span className="text-sm font-medium text-gray-700">
                       Active Filters:
                     </span>
                     {Object.entries(activeFilters).map(([categoryId, values]) => 
@@ -457,17 +457,17 @@ const ProductOilDetail = ({ productData }) => {
             <div className="space-y-6">
               {/* Results Summary */}
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="text-lg font-bold text-gray-900">
                   {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'} Found
                 </h3>
                 <div className="flex items-center">
-                  <label htmlFor="sort" className="text-sm font-medium text-gray-700 dark:text-gray-300 mr-2">
+                  <label htmlFor="sort" className="text-sm font-medium text-gray-700 mr-2">
                     Sort by:
                   </label>
                   <select
                     id="sort"
                     name="sort"
-                    className="block w-full pl-3 pr-10 py-1 text-base border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
+                    className="block w-full pl-3 pr-10 py-1 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
                   >
                     <option>Relevance</option>
                     <option>Name A-Z</option>
@@ -486,11 +486,11 @@ const ProductOilDetail = ({ productData }) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
                     >
                       {product.image && (
                         <div 
-                          className="h-48 bg-gray-200 dark:bg-gray-700 relative"
+                          className="h-48 bg-gray-200 relative"
                           style={{ overflow: 'hidden' }}
                         >
                           <img 
@@ -510,15 +510,15 @@ const ProductOilDetail = ({ productData }) => {
                         </div>
                       )}
                       <div className="p-5 flex-grow flex flex-col">
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">
                           {product.name}
                         </h3>
                         {product.subtitle && (
-                          <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                          <p className="text-sm text-gray-500 mb-3">
                             {product.subtitle}
                           </p>
                         )}
-                        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                        <p className="text-gray-600 mb-4 flex-grow">
                           {product.description}
                         </p>
                         
@@ -527,8 +527,8 @@ const ProductOilDetail = ({ productData }) => {
                           <div className="grid grid-cols-2 gap-2 mb-4">
                             {Object.entries(product.properties).slice(0, 4).map(([key, value], propIndex) => (
                               <div key={propIndex} className="text-sm">
-                                <span className="text-gray-500 dark:text-gray-400">{key}: </span>
-                                <span className="font-medium text-gray-900 dark:text-white">{value}</span>
+                                <span className="text-gray-500">{key}: </span>
+                                <span className="font-medium text-gray-900">{value}</span>
                               </div>
                             ))}
                           </div>
@@ -540,7 +540,7 @@ const ProductOilDetail = ({ productData }) => {
                             {product.tags.map((tag, tagIndex) => (
                               <span 
                                 key={tagIndex}
-                                className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                                className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                               >
                                 {tag}
                               </span>
@@ -558,7 +558,7 @@ const ProductOilDetail = ({ productData }) => {
                           {product.dataSheet && (
                             <a 
                               href={product.dataSheet} 
-                              className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                              className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -573,12 +573,12 @@ const ProductOilDetail = ({ productData }) => {
                   ))}
                 </div>
               ) : (
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+                <div className="bg-white rounded-lg shadow-md p-8 text-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No products found</h3>
-                  <p className="text-gray-500 dark:text-gray-400 mb-4">
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
+                  <p className="text-gray-500 mb-4">
                     Try adjusting your search or filter criteria to find what you're looking for.
                   </p>
                   <button
@@ -595,7 +595,7 @@ const ProductOilDetail = ({ productData }) => {
                 <div className="flex justify-center mt-8">
                   <button
                     type="button"
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                   >
                     Load More Products
                     <FiChevronDown className="ml-2 h-4 w-4" />
@@ -605,45 +605,45 @@ const ProductOilDetail = ({ productData }) => {
             </div>
 
             {/* Product Comparison Feature (Optional) */}
-            <div className="mt-16 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <div className="mt-16 bg-white rounded-xl shadow-md overflow-hidden">
               <div className="px-6 py-8">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Compare Products
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-gray-600 mb-6">
                   Select products to compare their specifications side by side
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 flex flex-col items-center justify-center h-40">
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center h-40">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
-                    <span className="text-gray-500 dark:text-gray-400 text-center">
+                    <span className="text-gray-500 text-center">
                       Select a product to compare
                     </span>
                   </div>
-                  <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 flex flex-col items-center justify-center h-40">
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center h-40">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
-                    <span className="text-gray-500 dark:text-gray-400 text-center">
+                    <span className="text-gray-500 text-center">
                       Select a product to compare
                     </span>
                   </div>
-                  <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 flex flex-col items-center justify-center h-40">
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center h-40">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
-                    <span className="text-gray-500 dark:text-gray-400 text-center">
+                    <span className="text-gray-500 text-center">
                       Select a product to compare
                     </span>
                   </div>
-                  <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 flex flex-col items-center justify-center h-40">
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center h-40">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
-                    <span className="text-gray-500 dark:text-gray-400 text-center">
+                    <span className="text-gray-500 text-center">
                       Select a product to compare
                     </span>
                   </div>
@@ -652,7 +652,7 @@ const ProductOilDetail = ({ productData }) => {
                 <div className="flex justify-center mt-6">
                   <button
                     type="button"
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                     disabled
                   >
                     Compare Selected Products
@@ -666,7 +666,7 @@ const ProductOilDetail = ({ productData }) => {
 
       {/* Overview Content with Collapsible Sections */}
       {activeTab === 'overview' && (
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Featured Product Image (if available) */}
             {coverImage && (
@@ -691,7 +691,7 @@ const ProductOilDetail = ({ productData }) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5 }}
-                      className="text-3xl font-bold mb-6 text-gray-900 dark:text-white"
+                      className="text-3xl font-bold mb-6 text-gray-900"
                     >
                       Premium Quality Solutions
                     </motion.h2>
@@ -700,7 +700,7 @@ const ProductOilDetail = ({ productData }) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.1 }}
-                      className="text-lg text-gray-700 dark:text-gray-300 mb-6"
+                      className="text-lg text-gray-700 mb-6"
                     >
                       Our advanced industrial oils and lubricants are engineered to deliver exceptional performance in the most demanding environments, ensuring optimal equipment operation and extended service life.
                     </motion.p>
@@ -734,13 +734,13 @@ const ProductOilDetail = ({ productData }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+                  className="bg-white rounded-xl shadow-md overflow-hidden"
                 >
                   <button
                     onClick={() => toggleSection(`overview-${index}`)}
                     className="w-full px-6 py-4 flex justify-between items-center text-left focus:outline-none"
                   >
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900">
                       {section.title}
                     </h3>
                     <FiChevronDown 
@@ -760,9 +760,9 @@ const ProductOilDetail = ({ productData }) => {
                       className="px-6 pb-6"
                     >
                       {section.content && (
-                        <div className="prose prose-lg max-w-none dark:prose-invert mb-6">
+                        <div className="prose prose-lg max-w-none mb-6">
                           {typeof section.content === 'string' ? (
-                            <p className="text-gray-700 dark:text-gray-300">{section.content}</p>
+                            <p className="text-gray-700">{section.content}</p>
                           ) : (
                             section.content
                           )}
@@ -777,23 +777,23 @@ const ProductOilDetail = ({ productData }) => {
                               {section.items.map((item, itemIndex) => (
                                 <div 
                                   key={itemIndex}
-                                  className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-lg border border-gray-100 dark:border-gray-600 hover:shadow-md transition-shadow duration-300"
+                                  className="bg-gray-50 p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300"
                                 >
                                   {item.title && (
-                                    <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white flex items-center">
+                                    <h4 className="text-lg font-semibold mb-2 text-gray-900 flex items-center">
                                       {item.icon && <span className="mr-2">{item.icon}</span>}
                                       {item.title}
                                     </h4>
                                   )}
                                   {item.description && (
-                                    <p className="text-gray-700 dark:text-gray-300 mb-3">
+                                    <p className="text-gray-700 mb-3">
                                       {item.description}
                                     </p>
                                   )}
                                   {item.points && (
                                     <ul className="space-y-1 list-disc pl-5">
                                       {item.points.map((point, pointIndex) => (
-                                        <li key={pointIndex} className="text-gray-700 dark:text-gray-300">
+                                        <li key={pointIndex} className="text-gray-700">
                                           {point}
                                         </li>
                                       ))}
@@ -808,22 +808,22 @@ const ProductOilDetail = ({ productData }) => {
                               {section.items.map((item, itemIndex) => (
                                 <li 
                                   key={itemIndex}
-                                  className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-lg border-l-4 border-primary"
+                                  className="bg-gray-50 p-6 rounded-lg border-l-4 border-primary"
                                 >
                                   {item.title && (
-                                    <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                                    <h4 className="text-lg font-semibold mb-2 text-gray-900">
                                       {item.title}
                                     </h4>
                                   )}
                                   {item.description && (
-                                    <p className="text-gray-700 dark:text-gray-300 mb-3">
+                                    <p className="text-gray-700 mb-3">
                                       {item.description}
                                     </p>
                                   )}
                                   {item.points && (
                                     <ul className="space-y-1 list-disc pl-5">
                                       {item.points.map((point, pointIndex) => (
-                                        <li key={pointIndex} className="text-gray-700 dark:text-gray-300">
+                                        <li key={pointIndex} className="text-gray-700">
                                           {point}
                                         </li>
                                       ))}
@@ -838,7 +838,7 @@ const ProductOilDetail = ({ productData }) => {
                       
                       {/* Optional visual infographic (can be implemented if data is available) */}
                       {section.infographic && (
-                        <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-700/30 rounded-lg">
+                        <div className="mt-8 p-4 bg-gray-50 rounded-lg">
                           <img 
                             src={section.infographic} 
                             alt={`${section.title} infographic`}
@@ -857,11 +857,11 @@ const ProductOilDetail = ({ productData }) => {
 
       {/* Technical Specifications Tab Content */}
       {activeTab === 'technical' && (
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Technical Specifications</h2>
-              <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Technical Specifications</h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
                 Detailed technical information to help you select the right product for your application
               </p>
             </div>
@@ -869,51 +869,51 @@ const ProductOilDetail = ({ productData }) => {
             {/* Specifications Table */}
             {specifications && (
               <div className="mb-16">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white border-b pb-2 border-gray-200 dark:border-gray-700">
+                <h3 className="text-xl font-bold mb-6 text-gray-900 border-b pb-2 border-gray-200">
                   Product Specifications
                 </h3>
-                <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-700">
+                <div className="overflow-x-auto bg-white rounded-lg shadow-md">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Property
                         </th>
                         {specifications.methods && (
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Test Method
                           </th>
                         )}
                         {specifications.units && (
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Unit
                           </th>
                         )}
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Value
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                    <tbody className="bg-white divide-y divide-gray-200">
                       {specifications.data.map((spec, index) => (
                         <tr 
                           key={index}
-                          className={index % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-700/30'}
+                          className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             {spec.property}
                           </td>
                           {specifications.methods && (
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               {spec.method}
                             </td>
                           )}
                           {specifications.units && (
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               {spec.unit}
                             </td>
                           )}
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {spec.value}
                           </td>
                         </tr>
@@ -922,7 +922,7 @@ const ProductOilDetail = ({ productData }) => {
                   </table>
                 </div>
                 {specifications.notes && (
-                  <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 italic">
+                  <div className="mt-4 text-sm text-gray-500 italic">
                     {specifications.notes}
                   </div>
                 )}
@@ -938,13 +938,13 @@ const ProductOilDetail = ({ productData }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+                  className="bg-white rounded-xl shadow-md overflow-hidden"
                 >
                   <button
                     onClick={() => toggleSection(`technical-${index}`)}
                     className="w-full px-6 py-4 flex justify-between items-center text-left focus:outline-none"
                   >
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900">
                       {section.title}
                     </h3>
                     <FiChevronDown 
@@ -964,9 +964,9 @@ const ProductOilDetail = ({ productData }) => {
                       className="px-6 pb-6"
                     >
                       {section.content && (
-                        <div className="prose prose-lg max-w-none dark:prose-invert mb-6">
+                        <div className="prose prose-lg max-w-none mb-6">
                           {typeof section.content === 'string' ? (
-                            <p className="text-gray-700 dark:text-gray-300">{section.content}</p>
+                            <p className="text-gray-700">{section.content}</p>
                           ) : (
                             section.content
                           )}
@@ -979,28 +979,28 @@ const ProductOilDetail = ({ productData }) => {
                           {section.items.map((item, itemIndex) => (
                             <div 
                               key={itemIndex}
-                              className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-lg hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600"
+                              className="bg-gray-50 p-5 rounded-lg hover:shadow-lg transition-all duration-300 border border-gray-200"
                             >
                               {item.title && (
-                                <h4 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+                                <h4 className="text-lg font-semibold mb-3 text-gray-900">
                                   {item.title}
                                 </h4>
                               )}
                               
                               {/* Technical Properties as a small table */}
                               {item.properties && (
-                                <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-600">
-                                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <div className="overflow-hidden rounded-lg border border-gray-200">
+                                  <table className="min-w-full divide-y divide-gray-200">
                                     <tbody>
                                       {Object.entries(item.properties).map(([key, value], propIndex) => (
                                         <tr 
                                           key={propIndex}
-                                          className={propIndex % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-700/50'}
+                                          className={propIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
                                         >
-                                          <td className="px-4 py-2 text-sm font-medium text-gray-900 dark:text-white">
+                                          <td className="px-4 py-2 text-sm font-medium text-gray-900">
                                             {key}
                                           </td>
-                                          <td className="px-4 py-2 text-sm text-gray-500 dark:text-gray-300">
+                                          <td className="px-4 py-2 text-sm text-gray-500">
                                             {value}
                                           </td>
                                         </tr>
@@ -1012,7 +1012,7 @@ const ProductOilDetail = ({ productData }) => {
                               
                               {/* Standard text description */}
                               {item.description && !item.properties && (
-                                <p className="text-gray-700 dark:text-gray-300">
+                                <p className="text-gray-700">
                                   {item.description}
                                 </p>
                               )}
@@ -1021,7 +1021,7 @@ const ProductOilDetail = ({ productData }) => {
                               {item.points && (
                                 <ul className="mt-3 space-y-1 list-disc pl-5">
                                   {item.points.map((point, pointIndex) => (
-                                    <li key={pointIndex} className="text-gray-700 dark:text-gray-300 text-sm">
+                                    <li key={pointIndex} className="text-gray-700 text-sm">
                                       {point}
                                     </li>
                                   ))}
@@ -1031,11 +1031,11 @@ const ProductOilDetail = ({ productData }) => {
                               {/* Visual indicator for value metrics (like temperature range) */}
                               {item.range && (
                                 <div className="mt-4">
-                                  <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
+                                  <div className="flex justify-between text-xs text-gray-500 mb-1">
                                     <span>{item.range.min} {item.range.unit}</span>
                                     <span>{item.range.max} {item.range.unit}</span>
                                   </div>
-                                  <div className="h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                                     <div 
                                       className="h-full bg-primary rounded-full" 
                                       style={{ 
@@ -1043,7 +1043,7 @@ const ProductOilDetail = ({ productData }) => {
                                       }}
                                     ></div>
                                   </div>
-                                  <div className="mt-1 text-center text-xs font-medium text-gray-700 dark:text-gray-300">
+                                  <div className="mt-1 text-center text-xs font-medium text-gray-700">
                                     {item.range.value} {item.range.unit}
                                   </div>
                                 </div>
@@ -1051,7 +1051,7 @@ const ProductOilDetail = ({ productData }) => {
                               
                               {/* Document downloads */}
                               {item.documents && (
-                                <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-600">
+                                <div className="mt-4 pt-3 border-t border-gray-200">
                                   {item.documents.map((doc, docIndex) => (
                                     <a 
                                       key={docIndex}
@@ -1075,13 +1075,13 @@ const ProductOilDetail = ({ productData }) => {
                       
                       {/* Charts and Visual Data (placeholder for embedding charts) */}
                       {section.chart && (
-                        <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                          <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+                        <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+                          <h4 className="text-lg font-semibold mb-4 text-gray-900">
                             {section.chart.title}
                           </h4>
-                          <div className="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                          <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg flex items-center justify-center">
                             {/* Placeholder for chart - would be implemented with chart.js or similar */}
-                            <div className="text-gray-400 dark:text-gray-500 text-center p-8">
+                            <div className="text-gray-400 text-center p-8">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                               </svg>
@@ -1089,7 +1089,7 @@ const ProductOilDetail = ({ productData }) => {
                             </div>
                           </div>
                           {section.chart.description && (
-                            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                            <p className="mt-4 text-sm text-gray-600">
                               {section.chart.description}
                             </p>
                           )}
@@ -1102,37 +1102,37 @@ const ProductOilDetail = ({ productData }) => {
             </div>
 
             {/* Technical Resources */}
-            <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
-              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <div className="mt-12 bg-white rounded-xl shadow-md p-6">
+              <h3 className="text-xl font-bold mb-6 text-gray-900">
                 Technical Resources
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a 
                   href="#datasheets" 
-                  className="flex flex-col items-center p-6 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                  className="flex flex-col items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  <span className="text-gray-900 dark:text-white font-medium">Product Datasheets</span>
+                  <span className="text-gray-900 font-medium">Product Datasheets</span>
                 </a>
                 <a 
                   href="#msds" 
-                  className="flex flex-col items-center p-6 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                  className="flex flex-col items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-gray-900 dark:text-white font-medium">Safety Data Sheets</span>
+                  <span className="text-gray-900 font-medium">Safety Data Sheets</span>
                 </a>
                 <a 
                   href="#guides" 
-                  className="flex flex-col items-center p-6 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                  className="flex flex-col items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                  <span className="text-gray-900 dark:text-white font-medium">Application Guides</span>
+                  <span className="text-gray-900 font-medium">Application Guides</span>
                 </a>
               </div>
             </div>
@@ -1142,11 +1142,11 @@ const ProductOilDetail = ({ productData }) => {
 
       {/* Applications Tab Content */}
       {activeTab === 'applications' && (
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Applications & Industries</h2>
-              <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Applications & Industries</h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
                 Explore how our products are used across various industries and applications
               </p>
             </div>
@@ -1154,7 +1154,7 @@ const ProductOilDetail = ({ productData }) => {
             {/* Industry Applications Grid */}
             {applications && applications.industries && (
               <div className="mb-16">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white border-b pb-2 border-gray-200 dark:border-gray-700">
+                <h3 className="text-xl font-bold mb-6 text-gray-900 border-b pb-2 border-gray-200">
                   Industry Solutions
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1165,10 +1165,10 @@ const ProductOilDetail = ({ productData }) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
                     >
                       {industry.image && (
-                        <div className="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
+                        <div className="aspect-w-16 aspect-h-9 bg-gray-200">
                           <img 
                             src={industry.image} 
                             alt={industry.name}
@@ -1181,18 +1181,18 @@ const ProductOilDetail = ({ productData }) => {
                         </div>
                       )}
                       <div className="p-6">
-                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">
                           {industry.name}
                         </h4>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        <p className="text-gray-600 mb-4">
                           {industry.description}
                         </p>
                         {industry.benefits && (
                           <div className="mb-4">
-                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Key Benefits:</h5>
+                            <h5 className="text-sm font-semibold text-gray-900 mb-2">Key Benefits:</h5>
                             <ul className="space-y-1 list-disc pl-5">
                               {industry.benefits.map((benefit, benefitIndex) => (
-                                <li key={benefitIndex} className="text-gray-600 dark:text-gray-300 text-sm">
+                                <li key={benefitIndex} className="text-gray-600 text-sm">
                                   {benefit}
                                 </li>
                               ))}
@@ -1201,7 +1201,7 @@ const ProductOilDetail = ({ productData }) => {
                         )}
                         {industry.products && (
                           <div className="mb-4">
-                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Recommended Products:</h5>
+                            <h5 className="text-sm font-semibold text-gray-900 mb-2">Recommended Products:</h5>
                             <div className="flex flex-wrap gap-2">
                               {industry.products.map((product, productIndex) => (
                                 <span 
@@ -1235,7 +1235,7 @@ const ProductOilDetail = ({ productData }) => {
             {/* Case Studies */}
             {applications && applications.caseStudies && (
               <div className="mb-16">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white border-b pb-2 border-gray-200 dark:border-gray-700">
+                <h3 className="text-xl font-bold mb-6 text-gray-900 border-b pb-2 border-gray-200">
                   Case Studies
                 </h3>
                 <div className="space-y-8">
@@ -1246,7 +1246,7 @@ const ProductOilDetail = ({ productData }) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+                      className="bg-white rounded-xl shadow-md overflow-hidden"
                     >
                       <div className="md:flex">
                         {caseStudy.image && (
@@ -1264,32 +1264,32 @@ const ProductOilDetail = ({ productData }) => {
                         )}
                         <div className="p-6 md:w-2/3">
                           <div className="flex items-center mb-2">
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100 mr-2">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mr-2">
                               {caseStudy.industry}
                             </span>
-                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                            <span className="text-sm text-gray-500">
                               {caseStudy.location}
                             </span>
                           </div>
-                          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">
                             {caseStudy.title}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-300 mb-4">
+                          <p className="text-gray-600 mb-4">
                             {caseStudy.summary}
                           </p>
                           
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                            <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                              <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Challenge</h5>
-                              <p className="text-gray-600 dark:text-gray-300 text-sm">{caseStudy.challenge}</p>
+                            <div className="bg-gray-50 p-3 rounded-lg">
+                              <h5 className="text-sm font-semibold text-gray-900 mb-1">Challenge</h5>
+                              <p className="text-gray-600 text-sm">{caseStudy.challenge}</p>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                              <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Solution</h5>
-                              <p className="text-gray-600 dark:text-gray-300 text-sm">{caseStudy.solution}</p>
+                            <div className="bg-gray-50 p-3 rounded-lg">
+                              <h5 className="text-sm font-semibold text-gray-900 mb-1">Solution</h5>
+                              <p className="text-gray-600 text-sm">{caseStudy.solution}</p>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                              <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Results</h5>
-                              <p className="text-gray-600 dark:text-gray-300 text-sm">{caseStudy.results}</p>
+                            <div className="bg-gray-50 p-3 rounded-lg">
+                              <h5 className="text-sm font-semibold text-gray-900 mb-1">Results</h5>
+                              <p className="text-gray-600 text-sm">{caseStudy.results}</p>
                             </div>
                           </div>
                           
@@ -1298,7 +1298,7 @@ const ProductOilDetail = ({ productData }) => {
                               {Object.entries(caseStudy.metrics).map(([key, value], metricIndex) => (
                                 <div key={metricIndex} className="text-center">
                                   <span className="block text-2xl font-bold text-primary">{value}</span>
-                                  <span className="text-xs text-gray-500 dark:text-gray-400">{key}</span>
+                                  <span className="text-xs text-gray-500">{key}</span>
                                 </div>
                               ))}
                             </div>
@@ -1330,13 +1330,13 @@ const ProductOilDetail = ({ productData }) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+                    className="bg-white rounded-xl shadow-md overflow-hidden"
                   >
                     <button
                       onClick={() => toggleSection(`application-${index}`)}
                       className="w-full px-6 py-4 flex justify-between items-center text-left focus:outline-none"
                     >
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-xl font-bold text-gray-900">
                         {section.title}
                       </h3>
                       <FiChevronDown 
@@ -1356,9 +1356,9 @@ const ProductOilDetail = ({ productData }) => {
                         className="px-6 pb-6"
                       >
                         {section.content && (
-                          <div className="prose prose-lg max-w-none dark:prose-invert mb-6">
+                          <div className="prose prose-lg max-w-none mb-6">
                             {typeof section.content === 'string' ? (
-                              <p className="text-gray-700 dark:text-gray-300">{section.content}</p>
+                              <p className="text-gray-700">{section.content}</p>
                             ) : (
                               section.content
                             )}
@@ -1371,7 +1371,7 @@ const ProductOilDetail = ({ productData }) => {
                             {section.items.map((item, itemIndex) => (
                               <div 
                                 key={itemIndex}
-                                className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-lg border border-gray-200 dark:border-gray-600 hover:shadow-md transition-shadow"
+                                className="bg-gray-50 p-5 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
                               >
                                 <div className="flex items-start">
                                   {item.icon && (
@@ -1381,13 +1381,13 @@ const ProductOilDetail = ({ productData }) => {
                                   )}
                                   <div>
                                     {item.title && (
-                                      <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                                      <h4 className="text-lg font-semibold mb-2 text-gray-900">
                                         {item.title}
                                       </h4>
                                     )}
                                     
                                     {item.description && (
-                                      <p className="text-gray-700 dark:text-gray-300 mb-3">
+                                      <p className="text-gray-700 mb-3">
                                         {item.description}
                                       </p>
                                     )}
@@ -1395,12 +1395,12 @@ const ProductOilDetail = ({ productData }) => {
                                     {/* Process Steps */}
                                     {item.steps && (
                                       <div className="mt-4">
-                                        <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
                                           Process:
                                         </h5>
                                         <ol className="space-y-2 ml-5 list-decimal">
                                           {item.steps.map((step, stepIndex) => (
-                                            <li key={stepIndex} className="text-gray-700 dark:text-gray-300 text-sm">
+                                            <li key={stepIndex} className="text-gray-700 text-sm">
                                               {step}
                                             </li>
                                           ))}
@@ -1410,13 +1410,13 @@ const ProductOilDetail = ({ productData }) => {
                                     
                                     {/* Tips */}
                                     {item.tips && (
-                                      <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-600">
-                                        <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                                      <div className="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400">
+                                        <h5 className="text-sm font-semibold text-gray-900 mb-1">
                                           Pro Tips:
                                         </h5>
                                         <ul className="space-y-1 ml-5 list-disc">
                                           {item.tips.map((tip, tipIndex) => (
-                                            <li key={tipIndex} className="text-gray-700 dark:text-gray-300 text-sm">
+                                            <li key={tipIndex} className="text-gray-700 text-sm">
                                               {tip}
                                             </li>
                                           ))}
@@ -1427,7 +1427,7 @@ const ProductOilDetail = ({ productData }) => {
                                     {/* Recommended Products */}
                                     {item.products && (
                                       <div className="mt-4">
-                                        <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
                                           Recommended Products:
                                         </h5>
                                         <div className="flex flex-wrap gap-2">
@@ -1456,13 +1456,13 @@ const ProductOilDetail = ({ productData }) => {
             )}
 
             {/* Custom Application */}
-            <div className="mt-16 bg-gradient-to-r from-primary/20 to-primary-light/20 dark:from-primary/30 dark:to-primary-dark/30 rounded-xl shadow-md overflow-hidden">
+            <div className="mt-16 bg-gradient-to-r from-primary/20 to-primary-light/20 rounded-xl shadow-md overflow-hidden">
               <div className="px-6 py-8 md:flex items-center">
                 <div className="md:w-2/3 mb-6 md:mb-0 md:pr-6">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
                     Need a Custom Solution?
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-700">
                     Our team of experts can help you find or develop the perfect product for your specific application requirements.
                   </p>
                 </div>
@@ -1490,7 +1490,7 @@ const ProductOilDetail = ({ productData }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Link
           to="/products/oils"
-          className="inline-flex items-center text-primary dark:text-primary-light hover:text-primary-dark group"
+          className="inline-flex items-center text-primary hover:text-primary-dark group"
         >
           <svg className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:-translate-x-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path>

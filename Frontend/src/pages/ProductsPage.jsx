@@ -48,11 +48,11 @@ const ProductsPage = () => {
       </section>
       
       {/* Main content */}
-      <section id="products" className="py-16 bg-gray-50 dark:bg-gray-900">
+      <section id="products" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <motion.h2 
-              className="text-3xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-3xl font-bold text-gray-900 mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -61,7 +61,7 @@ const ProductsPage = () => {
               Our Product Line
             </motion.h2>
             <motion.p 
-              className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+              className="text-gray-600 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -77,9 +77,9 @@ const ProductsPage = () => {
       </section>
       
       {/* Technical support section */}
-      <section className="py-16 bg-white dark:bg-gray-800">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-gray-900 to-primary dark:from-gray-800 dark:to-primary-dark rounded-2xl overflow-hidden shadow-xl">
+          <div className="bg-gradient-to-r from-gray-900 to-primary rounded-2xl overflow-hidden shadow-xl">
             <div className="md:flex">
               <div className="md:w-1/2 p-8 md:p-12">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
@@ -118,7 +118,7 @@ const ProductsPage = () => {
                   Contact Technical Support
                 </button>
               </div>
-              <div className="md:w-1/2 bg-gray-100 dark:bg-gray-700 p-8 md:p-12 flex items-center justify-center">
+              <div className="md:w-1/2 bg-gray-100 p-8 md:p-12 flex items-center justify-center">
                 <img 
                   src="/images/technical-support.svg" 
                   alt="Technical Support" 
@@ -131,10 +131,10 @@ const ProductsPage = () => {
       </section>
       
       {/* Custom solutions CTA */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
           <motion.h2 
-            className="text-3xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-3xl font-bold text-gray-900 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -143,7 +143,7 @@ const ProductsPage = () => {
             Need a Custom Solution?
           </motion.h2>
           <motion.p 
-            className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8"
+            className="text-gray-600 max-w-2xl mx-auto mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -67,7 +67,7 @@ const Products = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen">
+    <div className="bg-gradient-to-b from-white to-gray-100 min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden bg-primary">
         <div className="absolute inset-0 z-0">
@@ -101,10 +101,10 @@ const Products = () => {
           animate={inView ? "visible" : "hidden"}
           className="mb-16 text-center"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+          <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-4 text-gray-900">
             Product Categories
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
             Browse our selection of premium industrial products tailored to meet your specific needs
           </motion.p>
         </motion.div>
@@ -121,7 +121,7 @@ const Products = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className="relative h-60 overflow-hidden">
                 <img
@@ -132,8 +132,8 @@ const Products = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{category.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{category.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-gray-900">{category.title}</h3>
+                <p className="text-gray-600 mb-4">{category.description}</p>
                 <Link
                   to={category.link}
                   className="inline-block px-6 py-2 rounded-full bg-secondary text-white font-medium transition-colors duration-300 hover:bg-secondary-dark"
@@ -147,11 +147,11 @@ const Products = () => {
       </section>
 
       {/* Featured Products */}
-      {/* <section className="py-20 bg-gray-100 dark:bg-gray-800">
+      {/* <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Featured Products</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">Featured Products</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our best-selling products chosen for their exceptional quality and performance
             </p>
           </div>
@@ -161,7 +161,7 @@ const Products = () => {
               <motion.div
                 key={item}
                 whileHover={{ y: -10 }}
-                className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg"
+                className="bg-white rounded-lg overflow-hidden shadow-lg"
               >
                 <div className="relative h-48">
                   <img
@@ -174,8 +174,8 @@ const Products = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Premium Product {item}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Premium Product {item}</h3>
+                  <p className="text-gray-600 mb-4">
                     High-quality industrial solution for your business needs
                   </p>
                   <button className="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors duration-300">
@@ -189,11 +189,11 @@ const Products = () => {
       </section> */}
 
       {/* Brands Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Trusted Brands</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">Trusted Brands</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We partner with the world's leading manufacturers to provide the highest quality products
             </p>
           </div>
@@ -203,7 +203,7 @@ const Products = () => {
               <motion.div
                 key={brand}
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg"
+                className="flex items-center justify-center p-6 bg-gray-50 rounded-lg"
               >
                 <img
                   src={`${brand}`}
