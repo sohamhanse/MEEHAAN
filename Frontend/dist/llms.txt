@@ -1,0 +1,43 @@
+# MEEHAAN Enterprise
+
+> Pune-based supplier of industrial lubricants, automotive connectors, battery
+> accessories, and digital/AI services for Indian manufacturers, OEMs, and
+> businesses scaling in modern India. Founded 2018. English / Hindi / Marathi.
+
+## Industrial
+
+- /solutions/industrial: Industrial-division overview — LUBO oils, connectors, battery accessories.
+- /solutions/industrial/oils: LUBO-brand industrial lubricants (full range).
+- /solutions/industrial/oils/heat-treatment: LUBOQUENCH heat-treatment and quenching oils.
+- /solutions/industrial/oils/fire-resistant: Fire-resistant hydraulic fluids for equipment near heat sources.
+- /solutions/industrial/oils/cutting-coolants: Metalworking cutting coolants.
+- /solutions/industrial/oils/metal-forming: Metal forming oils and drawing lubricants.
+- /solutions/industrial/oils/industrial-cleaners: Industrial cleaners and degreasers.
+- /solutions/industrial/oils/rust-preventives: Rust preventives for short- and long-term storage.
+- /solutions/industrial/oils/die-casting: Die-casting lubricants and release agents.
+- /solutions/industrial/connectors: Automotive and industrial connectors (Yazaki, TE Connectivity, Molex, and others).
+- /solutions/industrial/battery: Battery accessories marketplace.
+- /solutions/industrial/battery/pg-glands: PG-series polyamide cable glands (PG7–PG48).
+- /solutions/industrial/battery/anderson-connectors: Anderson-style high-current DC battery connectors.
+- /solutions/industrial/battery/epoxy-sheets: FR-4 / G-10 epoxy insulation sheets.
+- /solutions/industrial/battery/terminal-blocks: DIN-rail and PCB terminal blocks.
+- /solutions/industrial/battery/degson-connectors: Degson pluggable terminals and PCB connectors.
+
+## Digital
+
+- /solutions/digital: Digital-division overview — custom software and AI automation.
+- /solutions/digital/software: Custom industrial software development.
+- /solutions/digital/ai: AI automation services (CRM, WhatsApp, workflow, finance).
+- /solutions/digital/caflow: CaFlow — WhatsApp compliance automation for CA firms (GST, ITR, TDS).
+
+## Company
+
+- /about: Company history, values, and divisions.
+- /contact: Quotes, sales enquiries, and office address.
+
+## Contact
+
+- Phone / WhatsApp: +91-9923588450 (sales; English, Hindi, Marathi)
+- Email: sales@meehaan.com, info@meehaan.com
+- Address: Gat No. 1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali, Pune, Maharashtra 411062, India
+- Hours: Mon–Sat 09:00–19:00 IST (closed Thursday and Sunday)

@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#paint0_linear)" />
+  
+  <!-- Background patterns -->
+  <path d="M0 300C0 134.315 134.315 0 300 0H900C1065.69 0 1200 134.315 1200 300V630H0V300Z" fill="url(#paint1_radial)" />
+  <path opacity="0.4" d="M1034 114.5C1034 177.737 982.737 229 919.5 229C856.263 229 805 177.737 805 114.5C805 51.2634 856.263 0 919.5 0C982.737 0 1034 51.2634 1034 114.5Z" fill="white" />
+  <path opacity="0.1" d="M395 516C395 579.237 343.737 630.5 280.5 630.5C217.263 630.5 166 579.237 166 516C166 452.763 217.263 401.5 280.5 401.5C343.737 401.5 395 452.763 395 516Z" fill="white" />
+  
+  <!-- Logo -->
+  <g filter="url(#filter0_d)">
+    <path d="M305 245H365L445 405L525 245H585V485H525V315L445 475L365 315V485H305V245Z" fill="white"/>
+  </g>
+
+  <!-- Text -->
+  <text x="600" y="330" font-family="'Inter', sans-serif" font-size="120" font-weight="700" fill="white" text-anchor="middle">MEEHAAN</text>
+  <text x="600" y="390" font-family="'Inter', sans-serif" font-size="32" font-weight="400" fill="white" text-anchor="middle">Premium Industrial Oil & Automotive Connectors</text>
+  
+  <!-- Tagline -->
+  <rect x="400" y="430" width="400" height="60" rx="30" fill="white" fill-opacity="0.1" />
+  <text x="600" y="470" font-family="'Inter', sans-serif" font-size="24" font-weight="500" fill="white" text-anchor="middle">Delivering Excellence Since 2008</text>
+  
+  <!-- Definitions -->
+  <defs>
+    <filter id="filter0_d" x="295" y="235" width="300" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <linearGradient id="paint0_linear" x1="600" y1="0" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 315) rotate(90) scale(315 600)">
+      <stop stop-color="white" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg> 
