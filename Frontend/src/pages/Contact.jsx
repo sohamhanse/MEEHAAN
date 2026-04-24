@@ -61,9 +61,8 @@ const Contact = () => {
   return (
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
-        title="Contact MEEHAAN — Get a Quote or Book a Demo"
-        description="Contact MEEHAAN Enterprise for industrial product quotes, connector sourcing, oil specifications, or digital solution consultations. Based in Pune, Maharashtra. Response within 24 hours."
-        keywords="contact MEEHAAN, get quote industrial products, MEEHAAN Pune contact, industrial oils quote, connector enquiry"
+        title="Contact MEEHAAN — Pune, Maharashtra | +91 99235 88450"
+        description="Contact MEEHAAN Enterprise for industrial product quotes, connector sourcing, oil specifications, or digital solution consultations. Based in Pune, Maharashtra. 24-hour response."
         canonical="/contact"
       />
 

@@ -35,10 +35,9 @@ const About = () => {
   return (
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
-        title="About Us | MEEHAAN Enterprise"
-        description="Learn about MEEHAAN Enterprise. From our founding in 2018 to becoming a trusted partner for industrial products and digital solutions across India."
-        keywords="about MEEHAAN, industrial supplier Pune, connector distributor India, LUBO oils, MEEHAAN history"
-        canonicalUrl="/about"
+        title="About MEEHAAN Enterprise — Industrial & Digital Solutions, Pune"
+        description="Founded in 2018 in Pune, MEEHAAN Enterprise is a trusted supplier of industrial lubricants, connectors, battery accessories and digital/AI services for Indian manufacturers."
+        canonical="/about"
       />
 
       {/* SECTION 1 — HERO */}

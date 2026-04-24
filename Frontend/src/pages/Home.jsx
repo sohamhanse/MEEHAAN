@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
+import SEOHead from '../components/SEOHead';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -148,7 +149,12 @@ const Home = () => {
 
   return (
     <div className="bg-warmWhite min-h-screen">
-      
+      <SEOHead
+        title="Industrial Lubricants, Connectors & Digital Solutions — Pune, India"
+        description="MEEHAAN Enterprise — Pune-based supplier of LUBO industrial lubricants, automotive connectors, battery accessories, and custom software/AI automation for Indian manufacturers."
+        canonical="/"
+      />
+
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
       <section className="bg-nearBlack min-h-screen flex flex-col lg:flex-row w-full overflow-hidden">
         

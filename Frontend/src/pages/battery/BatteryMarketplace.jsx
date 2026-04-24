@@ -2,6 +2,30 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import batteryData from '../../data/batteryData';
+import SEOHead from '../../components/SEOHead';
+
+const BATTERY_SUB_META = {
+  'pg-glands': {
+    title: 'PG Cable Glands — Nylon Cable Glands for Battery & Control Panels',
+    description: 'PG-series polyamide cable glands in sizes PG7 through PG48. IP68-rated strain relief for battery enclosures, control cabinets, and EV wiring from MEEHAAN, Pune.',
+  },
+  'anderson-connectors': {
+    title: 'Anderson Connectors — High-Current DC Battery Connectors',
+    description: 'Anderson-style high-current DC connectors (SB50, SB120, SB175, SB350) for EV battery packs, forklifts, and motive-power applications. Supplied pan-India by MEEHAAN.',
+  },
+  'epoxy-sheets': {
+    title: 'Epoxy Insulation Sheets — FR-4 / G-10 for Battery Packs',
+    description: 'FR-4 / G-10 epoxy glass laminate sheets for battery cell insulation, busbar mounting, and transformer coil isolation. Cut-to-size supply from MEEHAAN, Pune.',
+  },
+  'terminal-blocks': {
+    title: 'Terminal Blocks — DIN-Rail & PCB Terminal Blocks',
+    description: 'Screw, spring-clamp, and PCB terminal blocks for control panels, battery wiring, and industrial automation. DIN-rail compatible. Supplied by MEEHAAN Enterprise.',
+  },
+  'degson-connectors': {
+    title: 'Degson Connectors — Pluggable Terminals & PCB Connectors',
+    description: 'Degson-brand pluggable terminal blocks, PCB headers, and spring-clamp connectors for industrial and renewable-energy electronics. Authorized distribution from MEEHAAN, Pune.',
+  },
+};
 
 const category = batteryData.categories[0];
 const subcategories = category.subcategories;
@@ -272,8 +296,32 @@ const BatteryMarketplace = () => {
     return '260px 1fr';
   };
 
+  const subMeta = subcategoryId ? BATTERY_SUB_META[subcategoryId] : null;
+  const seoTitle = activeProduct
+    ? `${activeProduct.name} | MEEHAAN Battery Accessories, Pune`
+    : subMeta
+      ? subMeta.title
+      : 'Battery Accessories & Connectors — PG Glands, Anderson, Degson | MEEHAAN';
+  const seoDesc = activeProduct
+    ? (activeProduct.description
+        ? `${activeProduct.description.slice(0, 160)}`
+        : `${activeProduct.name} — battery accessory supplied pan-India by MEEHAAN Enterprise, Pune.`)
+    : subMeta
+      ? subMeta.description
+      : 'MEEHAAN supplies PG cable glands, Anderson connectors, epoxy insulation sheets, terminal blocks, and Degson connectors for EV, solar, and industrial battery applications.';
+  const seoCanonical = activeProduct
+    ? `/solutions/industrial/battery/${subcategoryId}/${productId}`
+    : subcategoryId
+      ? `/solutions/industrial/battery/${subcategoryId}`
+      : '/solutions/industrial/battery';
+
   return (
     <div className="bg-[var(--warm-white)] h-[100dvh] overflow-hidden pt-[64px] flex flex-col">
+      <SEOHead
+        title={seoTitle}
+        description={seoDesc}
+        canonical={seoCanonical}
+      />
       {/* ── TOP HEADER BAR ── */}
       <div className="bg-white border-b border-[var(--border)] px-[20px] lg:px-[32px] h-[72px] flex items-center justify-between shrink-0">
         <div className="flex flex-col justify-center">

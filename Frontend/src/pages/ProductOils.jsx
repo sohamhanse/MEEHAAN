@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SEOHead from '../components/SEOHead';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -16,10 +17,6 @@ const fadeUp = {
 };
 
 const ProductOils = () => {
-  useEffect(() => {
-    document.title = "MEEHAAN | Industrial Oils & Lubricants";
-  }, []);
-
   // Define product categories with their descriptions (Do NOT change)
   const categories = [
     {
@@ -115,6 +112,11 @@ const ProductOils = () => {
 
   return (
     <div className="bg-[var(--warm-white)] min-h-screen pt-[64px]">
+      <SEOHead
+        title="LUBO Industrial Oils & Lubricants — Heat Treatment, Cutting, Metal Forming"
+        description="LUBO-brand industrial lubricants from MEEHAAN: heat treatment oils, fire-resistant fluids, cutting coolants, metal forming oils, industrial cleaners, rust preventives, and die-casting lubricants."
+        canonical="/solutions/industrial/oils"
+      />
 
       {/* ═══════════════════════════════ SECTION 1: HERO BANNER ═══════════════════════════════ */}
       <section className="bg-[var(--black)] w-full py-0 lg:h-[420px] flex flex-col lg:flex-row">

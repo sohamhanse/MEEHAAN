@@ -11,4 +11,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  ssr: {
+    // Bundle CJS-style packages into the SSR output so ESM imports resolve.
+    noExternal: ['react-helmet-async'],
+  },
 })

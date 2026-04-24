@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const LoadingContext = createContext();
 
@@ -11,32 +11,15 @@ export const useLoading = () => {
 };
 
 export const LoadingProvider = ({ children }) => {
-  // Skip loading screen if already shown this session
-  const alreadySeen = typeof window !== 'undefined'
-    && sessionStorage.getItem('meehaan_loading_seen') === 'true';
-
-  const [isLoading, setIsLoading] = useState(!alreadySeen);
+  // Default false so SSG-rendered HTML shows real content immediately.
+  // Client and server agree on initial value, so no hydration mismatch.
+  const [isLoading, setIsLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const timeoutRef = useRef(null);
 
-  // Function to track loading progress - kept for compatibility
   const notifyLoadingProgress = (progress) => {
     setLoadingProgress(progress);
   };
-
-  // Safety timeout — LoadingScreen calls forceLoadComplete when done,
-  // but if something goes wrong this fires after 5s.
-  useEffect(() => {
-    if (alreadySeen) return; // nothing to time out
-
-    const backupTimer = setTimeout(() => {
-      sessionStorage.setItem('meehaan_loading_seen', 'true');
-      setIsLoading(false);
-    }, 5000);
-
-    return () => clearTimeout(backupTimer);
-  }, [alreadySeen]);
   
   // Force loading to complete - used by App as final fallback
   const forceLoadComplete = () => {

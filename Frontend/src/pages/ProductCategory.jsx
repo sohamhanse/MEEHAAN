@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import useLoadingFetch from '../hooks/useLoadingFetch';
+import SEOHead from '../components/SEOHead';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -166,13 +167,14 @@ const ProductCategory = () => {
     return cat.charAt(0).toUpperCase() + cat.slice(1);
   };
 
-  useEffect(() => {
-    document.title = `${formatCategoryName(category)} | MEEHAAN`;
-  }, [category]);
-
   return (
     <div className="bg-[var(--warm-white)] min-h-screen pt-[64px]">
-      
+      <SEOHead
+        title="Industrial Connectors & Cable Glands — Yazaki, TE, Molex | MEEHAAN"
+        description="MEEHAAN supplies automotive and industrial connectors, cable glands, and wiring harness components from Yazaki, TE Connectivity, Molex, and 10+ global brands. Pan-India delivery from Pune."
+        canonical="/solutions/industrial/connectors"
+      />
+
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
       <section className="relative h-[480px] bg-[var(--black)] overflow-hidden">
         <img

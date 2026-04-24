@@ -551,9 +551,8 @@ const CaFlowPage = () => {
   return (
     <div className="bg-[#FAFAF8] min-h-screen" style={{ paddingTop: 64 }}>
       <SEOHead
-        title="CaFlow — WhatsApp Compliance Automation for CA Firms | GST, ITR, TDS Reminders"
-        description="CaFlow automates document collection, compliance deadline tracking, and fee recovery for CA firms in India. WhatsApp-native. GSTR-1, GSTR-3B, ITR, TDS. 14-day free trial, no credit card."
-        keywords="CA firm software India, CA client management software, GST reminder automation India, WhatsApp automation CA firm, CaFlow, CA compliance software, document collection WhatsApp, fee recovery CA firm, ICAI software, chartered accountant software India"
+        title="CaFlow — WhatsApp Compliance Automation for CA Firms (GST, ITR, TDS)"
+        description="CaFlow automates document collection, compliance deadline tracking, and fee recovery for CA firms in India. WhatsApp-native. GSTR-1, GSTR-3B, ITR, TDS. 14-day free trial."
         canonical="/solutions/digital/caflow"
       />
 

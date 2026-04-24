@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SEOHead from '../components/SEOHead';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -21,6 +22,11 @@ const NotFound = () => {
         overflow: 'hidden',
       }}
     >
+      <SEOHead
+        title="Page Not Found (404)"
+        description="The page you're looking for doesn't exist or has been moved."
+        noIndex
+      />
       {/* Orange glow orb */}
       <div
         style={{
