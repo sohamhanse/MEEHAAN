@@ -589,8 +589,6 @@ const CaFlowPage = () => {
                 variants={fadeUp} initial="hidden" animate={heroInView ? 'visible' : 'hidden'}
                 aria-label="Breadcrumb" className="font-mono text-[11px] mb-6" style={{ color: '#555' }}
               >
-                <Link to="/" style={{ color: '#555' }} className="hover:text-[#F5921E] transition-colors">Home</Link>
-                <span className="mx-1">/</span>
                 <Link to="/solutions/digital" style={{ color: '#555' }} className="hover:text-[#F5921E] transition-colors">Digital</Link>
                 <span className="mx-1">/</span>
                 <span style={{ color: '#777' }}>CaFlow</span>

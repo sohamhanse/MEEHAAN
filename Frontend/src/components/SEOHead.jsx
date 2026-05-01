@@ -5,6 +5,7 @@ import { SEO_BASE, buildTitle, buildCanonical } from '../utils/seo';
 const SEOHead = ({
   title,
   description,
+  keywords,
   canonical,
   ogImage = '/og-image.svg',
   ogType = 'website',
@@ -13,6 +14,7 @@ const SEOHead = ({
 }) => {
   const fullTitle = buildTitle(title);
   const fullDescription = description || SEO_BASE.defaultDescription;
+  const fullKeywords = keywords || SEO_BASE.defaultKeywords;
   const fullCanonical = canonical ? buildCanonical(canonical) : null;
   const absoluteOgImage = ogImage && ogImage.startsWith('http')
     ? ogImage
@@ -22,7 +24,9 @@ const SEOHead = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={fullDescription} />
-      <meta name="robots" content={noIndex ? 'noindex,nofollow' : 'index,follow'} />
+      <meta name="keywords" content={fullKeywords} />
+      <meta name="author" content="MEEHAAN Enterprise" />
+      <meta name="robots" content={noIndex ? 'noindex,nofollow' : 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1'} />
       {fullCanonical && <link rel="canonical" href={fullCanonical} />}
 
       {/* Open Graph */}
@@ -31,10 +35,14 @@ const SEOHead = ({
       <meta property="og:type" content={ogType} />
       {fullCanonical && <meta property="og:url" content={fullCanonical} />}
       <meta property="og:image" content={absoluteOgImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={SEO_BASE.siteName} />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={SEO_BASE.twitterHandle} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={fullDescription} />
       <meta name="twitter:image" content={absoluteOgImage} />

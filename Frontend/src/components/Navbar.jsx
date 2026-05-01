@@ -147,8 +147,7 @@ const Navbar = () => {
                       </div>
                     </div>
 
-                    <div className="col-span-2 border-t border-[#F0F0EC] mt-[16px] pt-[16px] flex flex-row justify-between">
-                      <span className="font-mono text-[10px] text-[#888]">MEEHAAN ENTERPRISE · PUNE, INDIA</span>
+                    <div className="col-span-2 border-t border-[#F0F0EC] mt-[16px] pt-[16px] flex flex-row justify-end">
                       <Link to="/solutions/industrial" className="font-mono text-[10px] text-[#F5A623] hover:underline">
                         View All Solutions →
                       </Link>

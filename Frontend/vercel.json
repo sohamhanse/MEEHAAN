@@ -18,7 +18,8 @@
     {
       "source": "/solutions/industrial/battery/:sub/:product",
       "destination": "/solutions/industrial/battery/:sub"
-    }
+    },
+    { "source": "/api/:path*", "destination": "/api/:path*" }
   ],
   "headers": [
     {

@@ -1,8 +1,8 @@
 export const SEO_BASE = {
   siteName: 'MEEHAAN Enterprise',
   baseUrl: 'https://www.meehaan.com',
-  defaultDescription: 'MEEHAAN Enterprise — Industrial lubricants, automotive connectors, battery accessories, and digital solutions for modern India.',
-  defaultKeywords: 'industrial oils, lubricants, automotive connectors, battery accessories, LUBO oils, MEEHAAN, Pune, Maharashtra',
+  defaultDescription: 'MEEHAAN Enterprise — Industrial lubricants, automotive connectors, battery accessories, and AI-powered digital solutions for businesses in the US, UK, and globally.',
+  defaultKeywords: 'industrial oils, lubricants, automotive connectors, battery accessories, AI automation agency, custom software development, MEEHAAN',
   twitterHandle: '@meehaan',
 }
 

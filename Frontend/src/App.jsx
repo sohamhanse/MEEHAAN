@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 import { LoadingProvider, useLoading } from './context/LoadingContext';
 import Layout from './components/Layout';
+import DigitalLayout from './components/DigitalLayout';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToAnchor from './components/ScrollToAnchor';
@@ -23,6 +24,9 @@ import BatteryMarketplace from './pages/battery/BatteryMarketplace';
 import IndustrialLanding from './pages/solutions/IndustrialLanding';
 import DigitalLanding from './pages/solutions/DigitalLanding';
 import CaFlowPage from './pages/solutions/CaFlowPage';
+import DigitalProductsPage from './pages/solutions/DigitalProductsPage';
+import DigitalProductPage from './pages/solutions/DigitalProductPage';
+import ApplyPage from './pages/solutions/ApplyPage';
 
 const OIL_CATEGORIES = [
   'heat-treatment',
@@ -86,6 +90,27 @@ export const routes = [
   {
     element: <Root />,
     children: [
+      // ── Digital sub-site (own navbar, no main Layout) ────────────────────
+      {
+        path: 'solutions/digital',
+        element: <DigitalLayout />,
+        children: [
+          {
+            element: <AppShell />,
+            children: [
+              { index: true, element: <PageWrapper><DigitalLanding /></PageWrapper> },
+              { path: 'software', element: <PageWrapper><DigitalLanding /></PageWrapper> },
+              { path: 'ai', element: <PageWrapper><DigitalLanding /></PageWrapper> },
+              { path: 'caflow', element: <PageWrapper><CaFlowPage /></PageWrapper> },
+              { path: 'products', element: <PageWrapper><DigitalProductsPage /></PageWrapper> },
+              { path: 'products/:slug', element: <PageWrapper><DigitalProductPage /></PageWrapper> },
+              { path: 'apply', element: <PageWrapper><ApplyPage /></PageWrapper> },
+            ],
+          },
+        ],
+      },
+
+      // ── Main site (standard Layout with main Navbar) ──────────────────────
       {
         path: '/',
         element: <Layout />,
@@ -115,11 +140,6 @@ export const routes = [
                 path: 'solutions/industrial/battery/:subcategoryId/:productId',
                 element: <PageWrapper><BatteryMarketplace /></PageWrapper>,
               },
-
-              { path: 'solutions/digital', element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'solutions/digital/software', element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'solutions/digital/ai', element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'solutions/digital/caflow', element: <PageWrapper><CaFlowPage /></PageWrapper> },
 
               { path: 'products', element: <Navigate to="/solutions/industrial" replace /> },
               { path: 'products/oils', element: <Navigate to="/solutions/industrial/oils" replace /> },

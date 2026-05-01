@@ -157,7 +157,7 @@ const Home = () => {
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
       <section className="bg-nearBlack min-h-screen flex flex-col lg:flex-row w-full overflow-hidden">
-        
+
         {/* Left Side (45%) */}
         <div className="w-full lg:w-[45%] flex flex-col justify-center px-6 lg:pl-[48px] lg:pr-12 py-[100px] lg:py-[40px] pt-[120px] lg:pt-[40px] relative z-10">
           <motion.p
@@ -248,7 +248,7 @@ const Home = () => {
             >
               <img src={panel.img} alt={panel.title} />
               <div className="panel-accent" style={{ backgroundColor: panel.accent }} />
-              
+
               {/* Optional LUBO Overlay Logo */}
               {panel.logo && (
                 <img
@@ -261,7 +261,7 @@ const Home = () => {
               <div className="panel-content">
                 <span className="panel-label">{panel.label}</span>
                 <h3 className="font-syne panel-title">{panel.title}</h3>
-                
+
                 {/* Desktop uses CSS hover transitions from index.css */}
                 <p className="panel-desc hidden lg:block">{panel.desc}</p>
                 <Link
@@ -271,7 +271,7 @@ const Home = () => {
                 >
                   {panel.cta}
                 </Link>
-                
+
                 {/* Mobile always visible */}
                 <p className="font-dm text-[14px] text-white/75 mt-2 lg:hidden max-w-[260px] line-height-[1.6]">
                   {panel.desc}
@@ -305,7 +305,7 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-[var(--border)] border border-[var(--border)]">
-            
+
             {/* Industrial Card */}
             <motion.div
               variants={fadeUp}
@@ -316,14 +316,14 @@ const Home = () => {
             >
               <img src="/meehaan_logo/LUBO Logo Without Bg-01.png" alt="LUBO" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
               <p className="font-mono text-[10px] text-[#6B6B6B] mt-3">MEEHAAN Industrial Division</p>
-              
+
               <h3 className="font-syne font-bold text-[var(--black)] text-[20px] mt-7">
                 Industrial Solutions
               </h3>
               <p className="font-dm text-[14px] text-[#555] leading-[1.7] mt-4 max-w-lg">
                 Premium lubricants (LUBO brand), automotive connectors, and battery accessories — engineered for manufacturing floors, OEMs, and EV supply chains.
               </p>
-              
+
               <div className="w-full h-[1px] bg-[var(--border)] my-7" />
 
               <div className="space-y-4">
@@ -357,14 +357,14 @@ const Home = () => {
             >
               <img src="/meehaan_logo/MEEHAAN Logo Without Bg-01.png" alt="MEEHAAN" style={{ height: '44px', width: 'auto', objectFit: 'contain' }} />
               <p className="font-mono text-[10px] text-[#6B6B6B] mt-3">MEEHAAN Digital Division</p>
-              
+
               <h3 className="font-syne font-bold text-[var(--black)] text-[20px] mt-7">
                 Digital Solutions
               </h3>
               <p className="font-dm text-[14px] text-[#555] leading-[1.7] mt-4 max-w-lg">
                 Custom software and AI-powered automation for businesses ready to scale. Built by practitioners who understand industrial and commercial operations.
               </p>
-              
+
               <div className="w-full h-[1px] bg-[var(--border)] my-7" />
 
               <div className="space-y-4">
@@ -418,8 +418,8 @@ const Home = () => {
                 animate={industryInView ? 'visible' : 'hidden'}
                 custom={i}
                 className="bg-[#222] p-8 rounded-none transition-colors duration-200 border border-transparent"
-                style={{ 
-                  borderRadius: i === 0 ? '8px 0 0 0' : i === 2 ? '0 8px 0 0' : i === 3 ? '0 0 0 8px' : i === 5 ? '0 0 8px 0' : 0 
+                style={{
+                  borderRadius: i === 0 ? '8px 0 0 0' : i === 2 ? '0 8px 0 0' : i === 3 ? '0 0 0 8px' : i === 5 ? '0 0 8px 0' : 0
                 }}
                 onMouseOver={(e) => { e.currentTarget.style.borderColor = industry.accent; }}
                 onMouseOut={(e) => { e.currentTarget.style.borderColor = 'transparent'; }}

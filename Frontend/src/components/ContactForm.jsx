@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import meehaanApi from '../api/meehaanApi';
+
+const SUBMIT_URL = '/api/contact';
 
 const ContactForm = ({ initialSubject = "" }) => {
   // Form state
@@ -95,43 +96,34 @@ const ContactForm = ({ initialSubject = "" }) => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validate form
-    if (!validateForm()) {
-      return;
-    }
-    
-    // Submit form
+
+    if (!validateForm()) return;
+
     setStatus({ submitting: true, success: false, error: null });
-    
+
     try {
-      await meehaanApi.submitContactForm(formData);
-      
-      // Reset form on success
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        subject: '',
-        message: '',
-        agreeToTerms: false
+      const res = await fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
       });
-      
-      setStatus({ submitting: false, success: true, error: null });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setStatus(prev => ({ ...prev, success: false }));
-      }, 5000);
-      
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus({ 
-        submitting: false, 
-        success: false, 
-        error: 'Failed to send message. Please try again or contact us directly.'
-      });
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        setFormData({ name: '', email: '', company: '', phone: '', subject: '', message: '', agreeToTerms: false });
+        setStatus({ submitting: false, success: true, error: null });
+        setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+      } else {
+        setStatus({ submitting: false, success: false, error: 'Failed to send message. Please try again or contact us directly.' });
+      }
+    } catch {
+      setStatus({ submitting: false, success: false, error: 'Failed to send message. Please try again or contact us directly.' });
     }
   };
   
