@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Background -->
   <rect width="32" height="32" rx="7" fill="#050805"/>
-  <!-- M lettermark — geometric, solid fill -->
-  <path d="M4,4 L8,4 L16,19 L24,4 L28,4 L28,28 L24,28 L24,13 L16,22 L8,13 L8,28 L4,28 Z" fill="#F5921E"/>
+  <!-- Left chevron arm -->
+  <path d="M6,8 Q6,5 9,5 L16,16 L9,27 Q6,27 6,24 Z" fill="#F5921E"/>
+  <!-- Right chevron arm -->
+  <path d="M26,8 Q26,5 23,5 L16,16 L23,27 Q26,27 26,24 Z" fill="#F5921E"/>
+  <!-- 3D fold shadow on right inner face -->
+  <path d="M16,16 L23,27 Q26,27 26,24 L26,20 Z" fill="#C07010"/>
 </svg>
