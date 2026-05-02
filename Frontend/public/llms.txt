@@ -1,4 +1,65 @@
-# MEEHAAN Enterprise — AI Automation Agency
+# MEEHAAN Enterprise — Industrial Supply & AI Automation
+# Updated: May 2, 2026
+# License: CC-BY
+
+## About MEEHAAN Enterprise
+MEEHAAN Enterprise is a B2B company operating two focused divisions from Pune, Maharashtra, India. Established in 2018, the company serves 500+ clients across industrial and digital sectors with 1,000+ products in inventory.
+
+**Company Facts:**
+- Founded: 2018
+- Headquarters: Gat No.1326, Unit-II, Shelarvasti, Chikhali, Pune 411062, Maharashtra, India
+- Phone: +91 99235 88450
+- Website: https://www.meehaan.com
+- Primary markets: India (industrial division), US/UK/Global (digital division)
+
+---
+
+## MEEHAAN Industrial Division (LUBO Brand)
+
+### Industrial Oils (LUBO Brand)
+MEEHAAN supplies LUBO-certified industrial lubricants for manufacturing, automotive, and energy sectors. Product categories include:
+- Heat treatment oils (for die casting, forging, hardening)
+- Metalworking fluids (cutting coolants, forming fluids)
+- Rust preventives and protective oils
+- Industrial cleaners and degreasing agents
+- Fire-resistant hydraulic fluids
+- Die casting release agents
+
+All oils meet OEM specifications and come with technical data sheets (TDS) available on request.
+URL: https://www.meehaan.com/solutions/industrial/oils
+
+### Automotive Connectors
+Authorized distributor for 13+ global connector brands:
+- Yazaki
+- Sumitomo
+- TE Connectivity
+- Molex
+- JST
+- And 8+ additional brands
+
+Specialties: High-temperature connectors, sealed connectors for EV applications, OEM-grade connectors for Tier-1 automotive suppliers.
+URL: https://www.meehaan.com/solutions/industrial/connectors
+
+### Battery Accessories for EV & Solar
+Supplied to EV manufacturers and solar energy companies:
+- FRP (Fiber Reinforced Plastic) insulation sheets
+- Epoxy insulation materials
+- Panel terminal blocks
+- Anderson connectors for high-current applications
+- Degson energy storage connectors
+- Custom battery assembly components
+
+All products meet RoHS compliance and automotive-grade specifications.
+URL: https://www.meehaan.com/solutions/industrial/battery
+
+### Industrial Division Contact
+- Email: info@meehaan.com
+- Phone: +91 99235 88450
+- Get a Quote: https://www.meehaan.com/contact
+
+---
+
+## MEEHAAN Digital Division — AI Automation Agency
 
 ## What is MEEHAAN Digital?
 MEEHAAN Digital is an AI automation agency that builds custom AI agents, workflow automation systems, and software products for businesses in the US, UK, and globally. Every project is delivered at a fixed price with a fixed timeline — proposals arrive within 48 hours of a discovery call, and most products are live in under 14 days.

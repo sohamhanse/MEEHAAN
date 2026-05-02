@@ -167,12 +167,46 @@ const ProductCategory = () => {
     return cat.charAt(0).toUpperCase() + cat.slice(1);
   };
 
+  const connectorsSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        'name': 'Industrial Connectors & Cable Glands',
+        'description': 'MEEHAAN supplies automotive and industrial connectors, cable glands, and wiring harness components from Yazaki, TE Connectivity, Molex, and 10+ global brands. Pan-India delivery from Pune.',
+        'url': 'https://www.meehaan.com/solutions/industrial/connectors',
+        'mainEntity': {
+          '@type': 'Organization',
+          'name': 'MEEHAAN Enterprise',
+          'url': 'https://www.meehaan.com',
+          'address': {
+            '@type': 'PostalAddress',
+            'streetAddress': 'Gat No.1326, Unit-II, Shelarvasti, Chikhali',
+            'addressLocality': 'Pune',
+            'addressRegion': 'Maharashtra',
+            'postalCode': '411062',
+            'addressCountry': 'IN',
+          },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.meehaan.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Industrial', 'item': 'https://www.meehaan.com/solutions/industrial' },
+          { '@type': 'ListItem', 'position': 3, 'name': 'Connectors', 'item': 'https://www.meehaan.com/solutions/industrial/connectors' },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="bg-[var(--warm-white)] min-h-screen pt-[64px]">
       <SEOHead
         title="Industrial Connectors & Cable Glands — Yazaki, TE, Molex | MEEHAAN"
         description="MEEHAAN supplies automotive and industrial connectors, cable glands, and wiring harness components from Yazaki, TE Connectivity, Molex, and 10+ global brands. Pan-India delivery from Pune."
         canonical="/solutions/industrial/connectors"
+        jsonLd={connectorsSchema}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}

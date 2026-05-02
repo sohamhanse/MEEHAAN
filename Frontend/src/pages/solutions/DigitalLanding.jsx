@@ -10,6 +10,7 @@ import {
 import SEOHead from '../../components/SEOHead';
 import { Phone, FileText, Wrench, Zap, ArrowRight, Check, Send } from 'lucide-react';
 import { DIGITAL_PRODUCTS } from '../../data/digitalProducts';
+import { CASE_STUDIES } from '../../data/caseStudies';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
@@ -1447,6 +1448,123 @@ const DigitalLanding = () => {
           </motion.div>
           <div>
             {faqs.map((f, i) => <FAQItem key={i} {...f} index={i} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CASE STUDIES ──────────────────────────────────────────────────── */}
+      <section className="py-16 lg:py-24 px-6 lg:px-[80px] relative overflow-hidden" style={{ background: INK_2, borderTop: '1px solid rgba(255,255,255,0.05)' }} aria-labelledby="case-studies-heading">
+        <div className="max-w-[1200px] mx-auto">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={reveal} className="mb-16">
+            <h2 id="case-studies-heading" className="font-syne font-bold text-[32px] lg:text-[40px] text-white mb-4 leading-tight">
+              Client Success Stories
+            </h2>
+            <p className="font-dm text-[15px] text-[#999] max-w-[600px]">
+              Real results from real clients. See how we've transformed businesses with AI automation.
+            </p>
+          </motion.div>
+
+          <div className="space-y-12">
+            {CASE_STUDIES.map((study, i) => (
+              <motion.div
+                key={study.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={reveal}
+                custom={i * 0.1}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
+              >
+                {/* Text first on odd indices, last on even */}
+                {i % 2 === 0 ? (
+                  <>
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-2 h-2 rounded-full" style={{ background: LIME_DEEP }} />
+                        <span className="font-mono text-[11px] text-[#999] uppercase tracking-wider">Case Study {i + 1}</span>
+                      </div>
+                      <h3 className="font-syne font-bold text-[24px] text-white mb-3 leading-tight">
+                        {study.title}
+                      </h3>
+                      <div className="flex items-center gap-3 mb-6">
+                        <span className="font-dm text-[13px] text-[#666]">{study.client}</span>
+                        <span className="w-1 h-1 rounded-full bg-[#666]" />
+                        <span className="font-dm text-[13px] text-[#666]">{study.industry}</span>
+                      </div>
+
+                      <div className="space-y-4 mb-8">
+                        <div>
+                          <p className="font-mono text-[11px] text-[#888] uppercase tracking-wider mb-2">Problem</p>
+                          <p className="font-dm text-[14px] text-[#ccc] leading-relaxed">{study.problem}</p>
+                        </div>
+                        <div>
+                          <p className="font-mono text-[11px] text-[#888] uppercase tracking-wider mb-2">Solution</p>
+                          <p className="font-dm text-[14px] text-[#ccc] leading-relaxed">{study.solution}</p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#333]">
+                        {study.results.map((result, idx) => (
+                          <div key={idx}>
+                            <p className="font-syne font-bold text-[18px] text-white">{result.split(':')[0]}</p>
+                            <p className="font-dm text-[12px] text-[#999] mt-1">{result.split(':')[1]?.trim()}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-[#0a1510] rounded-lg p-8 border border-[#333] lg:order-last">
+                      <blockquote className="font-dm text-[15px] text-[#ccc] italic mb-6 leading-relaxed">
+                        "{study.testimonial}"
+                      </blockquote>
+                      <p className="font-mono text-[12px] text-[#666]">Delivered in {study.timeline}</p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="bg-[#0a1510] rounded-lg p-8 border border-[#333]">
+                      <blockquote className="font-dm text-[15px] text-[#ccc] italic mb-6 leading-relaxed">
+                        "{study.testimonial}"
+                      </blockquote>
+                      <p className="font-mono text-[12px] text-[#666]">Delivered in {study.timeline}</p>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-2 h-2 rounded-full" style={{ background: LIME_DEEP }} />
+                        <span className="font-mono text-[11px] text-[#999] uppercase tracking-wider">Case Study {i + 1}</span>
+                      </div>
+                      <h3 className="font-syne font-bold text-[24px] text-white mb-3 leading-tight">
+                        {study.title}
+                      </h3>
+                      <div className="flex items-center gap-3 mb-6">
+                        <span className="font-dm text-[13px] text-[#666]">{study.client}</span>
+                        <span className="w-1 h-1 rounded-full bg-[#666]" />
+                        <span className="font-dm text-[13px] text-[#666]">{study.industry}</span>
+                      </div>
+
+                      <div className="space-y-4 mb-8">
+                        <div>
+                          <p className="font-mono text-[11px] text-[#888] uppercase tracking-wider mb-2">Problem</p>
+                          <p className="font-dm text-[14px] text-[#ccc] leading-relaxed">{study.problem}</p>
+                        </div>
+                        <div>
+                          <p className="font-mono text-[11px] text-[#888] uppercase tracking-wider mb-2">Solution</p>
+                          <p className="font-dm text-[14px] text-[#ccc] leading-relaxed">{study.solution}</p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#333]">
+                        {study.results.map((result, idx) => (
+                          <div key={idx}>
+                            <p className="font-syne font-bold text-[18px] text-white">{result.split(':')[0]}</p>
+                            <p className="font-dm text-[12px] text-[#999] mt-1">{result.split(':')[1]?.trim()}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

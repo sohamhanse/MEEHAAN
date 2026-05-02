@@ -339,6 +339,80 @@ export const DIGITAL_PRODUCTS = [
       },
     ],
   },
+
+  {
+    slug: 'website-builder-ai',
+    category: 'Web AI',
+    industry: 'Web AI / Site Generation',
+    timeline: '7 Days to Fully Functional Site',
+    accentColor: LIME,
+    name: 'Website Builder AI',
+    heroDesc:
+      'An AI-powered website generation platform that builds fully functional, production-ready sites in days — not months. From brand guidelines to live deployment, no code, no design bottleneck, no hiring required.',
+    sections: [
+      {
+        num: '01',
+        tag: 'Challenge',
+        heading: 'Building a modern website required hiring designers, developers, and waiting months for launch.',
+        body: 'Traditional web development locks you into six-month timelines, $15K–$50K budgets, and dependency on a team that gets swapped out. You start with requirements that change halfway through build. You end with a site that works but has no owner and no way to evolve it. By the time it goes live, the business has moved on.',
+      },
+      {
+        num: '02',
+        tag: 'Approach',
+        heading: 'We built an AI engine that takes your brand and business description and outputs a production-ready site.',
+        body: 'Website Builder AI takes a one-page brief of your business, brand colors, messaging, and target audience — then generates fully coded, fully styled, fully functional websites. No templates. No friction. The output is a real codebase you own, deploy, and iterate on directly.',
+      },
+      {
+        num: '03',
+        tag: 'Result',
+        heading: 'Launch a professional site in one week for a fraction of traditional build cost.',
+        body: 'Businesses that previously waited six months now have live sites in seven days. The site is already optimized for search, already mobile-responsive, already structured for conversion. Iteration happens in hours, not sprints.',
+      },
+      {
+        num: '04',
+        tag: 'Takeaway',
+        heading: 'The speed of a website is no longer a design or development constraint. It is a business question.',
+        body: 'In a world where websites are as critical as business cards, waiting six months is not acceptable. AI removes the bottleneck entirely.',
+      },
+    ],
+  },
+
+  {
+    slug: 'exit-concierge',
+    category: 'Operations AI',
+    industry: 'Operations AI / Business Automation',
+    timeline: '10 Days to Full Rollout',
+    accentColor: ORANGE,
+    name: 'Exit Concierge',
+    heroDesc:
+      'An AI agent that manages customer exit workflows end-to-end. It handles cancellations, collects feedback, identifies at-risk customers, offers personalized retention, and processes refunds — entirely automated, zero human intervention.',
+    sections: [
+      {
+        num: '01',
+        tag: 'Challenge',
+        heading: 'Customer exits were creating revenue leaks nobody had visibility into.',
+        body: 'When customers cancel, the business loses not just the revenue but also the data about why. Cancellation requests went to a support email, got ignored for days, or triggered a reactive team scramble. Exit conversations happened off-platform where you could not see them. Churn analysis was a guessing game.',
+      },
+      {
+        num: '02',
+        tag: 'Approach',
+        heading: 'We built an AI concierge that owns every step of the exit workflow.',
+        body: 'When a customer initiates cancellation, Exit Concierge takes over. It acknowledges the request, asks targeted questions to understand the reason, offers personalized retention options, processes refunds when needed, and logs every interaction for analytics. All of this happens in minutes — no ticket queue, no escalation required.',
+      },
+      {
+        num: '03',
+        tag: 'Result',
+        heading: 'Reduce involuntary churn by 8–12% by catching exits before they happen.',
+        body: 'Exit data feeds directly into dashboards. The business sees churn trends in real time, understands why customers leave, and can address root causes before they become problems. Some customers who would have left are retained with automated offers.',
+      },
+      {
+        num: '04',
+        tag: 'Takeaway',
+        heading: 'The moment a customer decides to cancel is the last moment to act — if you can see it coming.',
+        body: 'Exit Concierge makes every cancellation a data point and every risky customer visible before they churn.',
+      },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug) {

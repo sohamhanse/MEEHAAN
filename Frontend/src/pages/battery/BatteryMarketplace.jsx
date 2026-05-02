@@ -315,12 +315,58 @@ const BatteryMarketplace = () => {
       ? `/solutions/industrial/battery/${subcategoryId}`
       : '/solutions/industrial/battery';
 
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Product',
+        'name': activeProduct ? activeProduct.name : (subMeta ? subMeta.title : 'Battery Accessories'),
+        'description': seoDesc,
+        'url': `https://www.meehaan.com${seoCanonical}`,
+        'manufacturer': {
+          '@type': 'Organization',
+          'name': 'MEEHAAN Enterprise',
+          'url': 'https://www.meehaan.com',
+          'address': {
+            '@type': 'PostalAddress',
+            'streetAddress': 'Gat No.1326, Unit-II, Shelarvasti, Chikhali',
+            'addressLocality': 'Pune',
+            'addressRegion': 'Maharashtra',
+            'postalCode': '411062',
+            'addressCountry': 'IN',
+          },
+        },
+        'areaServed': {
+          '@type': 'Country',
+          'name': 'IN',
+        },
+        'offers': {
+          '@type': 'Offer',
+          'priceCurrency': 'INR',
+          'availability': 'https://schema.org/InStock',
+          'url': 'https://www.meehaan.com/contact',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.meehaan.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Industrial', 'item': 'https://www.meehaan.com/solutions/industrial' },
+          { '@type': 'ListItem', 'position': 3, 'name': 'Battery Accessories', 'item': 'https://www.meehaan.com/solutions/industrial/battery' },
+          ...(subcategoryId ? [{ '@type': 'ListItem', 'position': 4, 'name': subMeta?.title || '', 'item': `https://www.meehaan.com/solutions/industrial/battery/${subcategoryId}` }] : []),
+          ...(activeProduct ? [{ '@type': 'ListItem', 'position': subcategoryId ? 5 : 4, 'name': activeProduct.name, 'item': `https://www.meehaan.com/solutions/industrial/battery/${subcategoryId}/${productId}` }] : []),
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="bg-[var(--warm-white)] h-[100dvh] overflow-hidden pt-[64px] flex flex-col">
       <SEOHead
         title={seoTitle}
         description={seoDesc}
         canonical={seoCanonical}
+        jsonLd={productSchema}
       />
       {/* ── TOP HEADER BAR ── */}
       <div className="bg-white border-b border-[var(--border)] px-[20px] lg:px-[32px] h-[72px] flex items-center justify-between shrink-0">

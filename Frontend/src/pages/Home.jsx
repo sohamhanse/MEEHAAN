@@ -147,12 +147,53 @@ const Home = () => {
     '/images/Trusted_Brand/Savsol.jpg',
   ];
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://www.meehaan.com/#organization",
+        "name": "MEEHAAN Enterprise",
+        "url": "https://www.meehaan.com",
+        "logo": "https://www.meehaan.com/meehaan_logo/MEEHAAN Logo Without Bg-01.png",
+        "description": "MEEHAAN Enterprise is a B2B company operating two divisions from Pune, India: LUBO industrial lubricants, automotive connectors and battery accessories for EV/solar supply chains; and custom software and AI automation for businesses globally.",
+        "foundingDate": "2018",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali, Dehu Road",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "postalCode": "411062",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 18.6905112,
+          "longitude": 73.7989598
+        },
+        "telephone": "+919923588450",
+        "email": "info@meehaan.com",
+        "areaServed": { "@type": "Country", "name": "India" },
+        "knowsAbout": ["Industrial Lubricants", "Automotive Connectors", "Battery Accessories", "AI Automation", "Custom Software Development"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.meehaan.com/#website",
+        "name": "MEEHAAN Enterprise",
+        "url": "https://www.meehaan.com",
+        "description": "Industrial lubricants, automotive connectors, battery accessories, and AI-powered digital solutions for manufacturers and businesses in India.",
+        "publisher": { "@id": "https://www.meehaan.com/#organization" }
+      }
+    ]
+  };
+
   return (
     <div className="bg-warmWhite min-h-screen">
       <SEOHead
         title="Industrial Lubricants, Connectors & Digital Solutions — Pune, India"
         description="MEEHAAN Enterprise — Pune-based supplier of LUBO industrial lubricants, automotive connectors, battery accessories, and custom software/AI automation for Indian manufacturers."
         canonical="/"
+        jsonLd={organizationSchema}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
@@ -524,15 +565,19 @@ const Home = () => {
         <div className="w-full overflow-hidden mt-[48px]">
           <div className="marquee-track flex items-center">
             {/* Duplicated for loop */}
-            {[...brandLogos, ...brandLogos, ...brandLogos].map((logo, i) => (
-              <img
-                key={i}
-                src={logo}
-                alt="Partner Brand"
-                className="mx-[28px] grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                style={{ height: '28px', objectFit: 'contain' }}
-              />
-            ))}
+            {[...brandLogos, ...brandLogos, ...brandLogos].map((logo, i) => {
+              const brandNames = ['Savita', 'Condat', 'TE Connectivity', 'Molex', 'Aarna', 'Savsol'];
+              const brandName = brandNames[i % brandNames.length];
+              return (
+                <img
+                  key={i}
+                  src={logo}
+                  alt={`${brandName} - Authorized Distributor`}
+                  className="mx-[28px] grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  style={{ height: '28px', width: 'auto', objectFit: 'contain' }}
+                />
+              );
+            })}
           </div>
         </div>
       </section>

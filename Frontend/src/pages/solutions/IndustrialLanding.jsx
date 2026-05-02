@@ -188,12 +188,46 @@ const IndustrialLanding = () => {
     '/images/Trusted_Brand/Savsol.jpg',
   ];
 
+  const industrialServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.meehaan.com/solutions/industrial#service",
+    "name": "Industrial Supply — LUBO Lubricants, Automotive Connectors, Battery Accessories",
+    "serviceType": "Industrial Product Distribution",
+    "provider": { "@id": "https://www.meehaan.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "India" },
+    "description": "Authorized distributor of LUBO industrial lubricants, automotive connectors from Yazaki, Sumitomo, TE Connectivity and Molex, and battery accessories including FRP sheets, terminal blocks and Anderson connectors for EV and solar applications.",
+    "url": "https://www.meehaan.com/solutions/industrial",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Industrial Products",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Industrial Oils (LUBO Brand)",
+          "description": "Heat treatment oils, metalworking fluids, cutting coolants, rust preventives, die casting release agents, fire-resistant fluids, and industrial cleaners."
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Automotive Connectors",
+          "description": "Authorized dealer for Yazaki, Sumitomo, TE Connectivity, Molex, JST, and 10+ global connector brands."
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Battery Accessories",
+          "description": "FRP and epoxy insulation sheets, panel terminal blocks, Anderson connectors, Degson energy storage connectors for EV and solar battery pack assembly."
+        }
+      ]
+    }
+  };
+
   return (
     <div className="bg-[#FAFAF8] min-h-screen pt-[64px]">
       <SEOHead
         title="Industrial Solutions — Oils, Connectors & Battery Accessories, Pune"
         description="MEEHAAN Industrial Solutions: LUBO industrial lubricants, automotive connectors from 13+ global brands, and battery accessories for EV and solar applications. Based in Pune, India."
         canonical="/solutions/industrial"
+        jsonLd={industrialServiceSchema}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
@@ -702,29 +736,7 @@ const IndustrialLanding = () => {
         </div>
       </section>
 
-      {/* JSON-LD Schema */}
-      <script type="application/ld+json">{JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        'name': 'MEEHAAN Enterprise',
-        'url': 'https://www.meehaan.com',
-        'logo': 'https://www.meehaan.com/meehaan-logo.png',
-        'description': 'Industrial lubricants, connectors, and digital solutions',
-        'address': {
-          '@type': 'PostalAddress',
-          'streetAddress': 'Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali',
-          'addressLocality': 'Pune',
-          'addressRegion': 'Maharashtra',
-          'postalCode': '411062',
-          'addressCountry': 'IN',
-        },
-        'contactPoint': {
-          '@type': 'ContactPoint',
-          'telephone': '+91-9923588450',
-          'contactType': 'sales',
-          'availableLanguage': ['English', 'Hindi', 'Marathi'],
-        },
-      })}</script>
+      {/* Service Schema handled via SEOHead jsonLd prop - see below */}
     </div>
   );
 };

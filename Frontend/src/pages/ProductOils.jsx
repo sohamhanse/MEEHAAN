@@ -110,12 +110,46 @@ const ProductOils = () => {
     }
   };
 
+  const oilsSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        'name': 'LUBO Industrial Oils & Lubricants',
+        'description': 'LUBO-brand industrial lubricants from MEEHAAN: heat treatment oils, fire-resistant fluids, cutting coolants, metal forming oils, industrial cleaners, rust preventives, and die-casting lubricants.',
+        'url': 'https://www.meehaan.com/solutions/industrial/oils',
+        'mainEntity': {
+          '@type': 'Organization',
+          'name': 'MEEHAAN Enterprise',
+          'url': 'https://www.meehaan.com',
+          'address': {
+            '@type': 'PostalAddress',
+            'streetAddress': 'Gat No.1326, Unit-II, Shelarvasti, Chikhali',
+            'addressLocality': 'Pune',
+            'addressRegion': 'Maharashtra',
+            'postalCode': '411062',
+            'addressCountry': 'IN',
+          },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.meehaan.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Industrial', 'item': 'https://www.meehaan.com/solutions/industrial' },
+          { '@type': 'ListItem', 'position': 3, 'name': 'Oils', 'item': 'https://www.meehaan.com/solutions/industrial/oils' },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="bg-[var(--warm-white)] min-h-screen pt-[64px]">
       <SEOHead
         title="LUBO Industrial Oils & Lubricants — Heat Treatment, Cutting, Metal Forming"
         description="LUBO-brand industrial lubricants from MEEHAAN: heat treatment oils, fire-resistant fluids, cutting coolants, metal forming oils, industrial cleaners, rust preventives, and die-casting lubricants."
         canonical="/solutions/industrial/oils"
+        jsonLd={oilsSchema}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO BANNER ═══════════════════════════════ */}

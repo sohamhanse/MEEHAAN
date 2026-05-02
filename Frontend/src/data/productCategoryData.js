@@ -176,6 +176,28 @@ const productCategoryData = {
         ],
       },
     ],
+    tdsDownloads: [
+      {
+        name: "LUBOQUENCH Series TDS",
+        url: "/documents/TDS/LUBOQUENCH-TDS.pdf",
+        description: "Technical data sheet for LUBOQUENCH quenching oils",
+      },
+      {
+        name: "Heat Treatment Selection Guide",
+        url: "/documents/guides/heat-treatment-selection.pdf",
+        description: "Comprehensive guide for selecting the right heat treatment oil",
+      },
+      {
+        name: "LUBOCARB TDS",
+        url: "/documents/TDS/LUBOCARB-TDS.pdf",
+        description: "Technical specifications for carburizing fluids",
+      },
+      {
+        name: "LUBOSALT TDS",
+        url: "/documents/TDS/LUBOSALT-TDS.pdf",
+        description: "Technical data for heat treatment salts",
+      },
+    ],
   },
   "fire-resistant": {
     pageTitle: "Fire Resistant Hydraulic Fluids - LUBOHRHF Series",
@@ -239,6 +261,23 @@ const productCategoryData = {
       "Glass Manufacturing",
       "Primary Metals Processing",
       "Power Generation",
+    ],
+    tdsDownloads: [
+      {
+        name: "LUBOHRHF Fire-Resistant Fluids TDS",
+        url: "/documents/TDS/LUBOHRHF-TDS.pdf",
+        description: "Technical specifications for fire-resistant hydraulic fluids",
+      },
+      {
+        name: "Fire-Resistant Fluid Selection Guide",
+        url: "/documents/guides/fire-resistant-selection.pdf",
+        description: "Guide for selecting appropriate fire-resistant fluids for your application",
+      },
+      {
+        name: "Safety Data Sheet (SDS)",
+        url: "/documents/SDS/fire-resistant-SDS.pdf",
+        description: "Safety information and handling procedures",
+      },
     ],
   },
   "cutting-coolants": {
@@ -349,6 +388,23 @@ const productCategoryData = {
         ],
       },
     ],
+    tdsDownloads: [
+      {
+        name: "LUBOCUT Series TDS",
+        url: "/documents/TDS/LUBOCUT-TDS.pdf",
+        description: "Technical data sheet for metal cutting coolants",
+      },
+      {
+        name: "Cutting Coolant Selection Guide",
+        url: "/documents/guides/cutting-coolant-selection.pdf",
+        description: "Guide for selecting the right cutting coolant for your machining process",
+      },
+      {
+        name: "Application Guide",
+        url: "/documents/guides/cutting-coolant-application.pdf",
+        description: "Best practices for using cutting coolants effectively",
+      },
+    ],
   },
   "metal-forming": {
     pageTitle: "Metal Forming & Wire Drawing Lubricants - LUBODRAW Series",
@@ -435,6 +491,23 @@ const productCategoryData = {
         ],
       },
     ],
+    tdsDownloads: [
+      {
+        name: "LUBODRAW Series TDS",
+        url: "/documents/TDS/LUBODRAW-TDS.pdf",
+        description: "Technical data sheet for metal forming and wire drawing lubricants",
+      },
+      {
+        name: "Metal Forming Selection Guide",
+        url: "/documents/guides/metal-forming-selection.pdf",
+        description: "Guide for selecting forming lubricants for your application",
+      },
+      {
+        name: "Wire Drawing Best Practices",
+        url: "/documents/guides/wire-drawing-practices.pdf",
+        description: "Best practices and application guidelines for wire drawing",
+      },
+    ],
   },
   "industrial-cleaners": {
     pageTitle: "Industrial Cleaning Solutions - LUBOCLEAN Series",
@@ -495,6 +568,18 @@ const productCategoryData = {
               "Hydrocarbon-based degreasing solvents free from chlorine, fluorine, or aromatics, available in a wide range of flash-points.",
           },
         ],
+      },
+    ],
+    tdsDownloads: [
+      {
+        name: "LUBOCLEAN Series TDS",
+        url: "/documents/TDS/LUBOCLEAN-TDS.pdf",
+        description: "Technical data sheet for industrial cleaning solutions",
+      },
+      {
+        name: "Industrial Cleaner Selection Guide",
+        url: "/documents/guides/industrial-cleaner-selection.pdf",
+        description: "Guide for selecting the right cleaner for your application",
       },
     ],
   },
@@ -624,6 +709,23 @@ const productCategoryData = {
         ],
       },
     ],
+    tdsDownloads: [
+      {
+        name: "LUBO ANTIRUST Series TDS",
+        url: "/documents/TDS/LUBO-ANTIRUST-TDS.pdf",
+        description: "Technical data sheet for rust preventive oils",
+      },
+      {
+        name: "LUBO ANTIRUST WD Series TDS",
+        url: "/documents/TDS/LUBO-ANTIRUST-WD-TDS.pdf",
+        description: "Technical specifications for water-extendable rust preventives",
+      },
+      {
+        name: "Rust Prevention Best Practices",
+        url: "/documents/guides/rust-prevention-practices.pdf",
+        description: "Best practices for effective rust prevention during storage and transportation",
+      },
+    ],
   },
   "die-casting": {
     pageTitle: "Die Casting Lubricants – LUBOCAST Series",
@@ -706,6 +808,23 @@ const productCategoryData = {
               "Non-mineral hydraulic fluid for enhanced safety in die-casting machine operation, OEM approved.",
           }
         ],
+      },
+    ],
+    tdsDownloads: [
+      {
+        name: "LUBOCAST Series TDS",
+        url: "/documents/TDS/LUBOCAST-TDS.pdf",
+        description: "Technical data sheet for die casting lubricants",
+      },
+      {
+        name: "LUBO DIECOAT Series TDS",
+        url: "/documents/TDS/LUBO-DIECOAT-TDS.pdf",
+        description: "Technical specifications for die coating fluids",
+      },
+      {
+        name: "Die Casting Best Practices",
+        url: "/documents/guides/die-casting-practices.pdf",
+        description: "Best practices for lubrication and maintenance in die casting operations",
       },
     ],
   },

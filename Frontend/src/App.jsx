@@ -1,5 +1,5 @@
-import { Outlet, useLocation, Navigate } from 'react-router-dom';
-import { AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
+import { Outlet, Navigate } from 'react-router-dom';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 
@@ -16,6 +16,7 @@ import usePageTracking from './hooks/usePageTracking';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import NotFound from './pages/NotFound';
 import ProductCategory from './pages/ProductCategory';
 import ProductOils from './pages/ProductOils';
@@ -48,28 +49,18 @@ const BATTERY_SUBCATEGORIES = [
 
 function AppShell() {
   const { isLoading, forceLoadComplete } = useLoading();
-  const location = useLocation();
   usePageTracking();
 
   useEffect(() => {
-    const timer = setTimeout(() => forceLoadComplete(), 8000);
-    return () => clearTimeout(timer);
+    forceLoadComplete();
   }, [forceLoadComplete]);
-
-  const outletKey = location.pathname.startsWith('/solutions/industrial/battery')
-    ? '/solutions/industrial/battery'
-    : location.pathname;
 
   return (
     <>
       {isLoading && <LoadingScreen />}
       <ScrollToTop />
       <ScrollToAnchor />
-      <AnimatePresence mode="wait">
-        <div key={outletKey} style={{ display: 'contents' }}>
-          <Outlet />
-        </div>
-      </AnimatePresence>
+      <Outlet />
     </>
   );
 }
@@ -121,6 +112,7 @@ export const routes = [
               { index: true, element: <PageWrapper><Home /></PageWrapper> },
               { path: 'about', element: <PageWrapper><About /></PageWrapper> },
               { path: 'contact', element: <PageWrapper><Contact /></PageWrapper> },
+              { path: 'privacy-policy', element: <PageWrapper><PrivacyPolicy /></PageWrapper> },
 
               { path: 'solutions/industrial', element: <PageWrapper><IndustrialLanding /></PageWrapper> },
               { path: 'solutions/industrial/oils', element: <PageWrapper><ProductOils /></PageWrapper> },

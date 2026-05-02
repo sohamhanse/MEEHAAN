@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://www.meehaan.com)",
+      "Bash(curl -s https://www.meehaan.com/about)",
+      "Bash(curl -sI https://www.meehaan.com/about)",
+      "Bash(curl -s https://www.meehaan.com/solutions/industrial)",
+      "Bash(echo \".env.local\")",
+      "Bash(echo \".vercel\")",
+      "WebFetch(domain:meehaan.com)"
+    ]
+  }
+}

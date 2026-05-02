@@ -15,17 +15,18 @@ const fadeUp = {
   }),
 };
 
-const ProductCategorydetail = ({ 
-  pageTitle, 
-  pageDescription, 
-  heroImage, 
-  heroAlt, 
-  aboutTitle, 
-  aboutContent, 
-  aboutImage, 
-  keyFeatures, 
+const ProductCategorydetail = ({
+  pageTitle,
+  pageDescription,
+  heroImage,
+  heroAlt,
+  aboutTitle,
+  aboutContent,
+  aboutImage,
+  keyFeatures,
   productSeries,
-  productRangeTitle = "Product Range" 
+  productRangeTitle = "Product Range",
+  tdsDownloads = []
 }) => {
   const [expandedSeries, setExpandedSeries] = useState(productSeries?.[0]?.id || '');
 
@@ -383,6 +384,63 @@ const ProductCategorydetail = ({
           </div>
         </motion.div>
       </section>
+
+      {/* ═══════════════════════════════ SECTION: TDS DOWNLOADS ═══════════════════════════════ */}
+      {tdsDownloads && tdsDownloads.length > 0 && (
+        <section className="py-[64px] px-6 lg:px-[80px] bg-white border-t border-[var(--border)]">
+          <div className="max-w-[1200px] mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="mb-12"
+            >
+              <h2 className="font-syne font-bold text-[28px] lg:text-[32px] text-[var(--black)] mb-3">
+                Technical Resources & TDS Downloads
+              </h2>
+              <p className="font-dm text-[14px] text-[#666] max-w-[600px]">
+                Download technical data sheets, application guides, and safety information for our products.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {tdsDownloads.map((doc, index) => (
+                <motion.a
+                  key={index}
+                  href={doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={index * 0.1}
+                  className="group flex flex-col items-start p-6 bg-[var(--warm-white)] border border-[var(--border)] rounded-[8px] hover:border-[var(--orange)] hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 bg-[var(--orange)]/10 rounded-[6px] flex items-center justify-center mb-4 group-hover:bg-[var(--orange)]/20 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-[var(--orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m0 0a3 3 0 11-6 0m6 0a3 3 0 10-6 0m6-6.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-syne font-bold text-[15px] text-[var(--black)] mb-2 group-hover:text-[var(--orange)] transition-colors">
+                    {doc.name}
+                  </h3>
+                  <p className="font-dm text-[13px] text-[#888] mb-4 flex-grow">
+                    {doc.description}
+                  </p>
+                  <div className="flex items-center text-[var(--orange)] font-dm font-medium text-[13px] group-hover:gap-2 gap-1 transition-all">
+                    <span>Download PDF</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
     </div>
   );
