@@ -1,6 +1,6 @@
 {
-  "_client--sel6lqd.js": {
-    "file": "assets/client--sel6lqd.js",
+  "_client-D4POjeGu.js": {
+    "file": "assets/client-D4POjeGu.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-irsl_oXL.js",
+    "file": "assets/app-CAfkSoQW.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client--sel6lqd.js"
+      "_client-D4POjeGu.js"
     ],
     "css": [
-      "assets/app-LVynSFul.css"
+      "assets/app-C6-qJuMh.css"
     ]
   }
 }
