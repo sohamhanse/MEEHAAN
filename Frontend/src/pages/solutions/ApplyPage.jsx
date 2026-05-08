@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import SEOHead from '../../components/SEOHead';
+import { digitalPath } from '../../utils/seo';
 import { Check, ArrowRight, Loader } from 'lucide-react';
 
 const INK    = '#050805';
@@ -239,7 +240,7 @@ const ApplyPage = () => {
       <SEOHead
         title="Apply — MEEHAAN Digital Partner Program"
         description="Apply to the MEEHAAN Digital partner program. Tell us about yourself and we'll be in touch within 2 business days."
-        canonical="/solutions/digital/apply"
+        canonical={digitalPath('/apply')}
       />
 
       {/* ── Header ──────────────────────────────────────────────────────── */}

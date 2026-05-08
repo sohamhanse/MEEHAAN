@@ -11,6 +11,7 @@ import SEOHead from '../../components/SEOHead';
 import { Phone, FileText, Wrench, Zap, ArrowRight, Check, Send } from 'lucide-react';
 import { DIGITAL_PRODUCTS } from '../../data/digitalProducts';
 import { CASE_STUDIES } from '../../data/caseStudies';
+import { digitalPath, IS_DIGITAL_SITE, DIGITAL_SEO_BASE } from '../../utils/seo';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
@@ -879,28 +880,31 @@ const DigitalLanding = () => {
         title="AI Automation Agency — Custom AI Agents, Workflow Automation & Software"
         description="MEEHAAN Digital builds custom AI agents, workflow automation, and software for US and UK businesses. Fixed-price proposals in 48 hours. Live in under 14 days."
         keywords="AI automation agency, custom AI agents, workflow automation, AI software development, business automation, AI products, SaaS development, MEEHAAN digital"
-        canonical="/solutions/digital"
-        jsonLd={{
+        canonical={digitalPath('/')}
+        jsonLd={(() => {
+          const base = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : 'https://www.meehaan.com/solutions/digital';
+          const homeUrl = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl + '/' : 'https://www.meehaan.com/';
+          return {
           '@context': 'https://schema.org',
           '@graph': [
             {
               '@type': 'WebPage',
-              '@id': 'https://www.meehaan.com/solutions/digital',
+              '@id': base,
               'name': 'AI Automation Agency — MEEHAAN Digital',
               'description': 'MEEHAAN Digital builds custom AI agents, workflow automation, and software for US and UK businesses. Fixed-price proposals in 48 hours. Live in under 14 days.',
-              'url': 'https://www.meehaan.com/solutions/digital',
+              'url': base,
               'isPartOf': { '@id': 'https://www.meehaan.com/#website' },
               'breadcrumb': {
                 '@type': 'BreadcrumbList',
                 'itemListElement': [
-                  { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.meehaan.com/' },
-                  { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': 'https://www.meehaan.com/solutions/digital' },
+                  { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': homeUrl },
+                  { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': base },
                 ],
               },
             },
             {
               '@type': 'Service',
-              '@id': 'https://www.meehaan.com/solutions/digital#service',
+              '@id': `${base}#service`,
               'name': 'AI Product Development & Workflow Automation',
               'provider': { '@id': 'https://www.meehaan.com/#organization' },
               'serviceType': 'AI Automation',
@@ -921,18 +925,6 @@ const DigitalLanding = () => {
                   { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Website Builder AI' } },
                 ],
               },
-            },
-            {
-              '@type': 'HowTo',
-              'name': 'How MEEHAAN Digital Works',
-              'description': 'Four steps from first conversation to live deployment.',
-              'totalTime': 'P14D',
-              'step': [
-                { '@type': 'HowToStep', 'position': 1, 'name': 'Discovery Call', 'text': 'A free 30-minute call to understand your workflow, your business, and where AI fits. No pitch — just clarity.' },
-                { '@type': 'HowToStep', 'position': 2, 'name': 'Proposal in 48 Hours', 'text': 'A fixed-scope, fixed-price proposal delivered within 48 hours. Exact deliverables, exact timeline, exact cost.' },
-                { '@type': 'HowToStep', 'position': 3, 'name': 'Build & Iterate', 'text': 'Weekly sprints with a demo every Friday. You see progress continuously — no black-box development.' },
-                { '@type': 'HowToStep', 'position': 4, 'name': 'Deploy & Support', 'text': 'Your product goes live with 30 days of included post-launch support and full handover documentation.' },
-              ],
             },
             {
               '@type': 'FAQPage',
@@ -970,7 +962,7 @@ const DigitalLanding = () => {
               ],
             },
           ],
-        }}
+        };})()}
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -1211,7 +1203,7 @@ const DigitalLanding = () => {
               </p>
             </div>
             <Link
-              to="/solutions/digital/products"
+              to={digitalPath('/products')}
               className="font-dm font-medium text-[13px] inline-flex items-center gap-2 flex-shrink-0 group"
               style={{
                 color: '#060D08',
@@ -1266,7 +1258,7 @@ const DigitalLanding = () => {
                 <div className="flex items-center justify-between mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                   <span className="font-mono text-[9px]" style={{ color: '#3a3f3a' }}>{product.timeline}</span>
                   <Link
-                    to={`/solutions/digital/products/${product.slug}`}
+                    to={digitalPath(`/products/${product.slug}`)}
                     className="font-dm font-medium text-[11px] inline-flex items-center gap-1 group"
                     style={{ color: product.accentColor }}
                     aria-label={`View ${product.name}`}
@@ -1332,7 +1324,7 @@ const DigitalLanding = () => {
                   </p>
                 </div>
                 <Link
-                  to={`/solutions/digital/products/${product.slug}`}
+                  to={digitalPath(`/products/${product.slug}`)}
                   className="font-dm font-medium text-[13px] inline-flex items-center gap-2 flex-shrink-0 group"
                   style={{ color: product.accentColor }}
                 >
@@ -1619,7 +1611,7 @@ const DigitalLanding = () => {
 
           <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} className="flex flex-wrap gap-3 justify-center">
             <ForestCTA to={CAL_URL}>Book a free call</ForestCTA>
-            <ForestCTA to="/solutions/digital/products" variant="ghost">See what we've built</ForestCTA>
+            <ForestCTA to={digitalPath('/products')} variant="ghost">See what we've built</ForestCTA>
           </motion.div>
 
           <motion.p

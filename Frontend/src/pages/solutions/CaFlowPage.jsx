@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import CountUp from 'react-countup';
 import SEOHead from '../../components/SEOHead';
+import { digitalPath, IS_DIGITAL_SITE, DIGITAL_SEO_BASE } from '../../utils/seo';
 
 // ─── Easing ──────────────────────────────────────────────────────────────────
 const EASE = [0.23, 1, 0.32, 1];
@@ -553,7 +554,42 @@ const CaFlowPage = () => {
       <SEOHead
         title="CaFlow — WhatsApp Compliance Automation for CA Firms (GST, ITR, TDS)"
         description="CaFlow automates document collection, compliance deadline tracking, and fee recovery for CA firms in India. WhatsApp-native. GSTR-1, GSTR-3B, ITR, TDS. 14-day free trial."
-        canonical="/solutions/digital/caflow"
+        canonical={digitalPath('/caflow')}
+        jsonLd={(() => {
+          const base = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : 'https://www.meehaan.com/solutions/digital';
+          return {
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'SoftwareApplication',
+                '@id': `${base}/caflow`,
+                'name': 'CaFlow',
+                'applicationCategory': 'BusinessApplication',
+                'operatingSystem': 'Web',
+                'description': 'CaFlow automates document collection, compliance deadline tracking, and fee recovery for CA firms in India. WhatsApp-native. Covers GSTR-1, GSTR-3B, ITR, and TDS workflows.',
+                'url': `${base}/caflow`,
+                'provider': { '@id': 'https://www.meehaan.com/#organization' },
+                'offers': {
+                  '@type': 'Offer',
+                  'name': '14-Day Free Trial',
+                  'price': '0',
+                  'priceCurrency': 'INR',
+                  'description': '14-day free trial with full feature access. No credit card required.',
+                  'eligibleRegion': { '@type': 'Country', 'name': 'India' },
+                  'availability': 'https://schema.org/InStock',
+                },
+              },
+              {
+                '@type': 'BreadcrumbList',
+                'itemListElement': [
+                  { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl + '/' : 'https://www.meehaan.com/' },
+                  { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': base },
+                  { '@type': 'ListItem', 'position': 3, 'name': 'CaFlow', 'item': `${base}/caflow` },
+                ],
+              },
+            ],
+          };
+        })()}
       />
 
       {/* ─── HERO ────────────────────────────────────────────────────────────── */}
@@ -589,7 +625,7 @@ const CaFlowPage = () => {
                 variants={fadeUp} initial="hidden" animate={heroInView ? 'visible' : 'hidden'}
                 aria-label="Breadcrumb" className="font-mono text-[11px] mb-6" style={{ color: '#555' }}
               >
-                <Link to="/solutions/digital" style={{ color: '#555' }} className="hover:text-[#F5921E] transition-colors">Digital</Link>
+                <Link to={digitalPath('/')} style={{ color: '#555' }} className="hover:text-[#F5921E] transition-colors">Digital</Link>
                 <span className="mx-1">/</span>
                 <span style={{ color: '#777' }}>CaFlow</span>
               </motion.nav>
@@ -966,7 +1002,7 @@ const CaFlowPage = () => {
                 Start 14-Day Free Trial
               </Link>
               <Link
-                to="/solutions/digital"
+                to={digitalPath('/')}
                 className="font-dm font-medium text-[13px] inline-block cursor-pointer"
                 style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#888', padding: '13px 24px', borderRadius: 4, transition: 'border-color 200ms ease, color 200ms ease' }}
                 onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'; e.currentTarget.style.color = '#ccc'; }}

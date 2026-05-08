@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
 import { getProductBySlug, DIGITAL_PRODUCTS } from '../../data/digitalProducts';
+import { digitalPath, IS_DIGITAL_SITE, DIGITAL_SEO_BASE } from '../../utils/seo';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
@@ -202,7 +203,7 @@ const AgentCard = ({ agent, accentColor, index }) => (
 // ─── Related product pill ─────────────────────────────────────────────────────
 const RelatedPill = ({ product }) => (
   <Link
-    to={`/solutions/digital/products/${product.slug}`}
+    to={digitalPath(`/products/${product.slug}`)}
     className="inline-flex items-center gap-2 font-dm text-[12px] group"
     style={{
       background: INK_2, border: '1px solid rgba(255,255,255,0.07)',
@@ -224,7 +225,7 @@ const DigitalProductPage = () => {
   const { slug } = useParams();
   const product = getProductBySlug(slug);
 
-  if (!product) return <Navigate to="/solutions/digital/products" replace />;
+  if (!product) return <Navigate to={digitalPath('/products')} replace />;
 
   const {
     category, industry, timeline, accentColor,
@@ -321,6 +322,7 @@ const DigitalProductPage = () => {
     return () => ctx.revert();
   }, [slug]);
 
+  const dBase = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : 'https://www.meehaan.com/solutions/digital';
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -330,7 +332,7 @@ const DigitalProductPage = () => {
         'applicationCategory': 'BusinessApplication',
         'operatingSystem': 'Web',
         'description': heroDesc,
-        'url': `https://www.meehaan.com/solutions/digital/products/${slug}`,
+        'url': `${dBase}/products/${slug}`,
         'provider': {
           '@type': 'Organization',
           'name': 'MEEHAAN Enterprise',
@@ -338,19 +340,22 @@ const DigitalProductPage = () => {
         },
         'offers': {
           '@type': 'Offer',
-          'price': '0',
           'priceCurrency': 'USD',
-          'description': 'Free discovery call — fixed-price proposal delivered within 48 hours.',
+          'priceSpecification': {
+            '@type': 'UnitPriceSpecification',
+            'description': 'Fixed-price per project. Free 30-minute discovery call. Proposal delivered within 48 hours.',
+          },
+          'url': `${dBase}/apply`,
         },
         'featureList': sections.map((s) => s.heading),
       },
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.meehaan.com/' },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': 'https://www.meehaan.com/solutions/digital' },
-          { '@type': 'ListItem', 'position': 3, 'name': 'AI Products', 'item': 'https://www.meehaan.com/solutions/digital/products' },
-          { '@type': 'ListItem', 'position': 4, 'name': name, 'item': `https://www.meehaan.com/solutions/digital/products/${slug}` },
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl + '/' : 'https://www.meehaan.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': dBase },
+          { '@type': 'ListItem', 'position': 3, 'name': 'AI Products', 'item': `${dBase}/products` },
+          { '@type': 'ListItem', 'position': 4, 'name': name, 'item': `${dBase}/products/${slug}` },
         ],
       },
       {
@@ -370,7 +375,7 @@ const DigitalProductPage = () => {
         title={`${name} — AI Product by MEEHAAN Digital`}
         description={heroDesc.slice(0, 155)}
         keywords={`${name.toLowerCase()}, ${category.toLowerCase()}, AI automation, ${industry.toLowerCase()}, MEEHAAN digital`}
-        canonical={`/solutions/digital/products/${slug}`}
+        canonical={digitalPath(`/products/${slug}`)}
         jsonLd={productJsonLd}
       />
 
@@ -403,9 +408,9 @@ const DigitalProductPage = () => {
             aria-label="Breadcrumb"
             className="font-mono text-[11px] mb-8" style={{ color: '#555' }}
           >
-            <Link to="/solutions/digital" style={{ color: '#555' }} onMouseOver={e => e.currentTarget.style.color = LIME} onMouseOut={e => e.currentTarget.style.color = '#555'}>Digital</Link>
+            <Link to={digitalPath('/')} style={{ color: '#555' }} onMouseOver={e => e.currentTarget.style.color = LIME} onMouseOut={e => e.currentTarget.style.color = '#555'}>Digital</Link>
             <span className="mx-1">/</span>
-            <Link to="/solutions/digital/products" style={{ color: '#555' }} onMouseOver={e => e.currentTarget.style.color = LIME} onMouseOut={e => e.currentTarget.style.color = '#555'}>Products</Link>
+            <Link to={digitalPath('/products')} style={{ color: '#555' }} onMouseOver={e => e.currentTarget.style.color = LIME} onMouseOut={e => e.currentTarget.style.color = '#555'}>Products</Link>
             <span className="mx-1">/</span>
             <span style={{ color: '#888' }}>{name}</span>
           </motion.nav>
@@ -470,7 +475,7 @@ const DigitalProductPage = () => {
               Deploy this product <ArrowRight size={15} strokeWidth={2} />
             </a>
             <Link
-              to="/solutions/digital/products"
+              to={digitalPath('/products')}
               className="font-dm font-medium text-[13px]"
               style={{ color: '#555', transition: 'color 180ms ease' }}
               onMouseOver={e => e.currentTarget.style.color = LIME}
@@ -796,7 +801,7 @@ const DigitalProductPage = () => {
               Book a Call <ArrowRight size={16} strokeWidth={2} />
             </a>
             <Link
-              to="/solutions/digital/products"
+              to={digitalPath('/products')}
               className="font-dm font-medium inline-flex items-center gap-2"
               style={{
                 background: 'transparent', border: '1px solid rgba(255,255,255,0.14)',

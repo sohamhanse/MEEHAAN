@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { digitalPath, IS_DIGITAL_SITE } from '../utils/seo';
 
 const INK = '#050805';
 const LIME = '#D4F565';
@@ -34,9 +35,9 @@ const DigitalNavbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', to: '/solutions/digital' },
-    { label: 'Products', to: '/solutions/digital/products' },
-    { label: 'Contact Us', to: '/solutions/digital/apply' },
+    { label: 'Home', to: digitalPath('/') },
+    { label: 'Products', to: digitalPath('/products') },
+    { label: 'Contact Us', to: digitalPath('/apply') },
   ];
 
   return (
@@ -67,7 +68,7 @@ const DigitalNavbar = () => {
       >
         {/* Logo */}
         <Link
-          to="/solutions/digital"
+          to={digitalPath('/')}
           style={{ textDecoration: 'none' }}
         >
           <span
@@ -84,7 +85,7 @@ const DigitalNavbar = () => {
             <NavLink
               key={link.to}
               to={link.to}
-              end={link.to === '/solutions/digital'}
+              end={link.to === digitalPath('/')}
               style={({ isActive }) => ({
                 fontFamily: 'DM Sans, sans-serif',
                 fontSize: 13,
@@ -239,7 +240,7 @@ const DigitalNavbar = () => {
             {/* Bottom label */}
             <div style={{ marginTop: 'auto', paddingTop: 32 }}>
               <p
-                className="font-mono text-[10px] uppercase tracking-[0.18em]"
+                className="font-mono text-[12px] uppercase tracking-[0.18em]"
                 style={{ color: 'rgba(255,255,255,0.2)' }}
               >
                 MEEHAAN

@@ -9,12 +9,29 @@
       "destination": "https://www.meehaan.com/$1",
       "permanent": true
     },
+    {
+      "source": "/solutions/digital",
+      "has": [{ "type": "host", "value": "www.meehaan.com" }],
+      "destination": "https://digital.meehaan.com/",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/digital/:path*",
+      "has": [{ "type": "host", "value": "www.meehaan.com" }],
+      "destination": "https://digital.meehaan.com/:path*",
+      "permanent": true
+    },
     { "source": "/products", "destination": "/solutions/industrial", "permanent": true },
     { "source": "/products/oils", "destination": "/solutions/industrial/oils", "permanent": true },
     { "source": "/products/connectors", "destination": "/solutions/industrial/connectors", "permanent": true },
     { "source": "/products/oils/:categoryId", "destination": "/solutions/industrial/oils/:categoryId", "permanent": true }
   ],
   "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "has": [{ "type": "host", "value": "digital.meehaan.com" }],
+      "destination": "/sitemap-digital.xml"
+    },
     {
       "source": "/solutions/industrial/battery/:sub/:product",
       "destination": "/solutions/industrial/battery/:sub"

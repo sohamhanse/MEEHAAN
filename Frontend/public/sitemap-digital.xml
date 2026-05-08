@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- MEEHAAN Digital — digital.meehaan.com -->
+  <url>
+    <loc>https://digital.meehaan.com/</loc>
+    <lastmod>2026-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products</loc>
+    <lastmod>2026-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/caflow</loc>
+    <lastmod>2026-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/apply</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+
+  <!-- AI Product pages -->
+  <url>
+    <loc>https://digital.meehaan.com/products/horizontal-ai-agents</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/voice-intake-concierge</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/contact-center-intelligence</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/legal-recovery-ai</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/facility-operations-ai</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/ai-native-lms</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/caflow-practice-management</loc>
+    <lastmod>2026-05-02</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/website-builder-ai</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://digital.meehaan.com/products/exit-concierge</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
+
+</urlset>

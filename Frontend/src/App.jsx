@@ -3,6 +3,8 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 
+const IS_DIGITAL_SITE = import.meta.env.VITE_SITE === 'digital';
+
 import { LoadingProvider, useLoading } from './context/LoadingContext';
 import Layout from './components/Layout';
 import DigitalLayout from './components/DigitalLayout';
@@ -47,6 +49,18 @@ const BATTERY_SUBCATEGORIES = [
   'degson-connectors',
 ];
 
+const DIGITAL_PRODUCTS_SLUGS = [
+  'horizontal-ai-agents',
+  'voice-intake-concierge',
+  'contact-center-intelligence',
+  'legal-recovery-ai',
+  'facility-operations-ai',
+  'ai-native-lms',
+  'caflow-practice-management',
+  'website-builder-ai',
+  'exit-concierge',
+];
+
 function AppShell() {
   const { isLoading, forceLoadComplete } = useLoading();
   usePageTracking();
@@ -77,7 +91,36 @@ function Root() {
   );
 }
 
-export const routes = [
+const digitalRoutes = [
+  {
+    element: <Root />,
+    children: [
+      {
+        path: '/',
+        element: <DigitalLayout />,
+        children: [
+          {
+            element: <AppShell />,
+            children: [
+              { index: true, element: <PageWrapper><DigitalLanding /></PageWrapper> },
+              { path: 'caflow', element: <PageWrapper><CaFlowPage /></PageWrapper> },
+              { path: 'products', element: <PageWrapper><DigitalProductsPage /></PageWrapper> },
+              {
+                path: 'products/:slug',
+                element: <PageWrapper><DigitalProductPage /></PageWrapper>,
+                getStaticPaths: () => DIGITAL_PRODUCTS_SLUGS.map(slug => `products/${slug}`),
+              },
+              { path: 'apply', element: <PageWrapper><ApplyPage /></PageWrapper> },
+              { path: '*', element: <PageWrapper><NotFound /></PageWrapper> },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const mainRoutes = [
   {
     element: <Root />,
     children: [
@@ -94,7 +137,11 @@ export const routes = [
               { path: 'ai', element: <PageWrapper><DigitalLanding /></PageWrapper> },
               { path: 'caflow', element: <PageWrapper><CaFlowPage /></PageWrapper> },
               { path: 'products', element: <PageWrapper><DigitalProductsPage /></PageWrapper> },
-              { path: 'products/:slug', element: <PageWrapper><DigitalProductPage /></PageWrapper> },
+              {
+                path: 'products/:slug',
+                element: <PageWrapper><DigitalProductPage /></PageWrapper>,
+                getStaticPaths: () => DIGITAL_PRODUCTS_SLUGS.map(slug => `solutions/digital/products/${slug}`),
+              },
               { path: 'apply', element: <PageWrapper><ApplyPage /></PageWrapper> },
             ],
           },
@@ -147,5 +194,7 @@ export const routes = [
     ],
   },
 ];
+
+export const routes = IS_DIGITAL_SITE ? digitalRoutes : mainRoutes;
 
 export default routes;

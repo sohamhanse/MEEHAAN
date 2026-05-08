@@ -4,6 +4,107 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '../dist');
+const IS_DIGITAL_SITE = process.env.VITE_SITE === 'digital';
+
+const DIGITAL_BASE = 'https://digital.meehaan.com';
+const DIGITAL_OG = `${DIGITAL_BASE}/og-image.svg`;
+
+const digitalRouteMetadata = {
+  '/': {
+    title: 'MEEHAAN Digital — AI Automation Agency | Custom AI Agents & Workflow Automation',
+    description: 'MEEHAAN Digital builds custom AI agents, workflow automation, and software for US and UK businesses. Fixed-price proposals in 48 hours. Live in under 14 days.',
+    canonical: `${DIGITAL_BASE}/`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products': {
+    title: 'AI Products — Voice AI, Workflow Automation, Legal Tech & More | MEEHAAN Digital',
+    description: 'Nine specialised AI products built by MEEHAAN Digital. Voice AI, contact centre intelligence, legal recovery automation, field operations AI, and more. Deployed in under 14 days.',
+    canonical: `${DIGITAL_BASE}/products`,
+    ogImage: DIGITAL_OG,
+  },
+  '/caflow': {
+    title: 'CaFlow — WhatsApp Compliance Automation for CA Firms (GST, ITR, TDS)',
+    description: 'CaFlow automates document collection, compliance deadline tracking, and fee recovery for CA firms in India. WhatsApp-native. GSTR-1, GSTR-3B, ITR, TDS. 14-day free trial.',
+    canonical: `${DIGITAL_BASE}/caflow`,
+    ogImage: DIGITAL_OG,
+  },
+  '/apply': {
+    title: 'Apply — MEEHAAN Digital Partner Program',
+    description: 'Apply to the MEEHAAN Digital partner program. Tell us about yourself and we will be in touch within 2 business days.',
+    canonical: `${DIGITAL_BASE}/apply`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/horizontal-ai-agents': {
+    title: 'Horizontal AI Agents — Six Coordinated AI Agents for Your Business | MEEHAAN Digital',
+    description: 'Six coordinated AI agents sharing one unified context window. Covers sales, marketing, operations, collections, vendor management, and orchestration. Live in under 14 days.',
+    canonical: `${DIGITAL_BASE}/products/horizontal-ai-agents`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/voice-intake-concierge': {
+    title: 'Voice Intake Concierge — AI Voice Agent for Franchise & Multi-Location Businesses',
+    description: 'Always-on AI voice agent for franchise and multi-location businesses. Answers every inbound call, qualifies leads, handles intake, and routes complex cases — 24/7.',
+    canonical: `${DIGITAL_BASE}/products/voice-intake-concierge`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/contact-center-intelligence': {
+    title: 'Contact Center Intelligence — AI Layer for Live Call Centre Operations | MEEHAAN Digital',
+    description: 'AI layer deployed inside live call centre operations. Surfaces full caller context — account history, prior interactions, open issues — the moment a call connects.',
+    canonical: `${DIGITAL_BASE}/products/contact-center-intelligence`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/legal-recovery-ai': {
+    title: 'Legal Recovery AI — Automated Debt Negotiation & Legal Process Management',
+    description: 'Automates debt negotiation workflows and legal process management. The AI agent contacts debtors, presents terms, handles objections, and produces compliant documentation.',
+    canonical: `${DIGITAL_BASE}/products/legal-recovery-ai`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/facility-operations-ai': {
+    title: 'Facility Operations AI — Conversational AI for Field Technicians | MEEHAAN Digital',
+    description: 'Gives field technicians conversational access to full property history and service records. Handles inbound client queries and service scheduling without a human dispatcher.',
+    canonical: `${DIGITAL_BASE}/products/facility-operations-ai`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/ai-native-lms': {
+    title: 'AI-Native LMS — Adaptive Learning & Onboarding Platform | MEEHAAN Digital',
+    description: 'Adaptive learning and onboarding platform built natively on AI. Personalised learning paths, adaptive content sequencing, and AI-driven reinforcement loops.',
+    canonical: `${DIGITAL_BASE}/products/ai-native-lms`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/caflow-practice-management': {
+    title: 'CaFlow Practice Management — AI Platform for Accounting Firms (US & UAE)',
+    description: 'End-to-end practice management for accounting firms. Replaces TaxDome, Dext, and Karbon. Automates document collection, compliance deadlines, and fee recovery.',
+    canonical: `${DIGITAL_BASE}/products/caflow-practice-management`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/website-builder-ai': {
+    title: 'Website Builder AI — Automated Website Design, SEO & Growth | MEEHAAN Digital',
+    description: 'Builds, continuously optimises, and grows websites automatically. Handles design, copy, SEO, and AEO — and keeps improving post-launch without operator involvement.',
+    canonical: `${DIGITAL_BASE}/products/website-builder-ai`,
+    ogImage: DIGITAL_OG,
+  },
+  '/products/exit-concierge': {
+    title: 'Exit Concierge — AI Operations Layer for Business Brokers & M&A Advisors',
+    description: 'AI operations layer for business brokers and M&A advisors. Automates prospect qualification, document collection, buyer-seller matching, and communication sequencing.',
+    canonical: `${DIGITAL_BASE}/products/exit-concierge`,
+    ogImage: DIGITAL_OG,
+  },
+};
+
+const digitalFileMapping = {
+  'index.html': '/',
+  'products.html': '/products',
+  'caflow.html': '/caflow',
+  'apply.html': '/apply',
+  'products/horizontal-ai-agents.html': '/products/horizontal-ai-agents',
+  'products/voice-intake-concierge.html': '/products/voice-intake-concierge',
+  'products/contact-center-intelligence.html': '/products/contact-center-intelligence',
+  'products/legal-recovery-ai.html': '/products/legal-recovery-ai',
+  'products/facility-operations-ai.html': '/products/facility-operations-ai',
+  'products/ai-native-lms.html': '/products/ai-native-lms',
+  'products/caflow-practice-management.html': '/products/caflow-practice-management',
+  'products/website-builder-ai.html': '/products/website-builder-ai',
+  'products/exit-concierge.html': '/products/exit-concierge',
+};
 
 // SEO metadata for each route
 const routeMetadata = {
@@ -244,8 +345,11 @@ function injectMetadata(htmlFilePath, metadata) {
   fs.writeFileSync(htmlFilePath, finalHtml, 'utf-8');
 }
 
+const activeMapping = IS_DIGITAL_SITE ? digitalFileMapping : fileMapping;
+const activeMetadata = IS_DIGITAL_SITE ? digitalRouteMetadata : routeMetadata;
+
 // Process all files
-Object.entries(fileMapping).forEach(([distPath, route]) => {
+Object.entries(activeMapping).forEach(([distPath, route]) => {
   const fullPath = path.join(distDir, distPath);
 
   if (!fs.existsSync(fullPath)) {
@@ -253,8 +357,8 @@ Object.entries(fileMapping).forEach(([distPath, route]) => {
     return;
   }
 
-  if (routeMetadata[route]) {
-    injectMetadata(fullPath, routeMetadata[route]);
+  if (activeMetadata[route]) {
+    injectMetadata(fullPath, activeMetadata[route]);
     console.log(`✓ Injected metadata for ${route}`);
   } else {
     console.warn(`⚠ No metadata found for route ${route}`);

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { digitalPath, IS_DIGITAL_SITE, DIGITAL_SEO_BASE } from '../../utils/seo';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
@@ -169,7 +170,7 @@ const ProductCard = ({ product, index, featured }) => {
 
         <div className="mt-8 pt-6 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
           <Link
-            to={`/solutions/digital/products/${slug}`}
+            to={digitalPath(`/products/${slug}`)}
             className="inline-flex items-center gap-2 font-dm font-medium text-[13px] group"
             style={{ color: accentColor }}
           >
@@ -225,7 +226,7 @@ const ProductCard = ({ product, index, featured }) => {
       <div className="flex items-center justify-between mt-auto pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <span className="font-mono text-[10px]" style={{ color: '#3a3f3a' }}>{timeline}</span>
         <Link
-          to={`/solutions/digital/products/${slug}`}
+          to={digitalPath(`/products/${slug}`)}
           className="inline-flex items-center gap-1 font-dm font-medium text-[12px] group"
           style={{ color: accentColor }}
         >
@@ -250,41 +251,46 @@ const DigitalProductsPage = () => {
         title="AI Products — Voice AI, Workflow Automation, Legal Tech & More"
         description="Eight specialised AI products built by MEEHAAN Digital. Voice AI, contact centre intelligence, legal recovery automation, field operations AI, and more. Deployed in under 14 days."
         keywords="AI products, voice AI agent, AI automation products, workflow automation software, legal tech AI, field operations AI, contact centre AI, AI SaaS"
-        canonical="/solutions/digital/products"
-        jsonLd={{
+        canonical={digitalPath('/products')}
+        jsonLd={(() => {
+          const base = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : 'https://www.meehaan.com/solutions/digital';
+          const p = (slug) => `${base}/products${slug ? '/' + slug : ''}`;
+          return {
           '@context': 'https://schema.org',
           '@graph': [
             {
               '@type': 'WebPage',
-              '@id': 'https://www.meehaan.com/solutions/digital/products',
+              '@id': p(''),
               'name': 'AI Products — MEEHAAN Digital',
-              'url': 'https://www.meehaan.com/solutions/digital/products',
-              'description': 'Eight specialised AI products built by MEEHAAN Digital. Deployed in under 14 days.',
+              'url': p(''),
+              'description': 'Nine specialised AI products built by MEEHAAN Digital. Deployed in under 14 days.',
               'breadcrumb': {
                 '@type': 'BreadcrumbList',
                 'itemListElement': [
-                  { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.meehaan.com/' },
-                  { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': 'https://www.meehaan.com/solutions/digital' },
-                  { '@type': 'ListItem', 'position': 3, 'name': 'AI Products', 'item': 'https://www.meehaan.com/solutions/digital/products' },
+                  { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl + '/' : 'https://www.meehaan.com/' },
+                  { '@type': 'ListItem', 'position': 2, 'name': 'Digital Solutions', 'item': base },
+                  { '@type': 'ListItem', 'position': 3, 'name': 'AI Products', 'item': p('') },
                 ],
               },
             },
             {
               '@type': 'ItemList',
               'name': 'MEEHAAN Digital AI Products',
-              'description': 'Eight specialised AI systems for franchise operators, brokers, legal teams, field services, and more.',
+              'description': 'Nine specialised AI systems for franchise operators, brokers, legal teams, field services, and more.',
               'itemListElement': [
-                { '@type': 'ListItem', 'position': 1, 'name': 'Voice Intake Concierge', 'url': 'https://www.meehaan.com/solutions/digital/products/voice-intake-concierge', 'description': 'Always-on AI voice agent for franchise and multi-location businesses.' },
-                { '@type': 'ListItem', 'position': 2, 'name': 'AI-Native LMS', 'url': 'https://www.meehaan.com/solutions/digital/products/ai-native-lms', 'description': 'Adaptive learning and onboarding platform built natively on AI.' },
-                { '@type': 'ListItem', 'position': 3, 'name': 'Legal Recovery AI', 'url': 'https://www.meehaan.com/solutions/digital/products/legal-recovery-ai', 'description': 'AI platform for debt recovery and legal process workflow automation.' },
-                { '@type': 'ListItem', 'position': 4, 'name': 'Facility Operations AI', 'url': 'https://www.meehaan.com/solutions/digital/products/facility-operations-ai', 'description': 'AI intelligence layer for facility management and field service operators.' },
-                { '@type': 'ListItem', 'position': 5, 'name': 'Contact Center Intelligence', 'url': 'https://www.meehaan.com/solutions/digital/products/contact-center-intelligence', 'description': 'AI layer that surfaces full caller context the moment a call connects.' },
-                { '@type': 'ListItem', 'position': 6, 'name': 'Horizontal AI Agents', 'url': 'https://www.meehaan.com/solutions/digital/products/horizontal-ai-agents', 'description': 'Six coordinated AI agents sharing one context window across your entire business.' },
-                { '@type': 'ListItem', 'position': 7, 'name': 'CaFlow', 'url': 'https://www.meehaan.com/solutions/digital/products/caflow-practice-management', 'description': 'End-to-end practice management platform for accounting firms in the US and UAE — replacing TaxDome, Dext, and Karbon with one platform.' },
+                { '@type': 'ListItem', 'position': 1, 'name': 'Voice Intake Concierge', 'url': p('voice-intake-concierge'), 'description': 'Always-on AI voice agent for franchise and multi-location businesses.' },
+                { '@type': 'ListItem', 'position': 2, 'name': 'AI-Native LMS', 'url': p('ai-native-lms'), 'description': 'Adaptive learning and onboarding platform built natively on AI.' },
+                { '@type': 'ListItem', 'position': 3, 'name': 'Legal Recovery AI', 'url': p('legal-recovery-ai'), 'description': 'AI platform for debt recovery and legal process workflow automation.' },
+                { '@type': 'ListItem', 'position': 4, 'name': 'Facility Operations AI', 'url': p('facility-operations-ai'), 'description': 'AI intelligence layer for facility management and field service operators.' },
+                { '@type': 'ListItem', 'position': 5, 'name': 'Contact Center Intelligence', 'url': p('contact-center-intelligence'), 'description': 'AI layer that surfaces full caller context the moment a call connects.' },
+                { '@type': 'ListItem', 'position': 6, 'name': 'Horizontal AI Agents', 'url': p('horizontal-ai-agents'), 'description': 'Six coordinated AI agents sharing one context window across your entire business.' },
+                { '@type': 'ListItem', 'position': 7, 'name': 'CaFlow', 'url': p('caflow-practice-management'), 'description': 'End-to-end practice management platform for accounting firms in the US and UAE — replacing TaxDome, Dext, and Karbon with one platform.' },
+                { '@type': 'ListItem', 'position': 8, 'name': 'Website Builder AI', 'url': p('website-builder-ai'), 'description': 'Builds, continuously optimises, and grows websites automatically — design, copy, SEO, and AEO.' },
+                { '@type': 'ListItem', 'position': 9, 'name': 'Exit Concierge', 'url': p('exit-concierge'), 'description': 'AI operations layer for business brokers — automates qualification, document collection, and buyer-seller matching.' },
               ],
             },
           ],
-        }}
+        };})()}
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -315,7 +321,7 @@ const DigitalProductsPage = () => {
             aria-label="Breadcrumb"
             className="font-mono text-[11px] mb-8" style={{ color: '#555' }}
           >
-            <Link to="/solutions/digital" style={{ color: '#555' }} onMouseOver={e => e.currentTarget.style.color = LIME} onMouseOut={e => e.currentTarget.style.color = '#555'}>Digital</Link>
+            <Link to={digitalPath('/')} style={{ color: '#555' }} onMouseOver={e => e.currentTarget.style.color = LIME} onMouseOut={e => e.currentTarget.style.color = '#555'}>Digital</Link>
             <span className="mx-1">/</span>
             <span style={{ color: '#888' }}>AI Products</span>
           </motion.nav>
@@ -413,7 +419,7 @@ const DigitalProductsPage = () => {
               Book a Call <ArrowRight size={16} strokeWidth={2} />
             </Link>
             <Link
-              to="/solutions/digital"
+              to={digitalPath('/')}
               className="font-dm font-medium inline-flex items-center gap-2"
               style={{
                 background: 'transparent', border: '1px solid rgba(255,255,255,0.14)',
