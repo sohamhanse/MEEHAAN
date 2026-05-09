@@ -18,7 +18,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'motion': ['framer-motion'],
           'gsap': ['gsap'],
           'three': ['three', '@react-three/fiber', '@react-three/drei', '@splinetool/react-spline', '@splinetool/runtime'],
