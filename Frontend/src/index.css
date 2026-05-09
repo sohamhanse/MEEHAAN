@@ -193,6 +193,15 @@ h1, h2, h3, h4, h5, h6 {
 .loading-dot:nth-child(2) { animation-delay: 0.2s; }
 .loading-dot:nth-child(3) { animation-delay: 0.4s; }
 
+/* === SWIPER PAGINATION OVERRIDE === */
+.swiper-pagination-bullet { background: #ccc; opacity: 1; width: 8px; height: 8px; }
+.swiper-pagination-bullet-active { background: #FF6600; width: 24px; border-radius: 4px; }
+
+/* Reduced motion: disable image zoom */
+@media (prefers-reduced-motion: reduce) {
+  img { transition: none !important; }
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .hero-panel, .hero-panel img, .hero-panel .panel-desc, .hero-panel .panel-cta, .hero-panel .panel-accent {
