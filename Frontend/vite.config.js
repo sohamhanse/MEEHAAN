@@ -15,16 +15,6 @@ export default defineConfig({
     noExternal: ['react-helmet-async'],
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'motion': ['framer-motion'],
-          'gsap': ['gsap'],
-          'three': ['three', '@react-three/fiber', '@react-three/drei', '@splinetool/react-spline', '@splinetool/runtime'],
-          'swiper': ['swiper'],
-          'ui': ['lucide-react', 'react-icons'],
-        },
-      },
-    },
+    chunkSizeWarningLimit: 1000,
   },
 })
