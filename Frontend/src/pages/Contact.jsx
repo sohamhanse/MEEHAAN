@@ -61,9 +61,39 @@ const Contact = () => {
   return (
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
-        title="Contact MEEHAAN — Pune, Maharashtra | +91 99235 88450"
-        description="Contact MEEHAAN Enterprise for industrial product quotes, connector sourcing, oil specifications, or digital solution consultations. Based in Pune, Maharashtra. 24-hour response."
+        title="Contact MEEHAAN Enterprise | +91 99235 88450"
+        description="Contact MEEHAAN Enterprise for industrial product quotes, connector sourcing, oil specifications, or digital solution consultations. 24-hour response guaranteed."
         canonical="/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://www.meehaan.com/contact",
+              "url": "https://www.meehaan.com/contact",
+              "name": "Contact MEEHAAN Enterprise",
+              "isPartOf": { "@id": "https://www.meehaan.com/#website" },
+              "about": { "@id": "https://www.meehaan.com/#organization" },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.meehaan.com/contact" }
+                ]
+              }
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "What products does MEEHAAN supply?", "acceptedAnswer": { "@type": "Answer", "text": "MEEHAAN supplies industrial lubricants under the LUBO brand (heat treatment oils, metalworking fluids, rust preventives), automotive connectors from Yazaki, TE Connectivity, and Molex, and battery accessories including FRP sheets, terminal blocks, and Anderson/Degson connectors." }},
+                { "@type": "Question", "name": "What is the minimum order quantity?", "acceptedAnswer": { "@type": "Answer", "text": "MOQ varies by product. Industrial oils typically start at 20 litres. For connectors and battery accessories it depends on the SKU. Contact us with your requirement for accurate MOQ information." }},
+                { "@type": "Question", "name": "Does MEEHAAN supply outside India?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, MEEHAAN supplies globally. We have logistics partnerships to deliver to manufacturing hubs worldwide." }},
+                { "@type": "Question", "name": "How quickly can I get a quote?", "acceptedAnswer": { "@type": "Answer", "text": "We respond to all quote requests within 24 hours on business days. For urgent requirements, WhatsApp us directly at +91 99235 88450." }},
+                { "@type": "Question", "name": "Do you offer digital solutions for non-industrial businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, MEEHAAN's Digital Solutions division works with all types of businesses. We build custom software, CRM systems, and AI automation tools for companies looking to improve their operations." }}
+              ]
+            }
+          ]
+        }}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HEADER ═══════════════════════════════ */}

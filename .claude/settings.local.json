@@ -7,7 +7,11 @@
       "Bash(curl -s https://www.meehaan.com/solutions/industrial)",
       "Bash(echo \".env.local\")",
       "Bash(echo \".vercel\")",
-      "WebFetch(domain:meehaan.com)"
+      "WebFetch(domain:meehaan.com)",
+      "Bash(curl *)",
+      "Bash(python3)",
+      "WebFetch(domain:www.meehaan.com)",
+      "WebFetch(domain:www.digital.meehaan.com)"
     ]
   }
 }

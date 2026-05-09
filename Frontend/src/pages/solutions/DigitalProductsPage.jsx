@@ -249,9 +249,10 @@ const DigitalProductsPage = () => {
     <div className="min-h-screen" style={{ background: INK, paddingTop: 64 }}>
       <SEOHead
         title="AI Products — Voice AI, Workflow Automation, Legal Tech & More"
-        description="Eight specialised AI products built by MEEHAAN Digital. Voice AI, contact centre intelligence, legal recovery automation, field operations AI, and more. Deployed in under 14 days."
+        description="Nine specialised AI products built by MEEHAAN Digital. Voice AI, contact centre intelligence, legal recovery automation, field operations AI, and more. Deployed in under 14 days."
         keywords="AI products, voice AI agent, AI automation products, workflow automation software, legal tech AI, field operations AI, contact centre AI, AI SaaS"
         canonical={digitalPath('/products')}
+        ogLocale="en_US"
         jsonLd={(() => {
           const base = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : 'https://www.meehaan.com/solutions/digital';
           const p = (slug) => `${base}/products${slug ? '/' + slug : ''}`;
@@ -263,7 +264,7 @@ const DigitalProductsPage = () => {
               '@id': p(''),
               'name': 'AI Products — MEEHAAN Digital',
               'url': p(''),
-              'description': 'Nine specialised AI products built by MEEHAAN Digital. Deployed in under 14 days.',
+              'description': 'Nine specialised AI systems built by MEEHAAN Digital. Deployed in under 14 days.',
               'breadcrumb': {
                 '@type': 'BreadcrumbList',
                 'itemListElement': [
@@ -329,7 +330,7 @@ const DigitalProductsPage = () => {
           <motion.div variants={reveal} initial="hidden" animate="visible" custom={1} className="inline-flex items-center gap-2 mb-8"
             style={{ background: 'rgba(212,245,101,0.06)', border: '1px solid rgba(212,245,101,0.22)', borderRadius: 999, padding: '6px 16px' }}>
             <span style={{ width: 7, height: 7, borderRadius: '50%', background: LIME, boxShadow: `0 0 10px ${LIME}` }} className="animate-pulse" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: LIME }}>8 AI products · live in 14 days</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: LIME }}>9 AI products · live in 14 days</span>
           </motion.div>
 
           <motion.h1

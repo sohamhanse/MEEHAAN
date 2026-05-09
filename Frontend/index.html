@@ -13,12 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="MEEHAAN Enterprise" />
   <meta name="theme-color" content="#050805" />
-  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
+  <meta name="google-site-verification" content="a8tgNFRe5fyj9SMN1Z3CI1zC-hleEZt9GGRglhZ7fyw" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,600&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,600&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,600&display=optional"></noscript>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-28D0N4CCTW"></script>
   <script>
@@ -29,11 +28,15 @@
   </script>
 
   <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "wchsu4xb4x");
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "wchsu4xb4x");
+      }, 3000);
+    });
   </script>
 
   <script type="application/ld+json">
@@ -51,7 +54,8 @@
             "width": 512,
             "height": 512
           },
-          "description": "Industrial lubricants, automotive connectors, battery accessories, and digital solutions for modern India.",
+          "description": "B2B supplier of industrial lubricants, automotive connectors, battery accessories, and AI automation software for manufacturers worldwide.",
+          "foundingDate": "2018",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Gat No. 1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali",
@@ -62,19 +66,22 @@
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+91-9923588450",
-            "contactType": "sales",
+            "telephone": "+919923588450",
+            "contactType": "customer service",
             "availableLanguage": ["English", "Hindi", "Marathi"]
           },
-          "sameAs": []
+          "sameAs": [
+            "https://www.linkedin.com/company/meehaan-enterprise",
+            "https://maps.app.goo.gl/meehaan-enterprise"
+          ]
         },
         {
           "@type": "LocalBusiness",
           "@id": "https://www.meehaan.com/#localbusiness",
           "name": "MEEHAAN Enterprise",
           "url": "https://www.meehaan.com/",
-          "telephone": "+91-9923588450",
-          "email": "sales@meehaan.com",
+          "telephone": "+919923588450",
+          "email": "info@meehaan.com",
           "image": "https://www.meehaan.com/meehaan_logo/MEEHAAN%20Logo%20Without%20Bg-01.png",
           "address": {
             "@type": "PostalAddress",
@@ -103,12 +110,7 @@
           "@id": "https://www.meehaan.com/#website",
           "url": "https://www.meehaan.com/",
           "name": "MEEHAAN Enterprise",
-          "publisher": { "@id": "https://www.meehaan.com/#organization" },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.meehaan.com/solutions/industrial/battery?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
+          "publisher": { "@id": "https://www.meehaan.com/#organization" }
         }
       ]
     }

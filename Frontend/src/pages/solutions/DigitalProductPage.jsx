@@ -340,11 +340,10 @@ const DigitalProductPage = () => {
         },
         'offers': {
           '@type': 'Offer',
+          'price': '0',
           'priceCurrency': 'USD',
-          'priceSpecification': {
-            '@type': 'UnitPriceSpecification',
-            'description': 'Fixed-price per project. Free 30-minute discovery call. Proposal delivered within 48 hours.',
-          },
+          'description': 'Fixed-price per project. Free 30-minute discovery call. Proposal delivered within 48 hours.',
+          'availability': 'https://schema.org/OnlineOnly',
           'url': `${dBase}/apply`,
         },
         'featureList': sections.map((s) => s.heading),
@@ -376,6 +375,7 @@ const DigitalProductPage = () => {
         description={heroDesc.slice(0, 155)}
         keywords={`${name.toLowerCase()}, ${category.toLowerCase()}, AI automation, ${industry.toLowerCase()}, MEEHAAN digital`}
         canonical={digitalPath(`/products/${slug}`)}
+        ogLocale="en_US"
         jsonLd={productJsonLd}
       />
 

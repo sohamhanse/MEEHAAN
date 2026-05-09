@@ -7,8 +7,9 @@ const SEOHead = ({
   description,
   keywords,
   canonical,
-  ogImage = '/og-image.png',
+  ogImage = '/og-image.svg',
   ogType = 'website',
+  ogLocale = 'en_US',
   noIndex = false,
   jsonLd,
 }) => {
@@ -37,10 +38,10 @@ const SEOHead = ({
       <meta property="og:image" content={absoluteOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:type" content="image/svg+xml" />
       <meta property="og:image:alt" content="MEEHAAN Enterprise - Industrial Lubricants & Digital Solutions" />
       <meta property="og:site_name" content={SEO_BASE.siteName} />
-      <meta property="og:locale" content="en_IN" />
+      <meta property="og:locale" content={ogLocale} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

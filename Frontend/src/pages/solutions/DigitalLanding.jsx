@@ -881,6 +881,7 @@ const DigitalLanding = () => {
         description="MEEHAAN Digital builds custom AI agents, workflow automation, and software for US and UK businesses. Fixed-price proposals in 48 hours. Live in under 14 days."
         keywords="AI automation agency, custom AI agents, workflow automation, AI software development, business automation, AI products, SaaS development, MEEHAAN digital"
         canonical={digitalPath('/')}
+        ogLocale="en_US"
         jsonLd={(() => {
           const base = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : 'https://www.meehaan.com/solutions/digital';
           const homeUrl = IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl + '/' : 'https://www.meehaan.com/';
@@ -893,6 +894,8 @@ const DigitalLanding = () => {
               'name': 'AI Automation Agency — MEEHAAN Digital',
               'description': 'MEEHAAN Digital builds custom AI agents, workflow automation, and software for US and UK businesses. Fixed-price proposals in 48 hours. Live in under 14 days.',
               'url': base,
+              'datePublished': '2025-05-01',
+              'dateModified': '2026-05-09',
               'isPartOf': { '@id': 'https://www.meehaan.com/#website' },
               'breadcrumb': {
                 '@type': 'BreadcrumbList',

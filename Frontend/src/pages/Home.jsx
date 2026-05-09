@@ -34,7 +34,7 @@ const IndustryCard = ({ industry, col = 'left', gridCol, gridRow, delay = 0 }) =
       style={{ gridColumn: gridCol, gridRow, width: '100%' }}
     >
       {/* Image */}
-      <div style={{ overflow: 'hidden', marginBottom: '14px', width: '100%', height: '148px', position: 'relative' }}>
+      <div style={{ overflow: 'hidden', marginBottom: '14px', width: '100%', aspectRatio: industry.aspectRatio, position: 'relative' }}>
         <img
           src={industry.image}
           alt={industry.name}
@@ -119,27 +119,32 @@ const Home = () => {
   const industries = [
     {
       name: 'Metal Works',
-      image: '/images/Products/Oil/Metal Forming & Wire Drawing.jpg',
+      image: '/images/Home/metal-working-fluids-and-oils-1000x1000.jpeg',
+      aspectRatio: '1000/563',
       points: ['Metalworking fluids', 'Cutting coolants', 'Metal forming oils', 'Rust preventives'],
     },
     {
-      name: 'Battery Manufacturer',
-      image: '/images/Home/connectors.jpg',
-      points: ['Terminal blocks', 'FRP & epoxy sheets', 'PG cable glands', 'Busbar connectors'],
+      name: 'Lithium-ion Battery Manufacturer',
+      image: '/images/Home/Lithium-ion.jpg',
+      aspectRatio: '770/470',
+      points: ['Cell assembly lubricants', 'Busbar connectors', 'Battery terminal blocks', 'FRP & epoxy sheets'],
     },
     {
       name: 'Electric Vehicles',
-      image: '/images/Home/connectors.jpg',
+      image: '/images/Home/ev_battery.jpg',
+      aspectRatio: '1800/1013',
       points: ['Anderson connectors', 'Battery terminal blocks', 'EV wire harness', 'High-current connectors'],
     },
     {
       name: 'Wire Harness',
       image: '/images/Trusted_Brand/C2.jpg',
+      aspectRatio: '470/445',
       points: ['Yazaki connectors', 'Sumitomo terminals', 'TE Connectivity', 'Sealed connector systems'],
     },
     {
       name: 'Generator Manufacturer',
-      image: '/images/Home/Industrial_Grease.jpg',
+      image: '/images/Home/Generatorjpg.jpg',
+      aspectRatio: '1/1',
       points: ['Industrial lubricants', 'Cooling system fluids', 'Anti-rust coatings', 'Maintenance oils'],
     },
     {
@@ -160,42 +165,13 @@ const Home = () => {
 
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "LocalBusiness"],
-        "@id": "https://www.meehaan.com/#organization",
-        "name": "MEEHAAN Enterprise",
-        "url": "https://www.meehaan.com",
-        "logo": "https://www.meehaan.com/meehaan_logo/MEEHAAN Logo Without Bg-01.png",
-        "description": "MEEHAAN Enterprise is a B2B company operating two divisions from Pune, India: LUBO industrial lubricants, automotive connectors and battery accessories for EV/solar supply chains; and custom software and AI automation for businesses globally.",
-        "foundingDate": "2018",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Gat No.1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali, Dehu Road",
-          "addressLocality": "Pune",
-          "addressRegion": "Maharashtra",
-          "postalCode": "411062",
-          "addressCountry": "IN"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 18.6905112,
-          "longitude": 73.7989598
-        },
-        "telephone": "+919923588450",
-        "email": "info@meehaan.com",
-        "areaServed": { "@type": "Thing", "name": "Worldwide" },
-        "knowsAbout": ["Industrial Lubricants", "Automotive Connectors", "Battery Accessories", "AI Automation", "Custom Software Development"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.meehaan.com/#website",
-        "name": "MEEHAAN Enterprise",
-        "url": "https://www.meehaan.com",
-        "description": "Industrial lubricants, automotive connectors, battery accessories, and AI-powered digital solutions for manufacturers and businesses worldwide.",
-        "publisher": { "@id": "https://www.meehaan.com/#organization" }
-      }
-    ]
+    "@type": "WebPage",
+    "@id": "https://www.meehaan.com/#webpage",
+    "url": "https://www.meehaan.com/",
+    "name": "MEEHAAN Enterprise — Industrial Lubricants, Connectors & Digital Solutions",
+    "isPartOf": { "@id": "https://www.meehaan.com/#website" },
+    "about": { "@id": "https://www.meehaan.com/#organization" },
+    "dateModified": "2026-05-09"
   };
 
   return (
@@ -313,7 +289,7 @@ const Home = () => {
               <StepNum num="01" label="Metal Works"       gridCol={2} gridRow={1} />
 
               {/* Row 2 — card col 3 */}
-              <StepNum num="02" label="Battery Mfr."      gridCol={2} gridRow={2} />
+              <StepNum num="02" label="Li-ion Battery Mfr." gridCol={2} gridRow={2} />
               <IndustryCard industry={industries[1]} col="right"  gridCol={3} gridRow={2} delay={0} />
 
               {/* Row 3 — card col 2 */}

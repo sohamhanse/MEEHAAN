@@ -35,18 +35,42 @@ const About = () => {
   return (
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
-        title="About MEEHAAN Enterprise — Industrial & Digital Solutions, Pune"
-        description="Founded in 2018 in Pune, MEEHAAN Enterprise is a trusted supplier of industrial lubricants, connectors, battery accessories and digital/AI services for Indian manufacturers."
+        title="About MEEHAAN Enterprise — Industrial & Digital Solutions"
+        description="Founded in 2018, MEEHAAN Enterprise is a global B2B supplier of industrial lubricants, connectors, battery accessories, and AI automation software for manufacturers worldwide."
         canonical="/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://www.meehaan.com/about",
+              "url": "https://www.meehaan.com/about",
+              "name": "About MEEHAAN Enterprise",
+              "description": "Founded in 2018, MEEHAAN Enterprise supplies industrial lubricants, automotive connectors, battery accessories, and AI automation worldwide.",
+              "isPartOf": { "@id": "https://www.meehaan.com/#website" },
+              "about": { "@id": "https://www.meehaan.com/#organization" },
+              "dateModified": "2026-05-09",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.meehaan.com/about" }
+                ]
+              }
+            }
+          ]
+        }}
       />
 
       {/* SECTION 1 — HERO */}
       <section ref={heroRef} className="relative bg-[#1A1A1A] min-h-[480px] overflow-hidden">
         {/* Full-bleed background image on the right */}
         <div className="absolute right-0 top-0 w-[100%] lg:w-[55%] h-full">
-          <img 
-            src="/images/Home/Home_About.jpg" 
-            alt="MEEHAAN Foundation" 
+          <img
+            src="/images/Home/Home_About.jpg"
+            alt="MEEHAAN Foundation"
+            fetchpriority="high"
+            loading="eager"
             className="w-full h-full object-cover opacity-[0.15] filter brightness-[0.4]"
           />
           {/* Gradient overlay to fade it securely out towards the left */}
