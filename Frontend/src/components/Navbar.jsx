@@ -31,11 +31,6 @@ const Navbar = () => {
     { name: 'Battery Accessories', sub: 'FRP sheets, terminal blocks, assemblies', path: '/solutions/industrial/battery' },
   ];
 
-  const digitalLinks = [
-    { name: 'Software Development', sub: 'CRMs, dashboards, web apps & APIs', path: '/solutions/digital/software' },
-    { name: 'AI Automation', sub: 'WhatsApp bots, lead pipelines, workflows', path: '/solutions/digital/ai' },
-  ];
-
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
@@ -105,9 +100,9 @@ const Navbar = () => {
                       boxShadow: 'none',
                     }}
                   >
-                    <div className="grid grid-cols-2 gap-0">
+                    <div>
                       {/* Industrial Column */}
-                      <div className="pr-[24px] border-r border-[#F0F0EC]">
+                      <div>
                         <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-4">
                           INDUSTRIAL
                         </p>
@@ -123,27 +118,6 @@ const Navbar = () => {
                             </Link>
                           ))}
                         </div>
-                      </div>
-                      {/* Digital Column */}
-                      <div className="pl-[24px]">
-                        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-4">
-                          DIGITAL
-                        </p>
-                        <div className="">
-                          {digitalLinks.map((link) => (
-                            <Link
-                              key={link.name}
-                              to={link.path}
-                              className="block p-[10px_12px] rounded-[4px] mb-1 border-l-2 border-transparent transition-all duration-150 hover:bg-[#F0FDFB] hover:border-l-[#00B8A0] no-underline"
-                            >
-                              <span className="font-syne font-medium text-[14px] text-[#1A1A1A] block">{link.name}</span>
-                              <span className="font-dm text-[12px] text-[#888] mt-[2px] block">{link.sub}</span>
-                            </Link>
-                          ))}
-                        </div>
-                        <Link to="/solutions/digital" className="block font-mono text-[11px] text-[#00B8A0] mt-4 px-[12px] hover:underline">
-                          View All Digital →
-                        </Link>
                       </div>
                     </div>
 
@@ -242,21 +216,6 @@ const Navbar = () => {
                           INDUSTRIAL
                         </p>
                         {industrialLinks.map((link) => (
-                          <Link
-                            key={link.name}
-                            to={link.path}
-                            onClick={() => setIsOpen(false)}
-                            className="block mb-4 pl-0 border-none"
-                          >
-                            <span className="font-syne text-[14px] font-bold text-[var(--black)] block mb-1">{link.name}</span>
-                            <span className="font-dm text-[12px] text-[#888] block">{link.sub}</span>
-                          </Link>
-                        ))}
-
-                        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-4 mt-6">
-                          DIGITAL
-                        </p>
-                        {digitalLinks.map((link) => (
                           <Link
                             key={link.name}
                             to={link.path}

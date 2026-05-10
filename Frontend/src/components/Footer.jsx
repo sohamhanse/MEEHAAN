@@ -7,11 +7,6 @@ const Footer = () => {
     { name: 'Battery Accessories', path: '/solutions/industrial/battery' },
   ];
 
-  const digitalLinks = [
-    { name: 'Software Development', path: '/solutions/digital/software' },
-    { name: 'AI Automation', path: '/solutions/digital/ai' },
-  ];
-
   const companyLinks = [
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
@@ -36,7 +31,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="font-dm text-[13px] mt-4" style={{ color: '#666', lineHeight: 1.7 }}>
-              Industrial Precision. Digital Intelligence.
+              Industrial Precision. Global Supply.
             </p>
             
             <div className="mt-6 space-y-1">
@@ -76,26 +71,6 @@ const Footer = () => {
                   <Link
                     to={link.path}
                     className="font-dm text-[13px] hover:text-white transition-colors duration-150 block"
-                    style={{ color: '#555', lineHeight: '2.4' }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Digital Solutions */}
-          <div className="lg:col-span-3 mt-4 lg:mt-0">
-            <h3 className="font-syne font-mono text-[11px] uppercase tracking-[0.1em] mb-4" style={{ color: '#444' }}>
-              Digital Solutions
-            </h3>
-            <ul className="space-y-0">
-              {digitalLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="font-dm text-[13px] hover:text-white transition-colors duration-150 block w-max"
                     style={{ color: '#555', lineHeight: '2.4' }}
                   >
                     {link.name}
