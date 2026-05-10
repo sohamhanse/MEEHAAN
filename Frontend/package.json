@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-og-png.mjs && vite-react-ssg build && node scripts/inject-seo-metadata.mjs",
-    "build:digital": "node scripts/generate-og-png.mjs && cross-env VITE_SITE=digital vite-react-ssg build && cross-env VITE_SITE=digital node scripts/inject-seo-metadata.mjs",
     "build:csr": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

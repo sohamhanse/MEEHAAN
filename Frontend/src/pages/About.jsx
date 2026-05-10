@@ -29,14 +29,13 @@ const About = () => {
     { year: 2019, title: "Automotive Connectors", description: "Expanded product portfolio to include automotive connectors, serving Tier 1 and Tier 2 suppliers." },
     { year: 2021, title: "Operations Scaled", description: "Achieved a milestone of 100+ active industrial clients. Commenced operations in multiple cities." },
     { year: 2023, title: "Battery Materials", description: "Launched the Battery Accessories division specifically aimed at India\'s growing EV manufacturing sector." },
-    { year: 2024, title: "Digital Division", description: "Launched MEEHAAN Digital, expanding into software development and AI automation for industrial clients." },
   ];
 
   return (
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
-        title="About MEEHAAN Enterprise — Industrial & Digital Solutions"
-        description="Founded in 2018, MEEHAAN Enterprise is a global B2B supplier of industrial lubricants, connectors, battery accessories, and AI automation software for manufacturers worldwide."
+        title="About MEEHAAN Enterprise — Industrial Solutions"
+        description="Founded in 2018, MEEHAAN Enterprise is a global B2B supplier of industrial lubricants, connectors, and battery accessories for manufacturers worldwide."
         canonical="/about"
         jsonLd={{
           "@context": "https://schema.org",
@@ -46,7 +45,7 @@ const About = () => {
               "@id": "https://www.meehaan.com/about",
               "url": "https://www.meehaan.com/about",
               "name": "About MEEHAAN Enterprise",
-              "description": "Founded in 2018, MEEHAAN Enterprise supplies industrial lubricants, automotive connectors, battery accessories, and AI automation worldwide.",
+              "description": "Founded in 2018, MEEHAAN Enterprise supplies industrial lubricants, automotive connectors, and battery accessories worldwide.",
               "isPartOf": { "@id": "https://www.meehaan.com/#website" },
               "about": { "@id": "https://www.meehaan.com/#organization" },
               "dateModified": "2026-05-09",
@@ -109,7 +108,7 @@ const About = () => {
               <span className="font-mono text-[10px] text-[#555] mt-[5px]">Clients Served</span>
             </div>
             <div className="px-[28px] flex flex-col justify-center h-[48px]">
-              <span className="font-syne font-bold text-[26px] text-[#F5A623] leading-none">{heroInView ? <CountUp end={3} duration={1.2} /> : '0'}</span>
+              <span className="font-syne font-bold text-[26px] text-[#F5A623] leading-none">{heroInView ? <CountUp end={2} duration={1.2} /> : '0'}</span>
               <span className="font-mono text-[10px] text-[#555] mt-[5px]">Product Divisions</span>
             </div>
           </div>
@@ -184,17 +183,6 @@ const About = () => {
               </p>
             </div>
 
-            <div className="pb-0">
-              <div className="inline-block border border-opacity-[0.2] border-[#F5A623] font-mono text-[11px] text-[#F5A623] px-[10px] py-[3px] rounded-full">
-                2024 — DIGITAL DIVISION
-              </div>
-              <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mt-3">
-                Launching MEEHAAN Digital Solutions
-              </h3>
-              <p className="font-dm text-[14px] text-[#666] leading-[1.8] mt-3">
-                In 2024, MEEHAAN launched its Digital Solutions division — offering custom software development and AI automation to businesses ready to scale. Drawn from our deep experience in industrial operations, our digital tools are practical, deployment-ready, and built for the way Indian businesses actually work.
-              </p>
-            </div>
           </div>
         </motion.div>
       </section>
@@ -256,7 +244,7 @@ const About = () => {
               { n: '7+', l: 'Years of Operation', d: 'Continuously serving India\'s manufacturing sector since 2018' },
               { n: '500+', l: 'Clients Served', d: 'From small workshops to large OEMs and Tier-1 suppliers' },
               { n: '13+', l: 'Connector Brands', d: 'Authorized distributor for global connector manufacturers' },
-              { n: '3', l: 'Business Divisions', d: 'Industrial Oils, Connectors, Battery Accessories, and Digital' }
+              { n: '2', l: 'Business Divisions', d: 'Industrial Oils, Connectors, and Battery Accessories' }
             ].map((stat, i) => (
               <div key={i} className={`text-center px-4 lg:px-10 ${i % 2 === 0 ? 'border-r border-[#2A2A2A] lg:border-r' : ''} ${i === 1 ? 'lg:border-r border-[#2A2A2A]' : ''} ${i === 3 ? 'border-r-0' : ''}`}>
                 <div className="font-syne font-extrabold text-[52px] text-[#F5A623] leading-none">{stat.n}</div>
@@ -266,14 +254,14 @@ const About = () => {
             ))}
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="mt-[72px] pt-[56px] border-t border-[#2A2A2A] text-center px-6"
             variants={fadeUp}
             initial="hidden"
             animate={numbersInView ? "visible" : "hidden"}
           >
             <p className="font-dm italic text-[20px] text-[#777] max-w-[680px] mx-auto leading-[1.7]">
-              "We started with one product category and one city. Seven years later, we serve hundreds of clients across India with three product divisions and a growing digital arm. The constants have always been the same — genuine products, honest pricing, and people who pick up the phone."
+              "We started with one product category and one city. Seven years later, we serve hundreds of clients across India with multiple product divisions. The constants have always been the same — genuine products, honest pricing, and people who pick up the phone."
             </p>
             <p className="font-mono text-[12px] text-[#444] mt-5">— MEEHAAN Enterprise, Pune, Maharashtra</p>
           </motion.div>
@@ -288,8 +276,8 @@ const About = () => {
             Two Divisions, One Partner
           </h2>
 
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10"
+          <motion.div
+            className="grid grid-cols-1 gap-5 mt-10"
             variants={fadeUp}
             initial="hidden"
             animate={divisionsInView ? "visible" : "hidden"}
@@ -322,33 +310,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Digital */}
-            <div className="bg-white border border-[#E8E8E4] border-t-[3px] border-t-[#00B8A0] rounded-[4px] p-8 lg:p-[32px_28px] hover:-translate-y-[2px] hover:border-[#00B8A0] transition-all duration-200">
-              <img src="/meehaan_logo/MEEHAAN Logo Without Bg-01.png" alt="MEEHAAN" className="h-[28px] mb-5 object-contain" />
-              <h3 className="font-syne font-semibold text-[20px] text-[#1A1A1A]">Digital Solutions</h3>
-              <p className="font-dm text-[14px] text-[#888] mt-[10px] leading-[1.7]">
-                Custom software development and AI automation tools built for businesses ready to operate smarter and scale faster.
-              </p>
-              
-              <div className="mt-5">
-                {[
-                  "Software Development — CRMs, dashboards, web apps, APIs",
-                  "AI Automation — WhatsApp bots, lead pipelines, workflows",
-                  "Workflow Systems — End-to-end business process automation"
-                ].map((row, i) => (
-                  <div key={i} className="flex gap-[10px] items-center py-2 border-b border-[#F5F5F0]">
-                    <div className="w-[6px] h-[6px] bg-[#00B8A0] rounded-sm"></div>
-                    <span className="font-dm text-[13px] text-[#555]">{row}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6">
-                <Link to="/solutions/digital" className="font-dm font-medium text-[13px] text-[#00B8A0] hover:underline">
-                  Explore Digital Solutions →
-                </Link>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>

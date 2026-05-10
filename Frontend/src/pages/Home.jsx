@@ -168,7 +168,7 @@ const Home = () => {
     "@type": "WebPage",
     "@id": "https://www.meehaan.com/#webpage",
     "url": "https://www.meehaan.com/",
-    "name": "MEEHAAN Enterprise — Industrial Lubricants, Connectors & Digital Solutions",
+    "name": "MEEHAAN Enterprise — Industrial Lubricants, Connectors & Battery Accessories",
     "isPartOf": { "@id": "https://www.meehaan.com/#website" },
     "about": { "@id": "https://www.meehaan.com/#organization" },
     "dateModified": "2026-05-09"
@@ -177,8 +177,8 @@ const Home = () => {
   return (
     <div className="bg-white min-h-screen">
       <SEOHead
-        title="Industrial Lubricants, Connectors & Digital Solutions — MEEHAAN Enterprise"
-        description="MEEHAAN Enterprise — global supplier of LUBO industrial lubricants, automotive connectors, battery accessories, and custom software/AI automation for manufacturers worldwide."
+        title="Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise"
+        description="MEEHAAN Enterprise — global supplier of LUBO industrial lubricants, automotive connectors, and battery accessories for manufacturers worldwide."
         canonical="/"
         jsonLd={organizationSchema}
       />

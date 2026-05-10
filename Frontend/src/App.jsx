@@ -3,11 +3,8 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 
-const IS_DIGITAL_SITE = import.meta.env.VITE_SITE === 'digital';
-
 import { LoadingProvider, useLoading } from './context/LoadingContext';
 import Layout from './components/Layout';
-import DigitalLayout from './components/DigitalLayout';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToAnchor from './components/ScrollToAnchor';
@@ -25,11 +22,6 @@ import ProductOils from './pages/ProductOils';
 import ProductCategoryPage from './pages/ProductCategoryPage';
 import BatteryMarketplace from './pages/battery/BatteryMarketplace';
 import IndustrialLanding from './pages/solutions/IndustrialLanding';
-import DigitalLanding from './pages/solutions/DigitalLanding';
-import CaFlowPage from './pages/solutions/CaFlowPage';
-import DigitalProductsPage from './pages/solutions/DigitalProductsPage';
-import DigitalProductPage from './pages/solutions/DigitalProductPage';
-import ApplyPage from './pages/solutions/ApplyPage';
 
 const OIL_CATEGORIES = [
   'heat-treatment',
@@ -47,18 +39,6 @@ const BATTERY_SUBCATEGORIES = [
   'epoxy-sheets',
   'terminal-blocks',
   'degson-connectors',
-];
-
-const DIGITAL_PRODUCTS_SLUGS = [
-  'horizontal-ai-agents',
-  'voice-intake-concierge',
-  'contact-center-intelligence',
-  'legal-recovery-ai',
-  'facility-operations-ai',
-  'ai-native-lms',
-  'caflow-practice-management',
-  'website-builder-ai',
-  'exit-concierge',
 ];
 
 function AppShell() {
@@ -91,36 +71,7 @@ function Root() {
   );
 }
 
-const digitalRoutes = [
-  {
-    element: <Root />,
-    children: [
-      {
-        path: '/',
-        element: <DigitalLayout />,
-        children: [
-          {
-            element: <AppShell />,
-            children: [
-              { index: true, element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'caflow', element: <PageWrapper><CaFlowPage /></PageWrapper> },
-              { path: 'products', element: <PageWrapper><DigitalProductsPage /></PageWrapper> },
-              {
-                path: 'products/:slug',
-                element: <PageWrapper><DigitalProductPage /></PageWrapper>,
-                getStaticPaths: () => DIGITAL_PRODUCTS_SLUGS.map(slug => `products/${slug}`),
-              },
-              { path: 'apply', element: <PageWrapper><ApplyPage /></PageWrapper> },
-              { path: '*', element: <PageWrapper><NotFound /></PageWrapper> },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
-
-const mainRoutes = [
+const routes = [
   {
     element: <Root />,
     children: [
@@ -170,7 +121,5 @@ const mainRoutes = [
     ],
   },
 ];
-
-export const routes = IS_DIGITAL_SITE ? digitalRoutes : mainRoutes;
 
 export default routes;
