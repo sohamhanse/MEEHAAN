@@ -4,154 +4,52 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '../dist');
-const IS_DIGITAL_SITE = process.env.VITE_SITE === 'digital';
-
-const DIGITAL_BASE = 'https://digital.meehaan.com';
-const DIGITAL_OG = `${DIGITAL_BASE}/og-image.png`;
-
-const digitalRouteMetadata = {
-  '/': {
-    title: 'MEEHAAN Digital — AI Automation Agency | Custom AI Agents & Workflow Automation',
-    description: 'MEEHAAN Digital builds custom AI agents, workflow automation, and software for US and UK businesses. Fixed-price proposals in 48 hours. Live in under 14 days.',
-    canonical: `${DIGITAL_BASE}/`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products': {
-    title: 'AI Products — Voice AI, Workflow Automation, Legal Tech & More | MEEHAAN Digital',
-    description: 'Nine specialised AI products built by MEEHAAN Digital. Voice AI, contact centre intelligence, legal recovery automation, field operations AI, and more. Deployed in under 14 days.',
-    canonical: `${DIGITAL_BASE}/products`,
-    ogImage: DIGITAL_OG,
-  },
-  '/caflow': {
-    title: 'CaFlow — WhatsApp Compliance Automation for CA Firms (GST, ITR, TDS)',
-    description: 'CaFlow automates document collection, compliance deadline tracking, and fee recovery for CA firms in India. WhatsApp-native. GSTR-1, GSTR-3B, ITR, TDS. 14-day free trial.',
-    canonical: `${DIGITAL_BASE}/caflow`,
-    ogImage: DIGITAL_OG,
-  },
-  '/apply': {
-    title: 'Apply — MEEHAAN Digital Partner Program',
-    description: 'Apply to the MEEHAAN Digital partner program. Tell us about yourself and we will be in touch within 2 business days.',
-    canonical: `${DIGITAL_BASE}/apply`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/horizontal-ai-agents': {
-    title: 'Horizontal AI Agents — Six Coordinated AI Agents for Your Business | MEEHAAN Digital',
-    description: 'Six coordinated AI agents sharing one unified context window. Covers sales, marketing, operations, collections, vendor management, and orchestration. Live in under 14 days.',
-    canonical: `${DIGITAL_BASE}/products/horizontal-ai-agents`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/voice-intake-concierge': {
-    title: 'Voice Intake Concierge — AI Voice Agent for Franchise & Multi-Location Businesses',
-    description: 'Always-on AI voice agent for franchise and multi-location businesses. Answers every inbound call, qualifies leads, handles intake, and routes complex cases — 24/7.',
-    canonical: `${DIGITAL_BASE}/products/voice-intake-concierge`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/contact-center-intelligence': {
-    title: 'Contact Center Intelligence — AI Layer for Live Call Centre Operations | MEEHAAN Digital',
-    description: 'AI layer deployed inside live call centre operations. Surfaces full caller context — account history, prior interactions, open issues — the moment a call connects.',
-    canonical: `${DIGITAL_BASE}/products/contact-center-intelligence`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/legal-recovery-ai': {
-    title: 'Legal Recovery AI — Automated Debt Negotiation & Legal Process Management',
-    description: 'Automates debt negotiation workflows and legal process management. The AI agent contacts debtors, presents terms, handles objections, and produces compliant documentation.',
-    canonical: `${DIGITAL_BASE}/products/legal-recovery-ai`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/facility-operations-ai': {
-    title: 'Facility Operations AI — Conversational AI for Field Technicians | MEEHAAN Digital',
-    description: 'Gives field technicians conversational access to full property history and service records. Handles inbound client queries and service scheduling without a human dispatcher.',
-    canonical: `${DIGITAL_BASE}/products/facility-operations-ai`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/ai-native-lms': {
-    title: 'AI-Native LMS — Adaptive Learning & Onboarding Platform | MEEHAAN Digital',
-    description: 'Adaptive learning and onboarding platform built natively on AI. Personalised learning paths, adaptive content sequencing, and AI-driven reinforcement loops.',
-    canonical: `${DIGITAL_BASE}/products/ai-native-lms`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/caflow-practice-management': {
-    title: 'CaFlow Practice Management — AI Platform for Accounting Firms (US & UAE)',
-    description: 'End-to-end practice management for accounting firms. Replaces TaxDome, Dext, and Karbon. Automates document collection, compliance deadlines, and fee recovery.',
-    canonical: `${DIGITAL_BASE}/products/caflow-practice-management`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/website-builder-ai': {
-    title: 'Website Builder AI — Automated Website Design, SEO & Growth | MEEHAAN Digital',
-    description: 'Builds, continuously optimises, and grows websites automatically. Handles design, copy, SEO, and AEO — and keeps improving post-launch without operator involvement.',
-    canonical: `${DIGITAL_BASE}/products/website-builder-ai`,
-    ogImage: DIGITAL_OG,
-  },
-  '/products/exit-concierge': {
-    title: 'Exit Concierge — AI Operations Layer for Business Brokers & M&A Advisors',
-    description: 'AI operations layer for business brokers and M&A advisors. Automates prospect qualification, document collection, buyer-seller matching, and communication sequencing.',
-    canonical: `${DIGITAL_BASE}/products/exit-concierge`,
-    ogImage: DIGITAL_OG,
-  },
-};
-
-const digitalFileMapping = {
-  'index.html': '/',
-  'products.html': '/products',
-  'caflow.html': '/caflow',
-  'apply.html': '/apply',
-  'products/horizontal-ai-agents.html': '/products/horizontal-ai-agents',
-  'products/voice-intake-concierge.html': '/products/voice-intake-concierge',
-  'products/contact-center-intelligence.html': '/products/contact-center-intelligence',
-  'products/legal-recovery-ai.html': '/products/legal-recovery-ai',
-  'products/facility-operations-ai.html': '/products/facility-operations-ai',
-  'products/ai-native-lms.html': '/products/ai-native-lms',
-  'products/caflow-practice-management.html': '/products/caflow-practice-management',
-  'products/website-builder-ai.html': '/products/website-builder-ai',
-  'products/exit-concierge.html': '/products/exit-concierge',
-};
-
 // SEO metadata for each route
 const routeMetadata = {
   '/': {
-    title: 'Industrial Lubricants, Connectors & Digital Solutions — Pune, India | MEEHAAN',
-    description: 'MEEHAAN supplies LUBO industrial lubricants, automotive connectors, battery accessories, and digital/AI solutions to Indian manufacturers and OEMs. Pune-based B2B enterprise.',
+    title: 'Industrial Lubricants, Connectors & Battery Accessories - Pune, India | MEEHAAN',
+    description: 'MEEHAAN supplies LUBO industrial lubricants, automotive connectors, and battery accessories to Indian manufacturers and OEMs. Pune-based B2B enterprise.',
     canonical: 'https://www.meehaan.com/',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/about': {
-    title: 'About MEEHAAN — Industrial Lubricants, Connectors & Digital Solutions',
-    description: 'Founded in 2018, MEEHAAN is a Pune-based B2B supplier of industrial lubricants (LUBO brand), connectors, battery accessories, and digital automation.',
+    title: 'About MEEHAAN - Industrial Lubricants, Connectors & Battery Accessories',
+    description: 'Founded in 2018, MEEHAAN is a Pune-based B2B supplier of industrial lubricants (LUBO brand), connectors, and battery accessories.',
     canonical: 'https://www.meehaan.com/about',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/contact': {
-    title: 'Contact MEEHAAN — Sales Enquiries, Quotes & Support',
+    title: 'Contact MEEHAAN - Sales Enquiries, Quotes & Support',
     description: 'Reach MEEHAAN for quotes, product enquiries, or technical support. Phone: +91-9923588450 (WhatsApp). Email: sales@meehaan.com. Pune, Maharashtra.',
     canonical: 'https://www.meehaan.com/contact',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial': {
-    title: 'Industrial Division — LUBO Oils, Connectors, Battery Accessories | MEEHAAN',
+    title: 'Industrial Division - LUBO Oils, Connectors, Battery Accessories | MEEHAAN',
     description: 'MEEHAAN industrial division: LUBO brand hydraulic oils, cutting coolants, fire-resistant fluids, automotive connectors (Yazaki, TE, Molex), and battery accessories.',
     canonical: 'https://www.meehaan.com/solutions/industrial',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/oils': {
-    title: 'Industrial Lubricants — LUBO Hydraulic & Specialty Oils | MEEHAAN',
+    title: 'Industrial Lubricants - LUBO Hydraulic & Specialty Oils | MEEHAAN',
     description: 'LUBO industrial lubricants: heat-treatment oils, cutting coolants, fire-resistant fluids, metal-forming oils, rust preventives, die-casting agents, and industrial cleaners.',
     canonical: 'https://www.meehaan.com/solutions/industrial/oils',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/connectors': {
-    title: 'Automotive & Industrial Connectors — Yazaki, TE Connectivity, Molex | MEEHAAN',
+    title: 'Automotive & Industrial Connectors - Yazaki, TE Connectivity, Molex | MEEHAAN',
     description: 'MEEHAAN supplies automotive and industrial connectors from Yazaki, TE Connectivity, Molex, and other major OEMs for Indian manufacturers.',
     canonical: 'https://www.meehaan.com/solutions/industrial/connectors',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/battery': {
-    title: 'Battery Accessories — Cable Glands, Connectors, Terminal Blocks | MEEHAAN',
+    title: 'Battery Accessories - Cable Glands, Connectors, Terminal Blocks | MEEHAAN',
     description: 'MEEHAAN battery accessories: PG cable glands, Anderson connectors, epoxy sheets, DIN terminal blocks, Degson pluggable terminals for energy storage & industrial applications.',
     canonical: 'https://www.meehaan.com/solutions/industrial/battery',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/oils/heat-treatment': {
-    title: 'LUBOQUENCH — Heat-Treatment & Quenching Oils | MEEHAAN',
+    title: 'LUBOQUENCH - Heat-Treatment & Quenching Oils | MEEHAAN',
     description: 'LUBOQUENCH heat-treatment oils for precision quenching and hardening in automotive, tool, and heavy-duty manufacturing.',
     canonical: 'https://www.meehaan.com/solutions/industrial/oils/heat-treatment',
     ogImage: 'https://www.meehaan.com/og-image.png',
@@ -181,7 +79,7 @@ const routeMetadata = {
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/oils/rust-preventives': {
-    title: 'Rust Preventives — Short & Long-Term Storage Protection | MEEHAAN',
+    title: 'Rust Preventives - Short & Long-Term Storage Protection | MEEHAAN',
     description: 'Rust preventives and corrosion inhibitors for short- and long-term storage of manufactured components and finished goods.',
     canonical: 'https://www.meehaan.com/solutions/industrial/oils/rust-preventives',
     ogImage: 'https://www.meehaan.com/og-image.png',
@@ -193,13 +91,13 @@ const routeMetadata = {
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/battery/pg-glands': {
-    title: 'PG Cable Glands (PG7–PG48) — Polyamide Connectors | MEEHAAN',
+    title: 'PG Cable Glands (PG7-PG48) - Polyamide Connectors | MEEHAAN',
     description: 'PG-series polyamide cable glands (PG7 to PG48) for battery enclosures, junction boxes, and industrial control panels.',
     canonical: 'https://www.meehaan.com/solutions/industrial/battery/pg-glands',
     ogImage: 'https://www.meehaan.com/og-image.png',
   },
   '/solutions/industrial/battery/anderson-connectors': {
-    title: 'Anderson-Style DC Battery Connectors — High-Current | MEEHAAN',
+    title: 'Anderson-Style DC Battery Connectors - High-Current | MEEHAAN',
     description: 'Anderson-style high-current DC battery connectors for energy storage systems, EV charging, and industrial power distribution.',
     canonical: 'https://www.meehaan.com/solutions/industrial/battery/anderson-connectors',
     ogImage: 'https://www.meehaan.com/og-image.png',
@@ -317,24 +215,22 @@ function injectMetadata(htmlFilePath, metadata) {
   fs.writeFileSync(htmlFilePath, finalHtml, 'utf-8');
 }
 
-const activeMapping = IS_DIGITAL_SITE ? digitalFileMapping : fileMapping;
-const activeMetadata = IS_DIGITAL_SITE ? digitalRouteMetadata : routeMetadata;
-
 // Process all files
-Object.entries(activeMapping).forEach(([distPath, route]) => {
+Object.entries(fileMapping).forEach(([distPath, route]) => {
   const fullPath = path.join(distDir, distPath);
 
   if (!fs.existsSync(fullPath)) {
-    console.warn(`⚠ File not found: ${distPath}`);
+    console.warn(`[WARN] File not found: ${distPath}`);
     return;
   }
 
-  if (activeMetadata[route]) {
-    injectMetadata(fullPath, activeMetadata[route]);
-    console.log(`✓ Injected metadata for ${route}`);
+  if (routeMetadata[route]) {
+    injectMetadata(fullPath, routeMetadata[route]);
+    console.log(`[OK] Injected metadata for ${route}`);
   } else {
-    console.warn(`⚠ No metadata found for route ${route}`);
+    console.warn(`[WARN] No metadata found for route ${route}`);
   }
 });
 
-console.log('\n✓ SEO metadata injection complete');
+console.log('\n[OK] SEO metadata injection complete');
+

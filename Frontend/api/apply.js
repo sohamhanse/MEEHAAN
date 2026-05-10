@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   });
 
   await transporter.sendMail({
-    from: `"MEEHAAN Digital" <${process.env.GMAIL_USER}>`,
+    from: `"MEEHAAN" <${process.env.GMAIL_USER}>`,
     to: 'sohamhanse29@gmail.com',
     replyTo: email,
     subject: `New Partner Application — ${fullName}`,
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
           <tr><td style="padding:10px 0;border-bottom:1px solid #eee;color:#888;font-size:13px;">Why This Program</td><td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;color:#111;line-height:1.6;">${motivation.replace(/\n/g, '<br/>')}</td></tr>
           <tr><td style="padding:10px 0;color:#888;font-size:13px;">Ready in 30 Days</td><td style="padding:10px 0;font-size:14px;color:#111;font-weight:600;">${readyToBegin || '—'}</td></tr>
         </table>
-        <p style="margin-top:32px;font-size:11px;color:#aaa;">Sent from meehaan.com/solutions/digital/apply</p>
+        <p style="margin-top:32px;font-size:11px;color:#aaa;">Sent from meehaan.com/apply</p>
       </div>
     `,
   });

@@ -27,7 +27,7 @@
   <text x="510" y="290" font-family="'Syne','Arial Black',sans-serif" font-size="96" font-weight="800" fill="#F4F7F1" letter-spacing="-2">MEEHAAN</text>
 
   <!-- Tagline -->
-  <text x="512" y="348" font-family="'DM Sans','Arial',sans-serif" font-size="26" font-weight="400" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">Industrial &amp; Digital Solutions</text>
+  <text x="512" y="348" font-family="'DM Sans','Arial',sans-serif" font-size="26" font-weight="400" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">Industrial Solutions</text>
 
   <!-- Bottom accent line -->
   <rect x="510" y="390" width="120" height="3" rx="2" fill="#F5921E"/>

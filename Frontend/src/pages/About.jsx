@@ -216,7 +216,7 @@ const About = () => {
             { n: '02', t: 'Application Expertise', d: 'Our team understands industrial processes — we don\'t just sell products, we help you select the right one for your specific application and operating conditions.' },
             { n: '03', t: 'Pan-India Logistics', d: 'Reliable supply to all major manufacturing hubs — Pune, Mumbai, Chennai, Bangalore, Delhi NCR, Surat, Coimbatore and more.' },
             { n: '04', t: '24-Hour Quote Response', d: 'Send us a requirement and receive a detailed quote within 24 business hours. For urgent needs, our WhatsApp line gets you a faster response.' },
-            { n: '05', t: 'Two Focused Divisions', d: 'Industrial supply and digital solutions — run as separate focused operations, not as add-ons. You get dedicated expertise for each.' },
+            { n: '05', t: 'Multiple Product Categories', d: 'Oils, connectors, and battery accessories — each category managed with deep technical expertise and dedicated sourcing teams.' },
             { n: '06', t: 'Long-Term Relationships', d: 'Over 500 clients have stayed with MEEHAAN long-term. We earn that trust through consistent quality, honest communication, and reliable delivery.' }
           ].map((b, i) => (
             <div key={i} className="bg-white p-8 lg:px-7 lg:py-8 block group w-full h-full hover:bg-[#FAFAF8] transition-colors">
@@ -421,7 +421,7 @@ const About = () => {
            <div className="text-center lg:text-left">
              <h2 className="font-syne font-bold text-[28px] text-[#1A1A1A]">Ready to partner with MEEHAAN?</h2>
              <p className="font-dm text-[14px] text-black/60 mt-[10px]">
-               At any scale, industrial or digital — let's start with a conversation.
+               At any industrial scale, let's start with a conversation.
              </p>
            </div>
            

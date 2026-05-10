@@ -1,7 +1,7 @@
 {
   "name": "MEEHAAN Enterprise",
   "short_name": "MEEHAAN",
-  "description": "Industrial lubricants, automotive connectors, battery accessories, and digital solutions.",
+  "description": "Industrial lubricants, automotive connectors, and battery accessories.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050805",

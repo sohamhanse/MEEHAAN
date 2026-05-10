@@ -376,7 +376,7 @@ const Home = () => {
               <Zap size={20} className="text-[var(--orange)] mb-4" />
               <p className="font-syne font-extrabold text-[40px] text-[var(--orange)] leading-none mb-2">{whyInView ? <CountUp end={2} duration={1.2} /> : '0'}</p>
               <p className="font-syne font-semibold text-[15px] text-nearBlack mb-2">Expert Divisions</p>
-              <p className="font-dm text-[12px] text-[#888] leading-relaxed">Industrial supply and digital automation — deep, not wide</p>
+              <p className="font-dm text-[12px] text-[#888] leading-relaxed">Industrial oils, connectors, and battery accessories — deep expertise across all three</p>
             </div>
 
             <div className="lg:border-r border-[var(--border)] lg:px-[32px]">

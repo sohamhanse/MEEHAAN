@@ -63,7 +63,7 @@ function getMockData(endpoint) {
             'Precise flow control',
             'Corrosion-resistant materials',
             'Low maintenance design',
-            'Digital control interface'
+            'Smart control interface'
           ]
         },
         {
