@@ -25,4 +25,4 @@ export const buildTitle = (pageTitle) =>
   pageTitle ? `${pageTitle} | MEEHAAN Enterprise` : 'MEEHAAN Enterprise — Industrial & Digital Solutions'
 
 export const buildCanonical = (path) =>
-  `${SEO_BASE.baseUrl}${path}`
+  `${IS_DIGITAL_SITE ? DIGITAL_SEO_BASE.baseUrl : SEO_BASE.baseUrl}${path}`

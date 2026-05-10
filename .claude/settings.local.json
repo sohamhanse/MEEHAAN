@@ -11,7 +11,21 @@
       "Bash(curl *)",
       "Bash(python3)",
       "WebFetch(domain:www.meehaan.com)",
-      "WebFetch(domain:www.digital.meehaan.com)"
+      "WebFetch(domain:www.digital.meehaan.com)",
+      "Bash(python3 -m json.tool)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(xargs cat *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(pip install *)",
+      "Bash(playwright install *)",
+      "Bash(env)",
+      "Bash(npx lighthouse *)",
+      "Bash(npm --version)",
+      "Bash(python *)",
+      "WebFetch(domain:digital.meehaan.com)",
+      "WebSearch",
+      "WebFetch(domain:www.reddit.com)"
     ]
   }
 }

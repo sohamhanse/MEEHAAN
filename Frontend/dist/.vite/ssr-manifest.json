@@ -4,7 +4,7 @@
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-countup/build/index.js?commonjs-exports": [],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-CI56o65z.js"
+    "/assets/client-CLILmFlg.js"
   ],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -276,9 +276,13 @@
   "node_modules/lucide-react/dist/esm/createLucideIcon.js": [],
   "node_modules/lucide-react/dist/esm/defaultAttributes.js": [],
   "node_modules/lucide-react/dist/esm/icons/arrow-right.js": [],
+  "node_modules/lucide-react/dist/esm/icons/boxes.js": [],
   "node_modules/lucide-react/dist/esm/icons/check.js": [],
+  "node_modules/lucide-react/dist/esm/icons/clock-4.js": [],
   "node_modules/lucide-react/dist/esm/icons/loader.js": [],
   "node_modules/lucide-react/dist/esm/icons/send.js": [],
+  "node_modules/lucide-react/dist/esm/icons/users.js": [],
+  "node_modules/lucide-react/dist/esm/icons/zap.js": [],
   "node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.js": [],
   "node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js": [],
   "node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.js": [],
@@ -319,7 +323,7 @@
   "node_modules/react-countup/build/index.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-CI56o65z.js"
+    "/assets/client-CLILmFlg.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
@@ -339,6 +343,17 @@
   "node_modules/scheduler/cjs/scheduler.production.min.js": [],
   "node_modules/scheduler/index.js": [],
   "node_modules/shallowequal/index.js": [],
+  "node_modules/swiper/modules/pagination.css": [],
+  "node_modules/swiper/modules/pagination.mjs": [],
+  "node_modules/swiper/shared/classes-to-selector.mjs": [],
+  "node_modules/swiper/shared/create-element-if-not-defined.mjs": [],
+  "node_modules/swiper/shared/ssr-window.esm.mjs": [],
+  "node_modules/swiper/shared/swiper-core.mjs": [],
+  "node_modules/swiper/shared/update-on-virtual-data.mjs": [],
+  "node_modules/swiper/shared/update-swiper.mjs": [],
+  "node_modules/swiper/shared/utils.mjs": [],
+  "node_modules/swiper/swiper-react.mjs": [],
+  "node_modules/swiper/swiper.css": [],
   "node_modules/vite-react-ssg/dist/index.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C6pK7rvr.mjs": [],

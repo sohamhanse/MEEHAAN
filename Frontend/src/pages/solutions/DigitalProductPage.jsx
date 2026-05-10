@@ -340,8 +340,6 @@ const DigitalProductPage = () => {
         },
         'offers': {
           '@type': 'Offer',
-          'price': '0',
-          'priceCurrency': 'USD',
           'description': 'Fixed-price per project. Free 30-minute discovery call. Proposal delivered within 48 hours.',
           'availability': 'https://schema.org/OnlineOnly',
           'url': `${dBase}/apply`,

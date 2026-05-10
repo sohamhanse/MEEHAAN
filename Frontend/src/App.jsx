@@ -124,30 +124,6 @@ const mainRoutes = [
   {
     element: <Root />,
     children: [
-      // ── Digital sub-site (own navbar, no main Layout) ────────────────────
-      {
-        path: 'solutions/digital',
-        element: <DigitalLayout />,
-        children: [
-          {
-            element: <AppShell />,
-            children: [
-              { index: true, element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'software', element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'ai', element: <PageWrapper><DigitalLanding /></PageWrapper> },
-              { path: 'caflow', element: <PageWrapper><CaFlowPage /></PageWrapper> },
-              { path: 'products', element: <PageWrapper><DigitalProductsPage /></PageWrapper> },
-              {
-                path: 'products/:slug',
-                element: <PageWrapper><DigitalProductPage /></PageWrapper>,
-                getStaticPaths: () => DIGITAL_PRODUCTS_SLUGS.map(slug => `solutions/digital/products/${slug}`),
-              },
-              { path: 'apply', element: <PageWrapper><ApplyPage /></PageWrapper> },
-            ],
-          },
-        ],
-      },
-
       // ── Main site (standard Layout with main Navbar) ──────────────────────
       {
         path: '/',

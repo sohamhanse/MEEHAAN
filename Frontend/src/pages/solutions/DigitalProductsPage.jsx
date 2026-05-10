@@ -279,15 +279,15 @@ const DigitalProductsPage = () => {
               'name': 'MEEHAAN Digital AI Products',
               'description': 'Nine specialised AI systems for franchise operators, brokers, legal teams, field services, and more.',
               'itemListElement': [
-                { '@type': 'ListItem', 'position': 1, 'name': 'Voice Intake Concierge', 'url': p('voice-intake-concierge'), 'description': 'Always-on AI voice agent for franchise and multi-location businesses.' },
-                { '@type': 'ListItem', 'position': 2, 'name': 'AI-Native LMS', 'url': p('ai-native-lms'), 'description': 'Adaptive learning and onboarding platform built natively on AI.' },
-                { '@type': 'ListItem', 'position': 3, 'name': 'Legal Recovery AI', 'url': p('legal-recovery-ai'), 'description': 'AI platform for debt recovery and legal process workflow automation.' },
-                { '@type': 'ListItem', 'position': 4, 'name': 'Facility Operations AI', 'url': p('facility-operations-ai'), 'description': 'AI intelligence layer for facility management and field service operators.' },
-                { '@type': 'ListItem', 'position': 5, 'name': 'Contact Center Intelligence', 'url': p('contact-center-intelligence'), 'description': 'AI layer that surfaces full caller context the moment a call connects.' },
-                { '@type': 'ListItem', 'position': 6, 'name': 'Horizontal AI Agents', 'url': p('horizontal-ai-agents'), 'description': 'Six coordinated AI agents sharing one context window across your entire business.' },
-                { '@type': 'ListItem', 'position': 7, 'name': 'CaFlow', 'url': p('caflow-practice-management'), 'description': 'End-to-end practice management platform for accounting firms in the US and UAE — replacing TaxDome, Dext, and Karbon with one platform.' },
-                { '@type': 'ListItem', 'position': 8, 'name': 'Website Builder AI', 'url': p('website-builder-ai'), 'description': 'Builds, continuously optimises, and grows websites automatically — design, copy, SEO, and AEO.' },
-                { '@type': 'ListItem', 'position': 9, 'name': 'Exit Concierge', 'url': p('exit-concierge'), 'description': 'AI operations layer for business brokers — automates qualification, document collection, and buyer-seller matching.' },
+                { '@type': 'ListItem', 'position': 1, 'name': 'Voice Intake Concierge', 'item': p('voice-intake-concierge'), 'description': 'Always-on AI voice agent for franchise and multi-location businesses.' },
+                { '@type': 'ListItem', 'position': 2, 'name': 'AI-Native LMS', 'item': p('ai-native-lms'), 'description': 'Adaptive learning and onboarding platform built natively on AI.' },
+                { '@type': 'ListItem', 'position': 3, 'name': 'Legal Recovery AI', 'item': p('legal-recovery-ai'), 'description': 'AI platform for debt recovery and legal process workflow automation.' },
+                { '@type': 'ListItem', 'position': 4, 'name': 'Facility Operations AI', 'item': p('facility-operations-ai'), 'description': 'AI intelligence layer for facility management and field service operators.' },
+                { '@type': 'ListItem', 'position': 5, 'name': 'Contact Center Intelligence', 'item': p('contact-center-intelligence'), 'description': 'AI layer that surfaces full caller context the moment a call connects.' },
+                { '@type': 'ListItem', 'position': 6, 'name': 'Horizontal AI Agents', 'item': p('horizontal-ai-agents'), 'description': 'Six coordinated AI agents sharing one context window across your entire business.' },
+                { '@type': 'ListItem', 'position': 7, 'name': 'CaFlow', 'item': p('caflow-practice-management'), 'description': 'End-to-end practice management platform for accounting firms in the US and UAE — replacing TaxDome, Dext, and Karbon with one platform.' },
+                { '@type': 'ListItem', 'position': 8, 'name': 'Website Builder AI', 'item': p('website-builder-ai'), 'description': 'Builds, continuously optimises, and grows websites automatically — design, copy, SEO, and AEO.' },
+                { '@type': 'ListItem', 'position': 9, 'name': 'Exit Concierge', 'item': p('exit-concierge'), 'description': 'AI operations layer for business brokers — automates qualification, document collection, and buyer-seller matching.' },
               ],
             },
           ],
@@ -407,7 +407,7 @@ const DigitalProductsPage = () => {
             className="flex flex-wrap gap-3 justify-center"
           >
             <Link
-              to="/contact?type=demo"
+              to={digitalPath('/apply')}
               className="font-dm font-medium inline-flex items-center gap-2 group"
               style={{
                 background: FOREST, border: `1px solid ${FOREST}`, color: '#EAF9F1',

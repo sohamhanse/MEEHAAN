@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite-react-ssg build && node scripts/inject-seo-metadata.mjs",
-    "build:digital": "cross-env VITE_SITE=digital vite-react-ssg build && cross-env VITE_SITE=digital node scripts/inject-seo-metadata.mjs",
+    "build": "node scripts/generate-og-png.mjs && vite-react-ssg build && node scripts/inject-seo-metadata.mjs",
+    "build:digital": "node scripts/generate-og-png.mjs && cross-env VITE_SITE=digital vite-react-ssg build && cross-env VITE_SITE=digital node scripts/inject-seo-metadata.mjs",
     "build:csr": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -43,6 +43,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.33",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.1",
     "vite": "^5.0.8",
     "vite-react-ssg": "^0.9.1-beta.1"
