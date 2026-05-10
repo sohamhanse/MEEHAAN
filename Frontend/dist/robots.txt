@@ -30,6 +30,4 @@ User-agent: Bytespider
 Allow: /
 
 Sitemap: https://www.meehaan.com/sitemap.xml
-Sitemap: https://digital.meehaan.com/sitemap.xml
 LLMs: https://www.meehaan.com/llms.txt
-LLMs: https://digital.meehaan.com/llms.txt

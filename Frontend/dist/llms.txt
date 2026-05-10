@@ -1,25 +1,22 @@
-# MEEHAAN Enterprise — Industrial Supply & AI Automation
+# MEEHAAN Enterprise — Industrial Supply
 # version: 1.1
 # contact: sales@meehaan.com
-# updated: 2026-05-02
+# updated: 2026-05-10
 # License: CC-BY
 
 ## About MEEHAAN Enterprise
-MEEHAAN Enterprise is a B2B company operating two focused divisions from Pune, Maharashtra, India. Established in 2018, the company serves 500+ clients across industrial and digital sectors with 1,000+ products in inventory.
+MEEHAAN Enterprise is a B2B company specializing in industrial supply from Pune, Maharashtra, India. Established in 2018, the company serves 500+ clients across manufacturing, automotive, and energy sectors with 1,000+ products in inventory.
 
 **Company Facts:**
 - Founded: 2018
 - Headquarters: Gat No.1326, Unit-II, Shelarvasti, Chikhali, Pune 411062, Maharashtra, India
 - Phone: +91 99235 88450
 - Website: https://www.meehaan.com
-- Digital division: https://digital.meehaan.com
-- Primary markets: India (industrial division), US/UK/Global (digital division)
+- Primary markets: India and global
 
 ---
 
-## MEEHAAN Industrial Division (LUBO Brand)
-
-### Industrial Oils (LUBO Brand)
+## Industrial Oils (LUBO Brand)
 MEEHAAN supplies LUBO-certified industrial lubricants for manufacturing, automotive, and energy sectors. Product categories include:
 - Heat treatment oils (for die casting, forging, hardening)
 - Metalworking fluids (cutting coolants, forming fluids)
@@ -31,7 +28,7 @@ MEEHAAN supplies LUBO-certified industrial lubricants for manufacturing, automot
 All oils meet OEM specifications and come with technical data sheets (TDS) available on request.
 URL: https://www.meehaan.com/solutions/industrial/oils
 
-### Automotive Connectors
+## Automotive Connectors
 Authorized distributor for 13+ global connector brands:
 - Yazaki
 - Sumitomo
@@ -43,7 +40,7 @@ Authorized distributor for 13+ global connector brands:
 Specialties: High-temperature connectors, sealed connectors for EV applications, OEM-grade connectors for Tier-1 automotive suppliers.
 URL: https://www.meehaan.com/solutions/industrial/connectors
 
-### Battery Accessories for EV & Solar
+## Battery Accessories for EV & Solar
 Supplied to EV manufacturers and solar energy companies:
 - FRP (Fiber Reinforced Plastic) insulation sheets
 - Epoxy insulation materials
@@ -55,83 +52,12 @@ Supplied to EV manufacturers and solar energy companies:
 All products meet RoHS compliance and automotive-grade specifications.
 URL: https://www.meehaan.com/solutions/industrial/battery
 
-### Industrial Division Contact
+## Contact
 - Email: info@meehaan.com
 - Phone: +91 99235 88450
 - Get a Quote: https://www.meehaan.com/contact
 
----
-
-## MEEHAAN Digital Division
-
-### Overview
-MEEHAAN Digital is an AI automation agency that builds custom AI agents, workflow automation systems, and software products for businesses in the US, UK, and globally. Every project is delivered at a fixed price with a fixed timeline — proposals arrive within 48 hours of a discovery call, and most products are live in under 14 days.
-
-Website: https://digital.meehaan.com
-
-### Core Services
-- Custom AI agent development (multi-agent systems, voice AI, workflow orchestration)
-- Workflow automation (CRM integration, document processing, operational pipelines)
-- Custom software and SaaS product development
-- AI product deployment with 30-day post-launch support included
-
-### AI Products Available for Deployment
-
-#### Horizontal AI Agents
-Six coordinated AI agents sharing one unified context window. Covers sales intelligence, marketing intelligence, operations reporting, collections and dunning, vendor management, and a Jarvis orchestration layer. Live in under 14 days.
-URL: https://digital.meehaan.com/products/horizontal-ai-agents
-
-#### Voice Intake Concierge
-An always-on AI voice agent for franchise and multi-location businesses. Answers every inbound call, qualifies leads, handles intake, and routes complex cases — across every location, 24/7, without adding headcount.
-URL: https://digital.meehaan.com/products/voice-intake-concierge
-
-#### Contact Center Intelligence
-An AI layer deployed inside live call centre operations. Surfaces full caller context — account history, prior interactions, open issues — on the agent's screen the moment a call connects. Reduces average handle time from week one.
-URL: https://digital.meehaan.com/products/contact-center-intelligence
-
-#### Legal Recovery AI
-Automates debt negotiation workflows and legal process management simultaneously. The AI agent contacts debtors, presents terms, handles objections, and produces compliant documentation — without a human on every call.
-URL: https://digital.meehaan.com/products/legal-recovery-ai
-
-#### Facility Operations AI
-Gives field technicians conversational access to full property history and service records on any device. Also handles inbound client queries and service scheduling without a human dispatcher on every interaction.
-URL: https://digital.meehaan.com/products/facility-operations-ai
-
-#### Website Builder AI
-Builds, continuously optimises, and grows websites automatically. Handles design, copy, SEO, and AEO — and keeps improving post-launch without operator involvement.
-URL: https://digital.meehaan.com/products/website-builder-ai
-
-#### Exit Concierge
-AI operations layer for business brokers and M&A advisors. Automates prospect qualification, document collection, buyer-seller matching, and communication sequencing — so advisors focus on the conversations that close deals.
-URL: https://digital.meehaan.com/products/exit-concierge
-
-#### AI-Native LMS
-An adaptive learning and onboarding platform built natively on AI. Personalised learning paths, adaptive content sequencing, and AI-driven reinforcement loops built into the core architecture.
-URL: https://digital.meehaan.com/products/ai-native-lms
-
-#### CaFlow — Practice Management for Accounting Firms
-An end-to-end practice management platform for accounting firms in the US and UAE. Replaces TaxDome, Dext, and Karbon with one platform. Automates document collection over email and WhatsApp, tracks every compliance deadline (federal, state, VAT, UAE corporate tax, FTA), and pushes structured data directly into QuickBooks, Xero, and Zoho Books. One flat monthly price — no annual lock-in, no per-user penalty.
-URL: https://digital.meehaan.com/products/caflow-practice-management
-
-### How the Engagement Works
-1. Discovery Call (free, 30 minutes) — understand your workflow and where AI fits
-2. Proposal in 48 hours — fixed scope, fixed price, fixed timeline
-3. Build & Iterate — weekly sprints with a demo every Friday
-4. Deploy & Support — live deployment with 30 days of included post-launch support
-
-### Pricing Model
-Fixed price per project. No hourly billing. Full refund if the committed deadline is missed.
-
-### Contact and Booking
-Book a free discovery call: https://cal.com/soham-hanse-yeivxo/30min
-Apply as a partner: https://digital.meehaan.com/apply
-Email: sales@meehaan.com
-
----
-
 ## Company Information
 MEEHAAN Enterprise
-Main website: https://www.meehaan.com
-Digital division: https://digital.meehaan.com
-Main sitemap: https://www.meehaan.com/sitemap.xml
-Digital sitemap: https://digital.meehaan.com/sitemap.xml
+Website: https://www.meehaan.com
+Sitemap: https://www.meehaan.com/sitemap.xml

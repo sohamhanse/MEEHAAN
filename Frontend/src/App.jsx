@@ -71,7 +71,7 @@ function Root() {
   );
 }
 
-const routes = [
+export const routes = [
   {
     element: <Root />,
     children: [
