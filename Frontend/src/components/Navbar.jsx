@@ -93,9 +93,9 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-[100%] left-1/2 -translate-x-1/2 bg-white rounded-[8px] z-[100] mt-2 p-[24px]"
+                    className="absolute top-[100%] left-0 bg-white rounded-[8px] z-[100] mt-1 p-[18px]"
                     style={{
-                      minWidth: '560px',
+                      width: '420px',
                       border: '1px solid #E8E8E4',
                       boxShadow: 'none',
                     }}
@@ -103,7 +103,7 @@ const Navbar = () => {
                     <div>
                       {/* Industrial Column */}
                       <div>
-                        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-4">
+                        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-3">
                           INDUSTRIAL
                         </p>
                         <div className="">
@@ -121,7 +121,7 @@ const Navbar = () => {
                       </div>
                     </div>
 
-                    <div className="col-span-2 border-t border-[#F0F0EC] mt-[16px] pt-[16px] flex flex-row justify-end">
+                    <div className="border-t border-[#F0F0EC] mt-[12px] pt-[12px] flex flex-row justify-end">
                       <Link to="/solutions/industrial" className="font-mono text-[10px] text-[#F5A623] hover:underline">
                         View All Solutions →
                       </Link>
