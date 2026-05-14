@@ -37,7 +37,7 @@ const IndustryCard = ({ industry, col = 'left', gridCol, gridRow, delay = 0 }) =
       <div style={{ overflow: 'hidden', marginBottom: '14px', width: '100%', aspectRatio: industry.aspectRatio, position: 'relative' }}>
         <img
           src={industry.image}
-          alt={industry.alt || industry.name}
+          alt={industry.name}
           loading="lazy"
           style={{
             width: '100%', height: '100%', objectFit: 'cover', display: 'block',
@@ -58,7 +58,7 @@ const IndustryCard = ({ industry, col = 'left', gridCol, gridRow, delay = 0 }) =
       </h3>
 
       {/* Bullet points */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {industry.points.map((point, i) => (
           <motion.div
             key={point}
@@ -72,33 +72,6 @@ const IndustryCard = ({ industry, col = 'left', gridCol, gridRow, delay = 0 }) =
           </motion.div>
         ))}
       </div>
-
-      {/* Product Link */}
-      {industry.link && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={cardInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: delay + 0.4, ease: 'easeOut' }}
-        >
-          <Link
-            to={industry.link}
-            style={{
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: '#FF6600',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '4px',
-              transition: 'gap 200ms ease',
-            }}
-            onMouseOver={e => { e.currentTarget.style.gap = '8px'; }}
-            onMouseOut={e => { e.currentTarget.style.gap = '4px'; }}
-          >
-            View Products →
-          </Link>
-        </motion.div>
-      )}
     </motion.div>
   );
 };
@@ -147,120 +120,58 @@ const Home = () => {
     {
       name: 'Metal Works',
       image: '/images/Home/metal-working-fluids-and-oils-1000x1000.jpeg',
-      alt: 'Metalworking fluids and cutting coolants for precision manufacturing',
       aspectRatio: '1000/563',
       points: ['Metalworking fluids', 'Cutting coolants', 'Metal forming oils', 'Rust preventives'],
-      link: '/solutions/industrial/oils',
     },
     {
       name: 'Lithium-ion Battery Manufacturer',
       image: '/images/Home/Lithium-ion.jpg',
-      alt: 'Lithium-ion battery manufacturing lubricants and connectors',
       aspectRatio: '770/470',
       points: ['Cell assembly lubricants', 'Busbar connectors', 'Battery terminal blocks', 'FRP & epoxy sheets'],
-      link: '/solutions/industrial/battery',
     },
     {
       name: 'Electric Vehicles',
       image: '/images/Home/ev_battery.jpg',
-      alt: 'EV wire harness connectors and battery terminal blocks',
       aspectRatio: '1800/1013',
       points: ['Anderson connectors', 'Battery terminal blocks', 'EV wire harness', 'High-current connectors'],
-      link: '/solutions/industrial/connectors',
     },
     {
       name: 'Wire Harness',
       image: '/images/Trusted_Brand/C2.jpg',
-      alt: 'Automotive wire harness connectors and terminals',
       aspectRatio: '470/445',
       points: ['Yazaki connectors', 'Sumitomo terminals', 'TE Connectivity', 'Sealed connector systems'],
-      link: '/solutions/industrial/connectors',
     },
     {
       name: 'Generator Manufacturer',
       image: '/images/Home/Generatorjpg.jpg',
-      alt: 'Industrial lubricants for generator manufacturing and maintenance',
       aspectRatio: '1/1',
       points: ['Industrial lubricants', 'Cooling system fluids', 'Anti-rust coatings', 'Maintenance oils'],
-      link: '/solutions/industrial/oils',
     },
     {
       name: 'Heat Treatment',
       image: '/images/Products/Heat_Treatment/Vacuum_Quenching_Oils.jpg',
-      alt: 'Heat treatment salts, quenching oils, and carburizing chemicals',
-      aspectRatio: '1000/563',
       points: ['Heat treatment salts', 'Quenching oils', 'Polymer quenchants', 'Carburizing chemicals'],
-      link: '/solutions/industrial/oils',
     },
   ];
 
-  const brands = [
-    { name: 'Savita', logo: '/images/Trusted_Brand/Savita.jpg' },
-    { name: 'Condat', logo: '/images/Trusted_Brand/Condat.jpg' },
-    { name: 'TE Connectivity', logo: '/images/Trusted_Brand/TE.jpg' },
-    { name: 'Molex', logo: '/images/Trusted_Brand/Molex.jpg' },
-    { name: 'Aarna', logo: '/images/Trusted_Brand/Aarna.jpg' },
-    { name: 'Savsol', logo: '/images/Trusted_Brand/Savsol.jpg' },
+  const brandLogos = [
+    '/images/Trusted_Brand/Savita.jpg',
+    '/images/Trusted_Brand/Condat.jpg',
+    '/images/Trusted_Brand/TE.jpg',
+    '/images/Trusted_Brand/Molex.jpg',
+    '/images/Trusted_Brand/Aarna.jpg',
+    '/images/Trusted_Brand/Savsol.jpg',
   ];
 
-  const brandLogos = brands.map(b => b.logo);
-
-  const organizationSchema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://www.meehaan.com/#organization",
-      "name": "MEEHAAN Enterprise",
-      "url": "https://www.meehaan.com",
-      "logo": "https://www.meehaan.com/logo.png",
-      "description": "Precision-grade industrial lubricants, automotive connectors, and battery accessories. Trusted supplier for manufacturers worldwide since 2018.",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Gat No.1326, Unit-II, Shelarvasti, Chikhali",
-        "addressLocality": "Pune",
-        "addressRegion": "Maharashtra",
-        "postalCode": "411062",
-        "addressCountry": "IN"
-      },
-      "telephone": "+91-99235-88450",
-      "email": "info@meehaan.com",
-      "sameAs": [
-        "https://linkedin.com",
-        "https://instagram.com"
-      ],
-      "numberOfEmployees": "50-100"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://www.meehaan.com/#localbusiness",
-      "name": "MEEHAAN Enterprise",
-      "url": "https://www.meehaan.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Gat No.1326, Unit-II, Shelarvasti, Chikhali",
-        "addressLocality": "Pune",
-        "addressRegion": "Maharashtra",
-        "postalCode": "411062",
-        "addressCountry": "IN"
-      },
-      "telephone": "+91-99235-88450",
-      "email": "info@meehaan.com",
-      "areaServed": "IN",
-      "serviceType": "Industrial Supply"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://www.meehaan.com/#webpage",
-      "url": "https://www.meehaan.com/",
-      "name": "MEEHAAN Enterprise — Industrial Lubricants, Connectors & Battery Accessories",
-      "isPartOf": { "@id": "https://www.meehaan.com/#website" },
-      "about": { "@id": "https://www.meehaan.com/#organization" },
-      "dateModified": "2026-05-14"
-    }
-  ];
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.meehaan.com/#webpage",
+    "url": "https://www.meehaan.com/",
+    "name": "Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise",
+    "isPartOf": { "@id": "https://www.meehaan.com/#website" },
+    "about": { "@id": "https://www.meehaan.com/#organization" }
+  };
 
   return (
     <div className="bg-white min-h-screen">
@@ -268,7 +179,7 @@ const Home = () => {
         title="Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise"
         description="Oil manufacturer and B2B solution provider. 100-500 tons annual capacity. LUBO industrial lubricants, automotive connectors, battery accessories for oil & gas, EV, and industrial sectors. Pan-India delivery."
         canonical="/"
-        jsonLd={organizationSchema}
+        jsonLd={pageSchema}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
@@ -298,7 +209,7 @@ const Home = () => {
           </h1>
 
           <p className="font-dm text-[15px] text-[#666] mt-6 leading-[1.8] max-w-[480px] mx-auto">
-            Precision-grade <Link to="/solutions/industrial/oils" className="font-semibold text-[#FF6600] hover:underline">lubricants</Link>, <Link to="/solutions/industrial/connectors" className="font-semibold text-[#FF6600] hover:underline">automotive connectors</Link>, and <Link to="/solutions/industrial/battery" className="font-semibold text-[#FF6600] hover:underline">battery components</Link> — sourced from global brands, delivered to manufacturers worldwide.
+            Precision-grade lubricants, automotive connectors, and battery components — sourced from global brands, delivered to manufacturers worldwide.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mt-10">
@@ -522,16 +433,93 @@ const Home = () => {
         {/* Marquee Strip */}
         <div className="w-full overflow-hidden mt-[48px]">
           <div className="marquee-track flex items-center">
-            {[...brands, ...brands, ...brands].map((brand, i) => (
-              <img
+            {[...brandLogos, ...brandLogos, ...brandLogos].map((logo, i) => {
+              const brandNames = ['Savita', 'Condat', 'TE Connectivity', 'Molex', 'Aarna', 'Savsol'];
+              const brandName = brandNames[i % brandNames.length];
+              return (
+                <img
+                  key={i}
+                  src={logo}
+                  alt={`${brandName} - Authorized Distributor`}
+                  className="mx-[28px] grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  style={{ height: '28px', width: '80px', objectFit: 'contain' }}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════ SECTION 5B: INTERNATIONAL REACH ═══════════════════════════ */}
+      <section className="py-[56px] lg:py-[88px] px-6 lg:px-[80px] bg-[#F5F5F0] border-t border-[var(--border)]">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.1em] uppercase mb-3">Global Reach</p>
+            <h2 className="font-syne font-bold text-[32px] lg:text-[36px] text-nearBlack leading-[1.2]">
+              Export-Ready for Global Markets
+            </h2>
+            <p className="font-dm text-[14px] text-[#666] mt-4 max-w-[650px] mx-auto leading-[1.7]">
+              MEEHAAN is actively expanding into US, European, and Asian markets with manufacturing-backed solutions and international compliance.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                region: '🌍 Europe',
+                markets: ['Germany', 'UK', 'France', 'Benelux'],
+                signal: 'CE & REACH Compliant'
+              },
+              {
+                region: '🇺🇸 North America',
+                markets: ['USA', 'Canada'],
+                signal: 'FDA-compatible Products'
+              },
+              {
+                region: '🌏 Asia-Pacific',
+                markets: ['Singapore', 'Thailand', 'India'],
+                signal: 'ISO & Local Standards'
+              }
+            ].map((market, i) => (
+              <motion.div
                 key={i}
-                src={brand.logo}
-                alt={`${brand.name} - Authorized Distributor`}
-                className="mx-[28px] grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                style={{ height: '28px', width: 'auto', objectFit: 'contain' }}
-              />
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-[4px] p-6 border border-[#E8E8E4] text-center"
+              >
+                <p className="font-syne font-bold text-[18px] text-nearBlack mb-3">{market.region}</p>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {market.markets.map((m, j) => (
+                    <span key={j} className="font-dm text-[12px] bg-[#F5F5F0] text-[#666] px-3 py-1 rounded-full">
+                      {m}
+                    </span>
+                  ))}
+                </div>
+                <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.05em] uppercase">{market.signal}</p>
+              </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.65, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-10 p-6 bg-white rounded-[4px] border-l-4 border-[var(--orange)] text-center"
+          >
+            <p className="font-dm text-[13px] text-[#666] leading-[1.7]">
+              <strong>Manufacturing Credentials:</strong> ISO certifications, oil & gas compliance, and facility audits support international supply contracts.
+              <strong className="ml-2">Export-Ready Documentation:</strong> HS codes, DDP/CIF logistics, and customs procedures.
+            </p>
+          </motion.div>
         </div>
       </section>
 
