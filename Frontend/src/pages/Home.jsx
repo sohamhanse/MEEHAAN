@@ -163,12 +163,23 @@ const Home = () => {
     '/images/Trusted_Brand/Savsol.jpg',
   ];
 
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.meehaan.com/#webpage",
+    "url": "https://www.meehaan.com/",
+    "name": "Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise",
+    "isPartOf": { "@id": "https://www.meehaan.com/#website" },
+    "about": { "@id": "https://www.meehaan.com/#organization" }
+  };
+
   return (
     <div className="bg-white min-h-screen">
       <SEOHead
         title="Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise"
         description="Oil manufacturer and B2B solution provider. 100-500 tons annual capacity. LUBO industrial lubricants, automotive connectors, battery accessories for oil & gas, EV, and industrial sectors. Pan-India delivery."
         canonical="/"
+        jsonLd={pageSchema}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
