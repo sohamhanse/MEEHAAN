@@ -60,7 +60,7 @@ const Contact = () => {
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
         title="Contact MEEHAAN Enterprise | +91 99235 88450"
-        description="Contact MEEHAAN Enterprise for industrial lubricant quotes, automotive connector sourcing, battery accessories, and more. 24-hour response guaranteed."
+        description="Contact MEEHAAN for oil quotes, connector sourcing, battery accessories. Oil & gas procurement, EV supply, industrial manufacturing. WhatsApp: +91 99235 88450. 24-hour response guaranteed."
         canonical="/contact"
         jsonLd={{
           "@context": "https://schema.org",
@@ -72,13 +72,15 @@ const Contact = () => {
               "name": "Contact MEEHAAN Enterprise",
               "isPartOf": { "@id": "https://www.meehaan.com/#website" },
               "about": { "@id": "https://www.meehaan.com/#organization" },
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.meehaan.com/contact" }
-                ]
-              }
+              "breadcrumb": { "@id": "https://www.meehaan.com/contact#breadcrumb" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.meehaan.com/contact#breadcrumb",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.meehaan.com/contact" }
+              ]
             },
             {
               "@type": "FAQPage",

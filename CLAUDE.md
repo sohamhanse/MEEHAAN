@@ -9,6 +9,13 @@ React 18 + Vite + React Router v6 · Tailwind + inline styles · Framer Motion +
 - `Frontend/src/pages/solutions/DigitalProductPage.jsx` — **Untracked**
 - `Frontend/src/pages/solutions/DigitalProductsPage.jsx` — **Untracked**
 
+## Business Model
+- **Manufacturing**: Oil manufacturer (60%) — 100-500 tons annual capacity, LUBO-branded oils
+- **Trading**: Battery accessories + automotive connectors (40%)
+- **Primary Markets**: Oil & gas, EV/battery, industrial manufacturing sectors
+- **Export Markets**: US, Europe (in development)
+- **Target Verticals**: Oil & gas refining/petrochemicals, EV battery pack assemblers, wire harness manufacturers, precision machining
+
 ## Architecture notes
 - GSAP plugins registered once at module level in DigitalProductPage.jsx: ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, CustomEase
 - FM handles scroll reveals + hover · GSAP handles hero entrance + stacking cards ScrollTrigger

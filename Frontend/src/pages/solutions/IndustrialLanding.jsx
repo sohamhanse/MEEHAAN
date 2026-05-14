@@ -225,7 +225,7 @@ const IndustrialLanding = () => {
     <div className="bg-[#FAFAF8] min-h-screen pt-[64px]">
       <SEOHead
         title="Industrial Solutions — Oils, Connectors & Battery Accessories, Pune"
-        description="MEEHAAN Industrial Solutions: LUBO industrial lubricants, automotive connectors from 13+ global brands, and battery accessories for EV and solar applications. Based in Pune, India."
+        description="Oil manufacturing and specialty lubricants (heat treatment, metalworking). Automotive connectors (Yazaki, TE, Molex), battery accessories. Oil & gas certified. 100-500 tons capacity. Export to US, Europe."
         canonical="/solutions/industrial"
         jsonLd={industrialServiceSchema}
       />

@@ -35,7 +35,7 @@ const About = () => {
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
         title="About MEEHAAN Enterprise — Industrial Solutions"
-        description="Founded in 2018, MEEHAAN Enterprise is a global B2B supplier of industrial lubricants, connectors, and battery accessories for manufacturers worldwide."
+        description="MEEHAAN manufactures industrial oils since 2018 with 500+ clients across oil & gas, automotive, and EV sectors. ISO-certified, medium-scale production in Pune, India. Export-ready for Europe and US markets."
         canonical="/about"
         jsonLd={{
           "@context": "https://schema.org",
@@ -49,13 +49,15 @@ const About = () => {
               "isPartOf": { "@id": "https://www.meehaan.com/#website" },
               "about": { "@id": "https://www.meehaan.com/#organization" },
               "dateModified": "2026-05-09",
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.meehaan.com/about" }
-                ]
-              }
+              "breadcrumb": { "@id": "https://www.meehaan.com/about#breadcrumb" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.meehaan.com/about#breadcrumb",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
+                { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.meehaan.com/about" }
+              ]
             }
           ]
         }}

@@ -178,7 +178,7 @@ const Home = () => {
     <div className="bg-white min-h-screen">
       <SEOHead
         title="Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise"
-        description="MEEHAAN Enterprise — global supplier of LUBO industrial lubricants, automotive connectors, and battery accessories for manufacturers worldwide."
+        description="Oil manufacturer and B2B solution provider. 100-500 tons annual capacity. LUBO industrial lubricants, automotive connectors, battery accessories for oil & gas, EV, and industrial sectors. Pan-India delivery."
         canonical="/"
         jsonLd={organizationSchema}
       />
@@ -190,7 +190,7 @@ const Home = () => {
         <div className="absolute bottom-[-60px] left-[-60px] w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: 'var(--orange)', opacity: 0.04 }} />
 
         <motion.div
-          initial="hidden"
+          initial={false}
           animate="visible"
           variants={fadeUp}
           className="max-w-[640px] text-center px-6 py-[140px] relative z-10"
@@ -205,8 +205,8 @@ const Home = () => {
             className="font-serif font-bold italic text-nearBlack leading-[1.1] flex flex-col items-center"
             style={{ fontSize: 'clamp(16px, 4.5vw, 52px)' }}
           >
-            <span className="whitespace-nowrap">From production to delivery,</span>
-            <span className="whitespace-nowrap">improve where it counts most</span>
+            <span className="whitespace-nowrap">Industrial Oil Manufacturer</span>
+            <span className="whitespace-nowrap">&amp; Global B2B Solution Provider</span>
           </h1>
 
           <p className="font-dm text-[15px] text-[#666] mt-6 leading-[1.8] max-w-[480px] mx-auto">
@@ -443,7 +443,7 @@ const Home = () => {
                   src={logo}
                   alt={`${brandName} - Authorized Distributor`}
                   className="mx-[28px] grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                  style={{ height: '28px', width: 'auto', objectFit: 'contain' }}
+                  style={{ height: '28px', width: '80px', objectFit: 'contain' }}
                 />
               );
             })}
