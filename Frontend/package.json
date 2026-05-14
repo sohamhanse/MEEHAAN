@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-og-png.mjs && vite-react-ssg build && node scripts/inject-seo-metadata.mjs",
+    "build": "node scripts/generate-og-png.mjs && vite-react-ssg build && node scripts/generate-sitemap.mjs && node scripts/inject-seo-metadata.mjs",
     "build:csr": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
