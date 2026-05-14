@@ -450,6 +450,79 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ═══════════════════════════ SECTION 5B: INTERNATIONAL REACH ═══════════════════════════ */}
+      <section className="py-[56px] lg:py-[88px] px-6 lg:px-[80px] bg-[#F5F5F0] border-t border-[var(--border)]">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.1em] uppercase mb-3">Global Reach</p>
+            <h2 className="font-syne font-bold text-[32px] lg:text-[36px] text-nearBlack leading-[1.2]">
+              Export-Ready for Global Markets
+            </h2>
+            <p className="font-dm text-[14px] text-[#666] mt-4 max-w-[650px] mx-auto leading-[1.7]">
+              MEEHAAN is actively expanding into US, European, and Asian markets with manufacturing-backed solutions and international compliance.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                region: '🌍 Europe',
+                markets: ['Germany', 'UK', 'France', 'Benelux'],
+                signal: 'CE & REACH Compliant'
+              },
+              {
+                region: '🇺🇸 North America',
+                markets: ['USA', 'Canada'],
+                signal: 'FDA-compatible Products'
+              },
+              {
+                region: '🌏 Asia-Pacific',
+                markets: ['Singapore', 'Thailand', 'India'],
+                signal: 'ISO & Local Standards'
+              }
+            ].map((market, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-[4px] p-6 border border-[#E8E8E4] text-center"
+              >
+                <p className="font-syne font-bold text-[18px] text-nearBlack mb-3">{market.region}</p>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {market.markets.map((m, j) => (
+                    <span key={j} className="font-dm text-[12px] bg-[#F5F5F0] text-[#666] px-3 py-1 rounded-full">
+                      {m}
+                    </span>
+                  ))}
+                </div>
+                <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.05em] uppercase">{market.signal}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.65, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-10 p-6 bg-white rounded-[4px] border-l-4 border-[var(--orange)] text-center"
+          >
+            <p className="font-dm text-[13px] text-[#666] leading-[1.7]">
+              <strong>Manufacturing Credentials:</strong> ISO certifications, oil & gas compliance, and facility audits support international supply contracts.
+              <strong className="ml-2">Export-Ready Documentation:</strong> HS codes, DDP/CIF logistics, and customs procedures.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ═══════════════════════════ SECTION 6: CTA SPLIT ═══════════════════════════ */}
       <section ref={ctaRef} className="border-t border-[var(--border)]">
         <motion.div

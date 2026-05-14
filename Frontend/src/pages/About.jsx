@@ -459,7 +459,74 @@ const About = () => {
         </div>
       </section>
 
-      {/* SECTION 8 — FINAL CTA */}
+      {/* SECTION 8 — TEAM & LEADERSHIP */}
+      <section className="py-[64px] lg:py-[96px] px-6 lg:px-[80px] bg-[#FAFAF8]">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.1em] uppercase">Leadership</p>
+            <h2 className="font-syne font-bold text-[36px] text-[#1A1A1A] mt-2 leading-[1.2]">
+              Meet Our Team
+            </h2>
+            <p className="font-dm text-[14px] text-[#888] mt-4 max-w-[600px] mx-auto leading-[1.7]">
+              Industry veterans with deep expertise in manufacturing, supply chain, and technical support.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Manufacturing Lead',
+                role: 'Oil Production & Quality Control',
+                bio: 'Oversees manufacturing operations, ISO compliance, and product quality for 100-500 tons annual capacity.',
+                expertise: ['Oil Manufacturing', 'ISO Standards', 'Quality Assurance']
+              },
+              {
+                name: 'Technical Specialist',
+                role: 'Applications & Specifications',
+                bio: 'Provides technical guidance on oil & connector specifications for oil & gas, automotive, and EV sectors.',
+                expertise: ['Lubrication Engineering', 'Connector Specs', 'Industry Standards']
+              },
+              {
+                name: 'Supply Chain Manager',
+                role: 'Logistics & Distribution',
+                bio: 'Manages export operations, international shipping, and supply chain for US, Europe, and Asia markets.',
+                expertise: ['Export Compliance', 'Logistics', 'International Trade']
+              }
+            ].map((member, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white border border-[#E8E8E4] rounded-[4px] p-8"
+              >
+                <div className="mb-6">
+                  <div className="w-12 h-12 bg-[#F5A623] rounded-[4px] mb-4" />
+                  <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mb-1">{member.name}</h3>
+                  <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.1em] uppercase">{member.role}</p>
+                </div>
+                <p className="font-dm text-[13px] text-[#666] leading-[1.7] mb-4">{member.bio}</p>
+                <div className="flex flex-wrap gap-2">
+                  {member.expertise.map((skill, j) => (
+                    <span key={j} className="font-mono text-[10px] bg-[#F5F5F0] text-[#666] px-2 py-1 rounded">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 9 — FINAL CTA */}
       <section ref={ctaRef} className="bg-[#F5A623] py-[44px] lg:py-[72px] px-6 lg:px-[80px]">
          <motion.div 
            className="max-w-[1100px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[24px]"
