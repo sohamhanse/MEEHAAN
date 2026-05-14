@@ -48,7 +48,7 @@ const About = () => {
               "description": "Founded in 2018, MEEHAAN Enterprise supplies industrial lubricants, automotive connectors, and battery accessories worldwide.",
               "isPartOf": { "@id": "https://www.meehaan.com/#website" },
               "about": { "@id": "https://www.meehaan.com/#organization" },
-              "dateModified": "2026-05-09",
+              "dateModified": new Date().toISOString().split('T')[0],
               "breadcrumb": { "@id": "https://www.meehaan.com/about#breadcrumb" }
             },
             {

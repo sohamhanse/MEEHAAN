@@ -171,7 +171,7 @@ const Home = () => {
     "name": "MEEHAAN Enterprise — Industrial Lubricants, Connectors & Battery Accessories",
     "isPartOf": { "@id": "https://www.meehaan.com/#website" },
     "about": { "@id": "https://www.meehaan.com/#organization" },
-    "dateModified": "2026-05-09"
+    "dateModified": new Date().toISOString().split('T')[0]
   };
 
   return (

@@ -114,10 +114,11 @@ const Contact = () => {
           </div>
 
           <div className="w-full md:w-[35%] md:border-l border-[#2A2A2A] pt-4 md:pt-0 md:pl-[40px]">
-             <p className="font-mono text-[10px] text-[#555]">LOCATION</p>
+             <p className="font-mono text-[10px] text-[#555]">LOCATION & COMPLIANCE</p>
              <p className="font-syne font-semibold text-[16px] text-[#FFF] mt-1.5">Pune, Maharashtra</p>
              <p className="font-dm text-[12px] text-[#666] mt-1 leading-[1.6]">Chikhali, Dehu Road</p>
              <p className="font-dm text-[12px] text-[#F5A623] mt-2">+91 99235 88450</p>
+             <p className="font-dm text-[11px] text-[#888] mt-3">GSTIN: [GST Number]<br/>Verified Export Supplier</p>
           </div>
 
         </div>

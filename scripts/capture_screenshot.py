@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 import sys
 import os
 
-SCREENSHOTS_DIR = "C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/screenshots"
+SCREENSHOTS_DIR = "C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/.claude/worktrees/priceless-matsumoto-cc66f6/screenshots"
 
 viewports = [
     {"name": "desktop", "width": 1920, "height": 1080},
@@ -12,11 +12,9 @@ viewports = [
 ]
 
 pages_to_capture = [
-    {"slug": "home",             "url": "https://www.meehaan.com/"},
-    {"slug": "about",            "url": "https://www.meehaan.com/about"},
-    {"slug": "contact",          "url": "https://www.meehaan.com/contact"},
-    {"slug": "digital",          "url": "https://www.meehaan.com/solutions/digital"},
-    {"slug": "digital_products", "url": "https://www.meehaan.com/solutions/digital/products"},
+    {"slug": "home",    "url": "https://www.meehaan.com/"},
+    {"slug": "about",   "url": "https://www.meehaan.com/about"},
+    {"slug": "contact", "url": "https://www.meehaan.com/contact"},
 ]
 
 def capture_all():
@@ -50,28 +48,6 @@ def capture_all():
                     page.close()
             context.close()
         browser.close()
-
-def capture(url_base, output_dir):
-    os.makedirs(output_dir, exist_ok=True)
-    results = []
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        for vp in viewports:
-            page = browser.new_page(viewport={"width": vp["width"], "height": vp["height"]})
-            for pg in pages_to_capture:
-                url = pg["url"]
-                try:
-                    page.goto(url, wait_until="networkidle", timeout=30000)
-                    page.wait_for_timeout(1500)
-                    filename = f"{vp['name']}_{pg['slug']}.png"
-                    out = os.path.join(output_dir, filename)
-                    page.screenshot(path=out, full_page=False)
-                    results.append(f"OK  {filename}")
-                except Exception as e:
-                    results.append(f"ERR {vp['name']}_{pg['slug']}: {e}")
-        browser.close()
-    for r in results:
-        print(r)
 
 if __name__ == "__main__":
     os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
