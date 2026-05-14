@@ -147,7 +147,7 @@ const ProductOils = () => {
     <div className="bg-[var(--warm-white)] min-h-screen pt-[64px]">
       <SEOHead
         title="LUBO Industrial Oils & Lubricants — Heat Treatment, Cutting, Metal Forming"
-        description="LUBO-brand industrial lubricants from MEEHAAN: heat treatment oils, fire-resistant fluids, cutting coolants, metal forming oils, industrial cleaners, rust preventives, and die-casting lubricants."
+        description="LUBO industrial oils manufactured by MEEHAAN: heat treatment oils, cutting fluids, metalworking fluids, fire-resistant hydraulics, specialty greases. Oil & gas certified. 100-500 tons capacity. Export-ready."
         canonical="/solutions/industrial/oils"
         jsonLd={oilsSchema}
       />

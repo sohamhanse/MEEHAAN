@@ -35,7 +35,7 @@ const About = () => {
     <div className="bg-white min-h-screen pt-[64px]">
       <SEOHead
         title="About MEEHAAN Enterprise — Industrial Solutions"
-        description="Founded in 2018, MEEHAAN Enterprise is a global B2B supplier of industrial lubricants, connectors, and battery accessories for manufacturers worldwide."
+        description="MEEHAAN manufactures industrial oils since 2018 with 500+ clients across oil & gas, automotive, and EV sectors. ISO-certified, medium-scale production in Pune, India. Export-ready for Europe and US markets."
         canonical="/about"
         jsonLd={{
           "@context": "https://schema.org",
@@ -48,14 +48,16 @@ const About = () => {
               "description": "Founded in 2018, MEEHAAN Enterprise supplies industrial lubricants, automotive connectors, and battery accessories worldwide.",
               "isPartOf": { "@id": "https://www.meehaan.com/#website" },
               "about": { "@id": "https://www.meehaan.com/#organization" },
-              "dateModified": "2026-05-09",
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.meehaan.com/about" }
-                ]
-              }
+              "dateModified": new Date().toISOString().split('T')[0],
+              "breadcrumb": { "@id": "https://www.meehaan.com/about#breadcrumb" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.meehaan.com/about#breadcrumb",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.meehaan.com/" },
+                { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.meehaan.com/about" }
+              ]
             }
           ]
         }}
@@ -152,11 +154,17 @@ const About = () => {
                 2018 — THE BEGINNING
               </div>
               <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mt-3">
-                Starting with Industrial Oils
+                Manufacturing Industrial Oils
               </h3>
               <p className="font-dm text-[14px] text-[#666] leading-[1.8] mt-3">
-                MEEHAAN Enterprise was established in 2018 in Pune, Maharashtra, with a focused mandate — to supply high-quality industrial lubricants to India's growing manufacturing sector. Operating from the heart of Pune's industrial belt, we began by partnering with LUBO, a premium industrial oils brand, to serve heat treatment plants, die casting units, and metalworking facilities.
+                MEEHAAN Enterprise was established in 2018 in Pune, Maharashtra, as a manufacturing operation for industrial lubricants. With medium-scale production capacity (100-500 tons annually), we manufacture LUBO-brand industrial oils and specialty fluids for India's manufacturing sector. Operating from Pune's industrial belt, our facility serves heat treatment plants, die casting units, metalworking facilities, and oil & gas applications with ISO-certified products.
               </p>
+              <ul className="mt-3 space-y-1 text-sm text-[#666]">
+                <li className="flex items-start gap-2"><span className="text-[#F5A623] mt-0.5">✓</span> <span>ISO-certified manufacturing facility in Pune</span></li>
+                <li className="flex items-start gap-2"><span className="text-[#F5A623] mt-0.5">✓</span> <span>100-500 tons annual production capacity</span></li>
+                <li className="flex items-start gap-2"><span className="text-[#F5A623] mt-0.5">✓</span> <span>Oil & gas industry compliance certifications</span></li>
+                <li className="flex items-start gap-2"><span className="text-[#F5A623] mt-0.5">✓</span> <span>Quality control across all product lines</span></li>
+              </ul>
             </div>
 
             <div className="pb-8 mb-8 border-b border-[#F0F0EC]">
@@ -406,6 +414,47 @@ const About = () => {
                  </motion.div>
                );
              })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7B — EXPORT CAPABILITY */}
+      <section className="bg-white py-14 lg:py-20 border-t border-[#E8E8E4] px-6 lg:px-[80px]">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.1em] uppercase">Global Reach</p>
+            <h2 className="font-syne font-bold text-[36px] text-[#1A1A1A] mt-2 leading-[1.2]">
+              Export-Ready Supplier for<br/>International Markets
+            </h2>
+            <p className="font-dm text-[14px] text-[#888] mt-4 max-w-[600px] mx-auto leading-[1.7]">
+              MEEHAAN has established export capabilities and is actively expanding into US, European, and global markets with manufacturing-backed solutions.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            {[
+              { title: 'Manufacturing Credentials', desc: 'ISO certifications, oil & gas industry compliance, and facility audits support international contracts.' },
+              { title: 'Logistics & Documentation', desc: 'Experience with international shipping, customs documentation, HS codes, and DDP/CIF arrangements.' },
+              { title: 'Compliance & Standards', desc: 'RoHS, REACH, and regional certifications ensure products meet international market requirements.' }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#FAFAF8] border border-[#E8E8E4] rounded-[4px] p-6"
+              >
+                <h3 className="font-syne font-semibold text-[16px] text-[#1A1A1A] mb-2">{item.title}</h3>
+                <p className="font-dm text-[13px] text-[#666] leading-[1.7]">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

@@ -204,7 +204,7 @@ const ProductCategory = () => {
     <div className="bg-[var(--warm-white)] min-h-screen pt-[64px]">
       <SEOHead
         title="Industrial Connectors & Cable Glands — Yazaki, TE, Molex | MEEHAAN"
-        description="MEEHAAN supplies automotive and industrial connectors, cable glands, and wiring harness components from Yazaki, TE Connectivity, Molex, and 10+ global brands. Pan-India delivery from Pune."
+        description="Authorized distributor of automotive connectors: Yazaki, TE Connectivity, Molex, Sumitomo, JST. Cable glands, terminals, wire harness components for EV and automotive OEMs. Pan-India delivery."
         canonical="/solutions/industrial/connectors"
         jsonLd={connectorsSchema}
       />

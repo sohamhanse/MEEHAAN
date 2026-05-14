@@ -55,6 +55,9 @@ const Footer = () => {
                 </svg>
                 <a href="mailto:info@meehaan.com" className="hover:text-white transition-colors duration-150 transform hover:translate-x-1 w-max block">info@meehaan.com</a>
               </p>
+              <p className="font-dm text-[12px] mt-2" style={{ color: '#666' }}>
+                GSTIN: [GST Number] | Verified Export Supplier
+              </p>
             </div>
           </div>
 

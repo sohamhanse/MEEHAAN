@@ -344,7 +344,7 @@ const BatteryMarketplace = () => {
           '@type': 'Offer',
           'priceCurrency': 'INR',
           'availability': 'https://schema.org/InStock',
-          'url': 'https://www.meehaan.com/contact',
+          'url': `https://www.meehaan.com${seoCanonical}`,
         },
       },
       {
