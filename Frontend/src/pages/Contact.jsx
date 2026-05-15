@@ -96,29 +96,29 @@ const Contact = () => {
       />
 
       {/* ═══════════════════════════════ SECTION 1: HEADER ═══════════════════════════════ */}
-      <section className="bg-[#1A1A1A] py-[36px] lg:py-[56px] px-6 lg:px-[80px] min-h-[200px] flex items-center w-full">
+      <section className="bg-[#050805] py-[36px] lg:py-[56px] px-6 lg:px-[80px] min-h-[200px] flex items-center w-full">
         <div className="max-w-[1200px] mx-auto w-full flex flex-col md:flex-row gap-6 md:gap-0">
-          
+
           <div className="w-full md:w-[35%]">
-             <p className="font-mono text-[11px] text-[#555]">GET IN TOUCH</p>
+             <p className="font-mono text-[11px] text-[#64748B]">GET IN TOUCH</p>
              <h1 className="font-syne font-extrabold text-[#FFF] mt-3 leading-none" style={{ fontSize: 'clamp(26px, 4vw, 40px)' }}>Contact Us</h1>
-             <p className="font-dm text-[14px] text-[#777] mt-3 max-w-[280px]">
+             <p className="font-dm text-[14px] text-[#94A3B8] mt-3 max-w-[280px]">
                We respond to all enquiries within 24 hours.
              </p>
           </div>
 
-          <div className="w-full md:w-[30%] md:border-l border-[#2A2A2A] pt-4 md:pt-0 md:pl-[40px]">
-             <p className="font-mono text-[10px] text-[#555]">RESPONSE TIME</p>
+          <div className="w-full md:w-[30%] md:border-l border-white/10 pt-4 md:pt-0 md:pl-[40px]">
+             <p className="font-mono text-[10px] text-[#64748B]">RESPONSE TIME</p>
              <p className="font-syne font-bold text-[32px] text-[#F5A623] leading-none mt-1">24hrs</p>
-             <p className="font-dm text-[12px] text-[#666] mt-1.5">Mon–Sat, 9am to 7pm</p>
+             <p className="font-dm text-[12px] text-[#94A3B8] mt-1.5">Mon–Sat, 9am to 7pm</p>
           </div>
 
-          <div className="w-full md:w-[35%] md:border-l border-[#2A2A2A] pt-4 md:pt-0 md:pl-[40px]">
-             <p className="font-mono text-[10px] text-[#555]">LOCATION & COMPLIANCE</p>
+          <div className="w-full md:w-[35%] md:border-l border-white/10 pt-4 md:pt-0 md:pl-[40px]">
+             <p className="font-mono text-[10px] text-[#64748B]">LOCATION & COMPLIANCE</p>
              <p className="font-syne font-semibold text-[16px] text-[#FFF] mt-1.5">Pune, Maharashtra</p>
-             <p className="font-dm text-[12px] text-[#666] mt-1 leading-[1.6]">Chikhali, Dehu Road</p>
-             <p className="font-dm text-[12px] text-[#F5A623] mt-2">+91 99235 88450</p>
-             <p className="font-dm text-[11px] text-[#888] mt-3">GSTIN: [GST Number]<br/>Verified Export Supplier</p>
+             <p className="font-dm text-[12px] text-[#94A3B8] mt-1 leading-[1.6]">Chikhali, Dehu Road</p>
+             <a href="tel:+919923588450" className="font-dm text-[12px] text-[#F5A623] mt-2 hover:underline block">+91 99235 88450</a>
+             <p className="font-dm text-[11px] text-[#94A3B8] mt-3">GSTIN: 27ACXPH9352F1Z2<br/>Verified Export Supplier</p>
           </div>
 
         </div>
@@ -213,8 +213,8 @@ const Contact = () => {
                     <FiMail className="w-[16px] h-[16px] text-[#F5A623] mt-[2px] shrink-0" />
                     <div>
                        <p className="font-mono text-[11px] text-[#888]">EMAIL</p>
-                       <p className="font-dm text-[13px] text-[#555] mt-1">info@meehaan.com</p>
-                       <p className="font-dm text-[13px] text-[#555]">sales@meehaan.com</p>
+                       <a href="mailto:info@meehaan.com" className="block font-dm text-[13px] text-[#555] mt-1 hover:text-[#F5A623] transition-colors">info@meehaan.com</a>
+                       <a href="mailto:sales@meehaan.com" className="block font-dm text-[13px] text-[#555] hover:text-[#F5A623] transition-colors">sales@meehaan.com</a>
                     </div>
                  </div>
                </div>

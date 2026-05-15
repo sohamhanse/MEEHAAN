@@ -30,7 +30,7 @@ export const clientTestimonials = [
     role: "Plant Head",
     quote: "Our heat treatment plant was struggling with quenching inconsistency, higher rejection rates, and increased oil replacement costs. MEEHAAN helped us optimize the entire process with the right heat treatment oils and technical guidance. The result was lower component distortion, improved hardness consistency, reduced rejection during inspection, and better furnace efficiency. This helped us reduce operational cost while improving overall product quality for automotive and industrial customers.",
     author: "Plant Head",
-    imageUrl: "/images/clients/bharat-gears-logo.svg", // Add company logo
+    imageUrl: "/images/clients/bharat_gears_ltd_logo.jpg",
     metrics: {
       rejectionRate: "Reduced during inspection",
       distortion: "Lower component distortion",
@@ -54,7 +54,7 @@ export const clientTestimonials = [
     role: "Global Supply Chain Manager",
     quote: "In lithium-ion battery manufacturing, production delays and connector failures can affect the entire assembly line. MEEHAAN supplied reliable battery connectors and industrial solutions that improved assembly stability and reduced interruptions during production. We experienced smoother production flow, fewer maintenance-related stoppages, and faster dispatch cycles. Their support team also helped us reduce procurement lead time by ensuring consistent product availability during high-demand periods.",
     author: "Global Supply Chain Manager",
-    imageUrl: "/images/clients/neuron-energy-logo.svg", // Add company logo
+    imageUrl: "/images/clients/neuron-energy-logo.jpg",
     metrics: {
       assemblyStability: "Improved",
       productionInterruptions: "Reduced",

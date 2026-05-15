@@ -9,8 +9,12 @@ export default {
       colors: {
         orange: '#F5A623',
         teal: '#00B8A0',
-        nearBlack: '#1A1A1A',
+        nearBlack: '#050805',
         warmWhite: '#FAFAF8',
+        forest: '#184D3A',
+        lime: '#D4F565',
+        limeDeep: '#C6E84F',
+        ink: '#050805',
       },
       fontFamily: {
         syne: ['Syne', 'sans-serif'],

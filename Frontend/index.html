@@ -13,6 +13,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="MEEHAAN Enterprise" />
   <meta name="theme-color" content="#050805" />
+  <meta name="geo.region" content="IN-MH" />
+  <meta name="geo.placename" content="Pune, Maharashtra, India" />
+  <meta name="geo.position" content="18.6905112;73.7989598" />
+  <meta name="ICBM" content="18.6905112, 73.7989598" />
   <meta name="google-site-verification" content="a8tgNFRe5fyj9SMN1Z3CI1zC-hleEZt9GGRglhZ7fyw" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +60,7 @@
           },
           "description": "Oil manufacturer and B2B solution provider specializing in industrial lubricants, automotive connectors, and battery accessories for oil & gas, EV, and industrial sectors.",
           "foundingDate": "2018",
+          "taxID": "27ACXPH9352F1Z2",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Gat No. 1326, Unit-II, Shelarvasti, Ganesh Nagar, Chikhali",
@@ -126,7 +131,11 @@
           "@id": "https://www.meehaan.com/#website",
           "url": "https://www.meehaan.com/",
           "name": "MEEHAAN Enterprise",
-          "publisher": { "@id": "https://www.meehaan.com/#organization" }
+          "publisher": { "@id": "https://www.meehaan.com/#organization" },
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "xPath": ["//title", "//meta[@name='description']/@content"]
+          }
         }
       ]
     }

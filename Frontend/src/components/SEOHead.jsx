@@ -12,6 +12,7 @@ const SEOHead = ({
   ogLocale = 'en_US',
   noIndex = false,
   jsonLd,
+  breadcrumbs,
 }) => {
   const fullTitle = buildTitle(title);
   const fullDescription = description || SEO_BASE.defaultDescription;
@@ -53,6 +54,20 @@ const SEOHead = ({
       {jsonLd && (
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
+        </script>
+      )}
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": breadcrumbs.map((item, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "name": item.name,
+              "item": `${SEO_BASE.baseUrl}${item.path}`,
+            })),
+          })}
         </script>
       )}
     </Helmet>

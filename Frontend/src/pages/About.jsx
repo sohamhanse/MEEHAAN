@@ -1,9 +1,17 @@
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { FiCheckCircle, FiTarget, FiShield } from 'react-icons/fi';
 import CountUp from 'react-countup';
+import ClientTestimonials from '../components/ClientTestimonials';
+import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+
+gsap.registerPlugin(SplitText, ScrambleTextPlugin, DrawSVGPlugin);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -24,11 +32,29 @@ const About = () => {
   const [journeyRef, journeyInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  const heroH1Ref = useRef(null);
+  const heroBadgeRef = useRef(null);
+  const heroDividerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const split = SplitText.create(heroH1Ref.current, { type: 'words', mask: 'words' });
+      gsap.from(split.words, { yPercent: 110, stagger: 0.06, duration: 0.9, ease: 'power3.out', delay: 0.3 });
+      gsap.to(heroBadgeRef.current, {
+        scrambleText: { text: 'EST. 2018 · PUNE, MAHARASHTRA', chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·.', revealDelay: 0.1, speed: 0.9 },
+        duration: 1.5, delay: 0.2,
+      });
+      gsap.from(heroDividerRef.current, { drawSVG: 0, duration: 0.8, ease: 'power2.out', delay: 1.1 });
+    });
+    return () => ctx.revert();
+  }, []);
+
   const milestones = [
     { year: 2018, title: "Company Founded", description: "Started operations as an authorized distributor for industrial lubricants in Pune, Maharashtra." },
     { year: 2019, title: "Automotive Connectors", description: "Expanded product portfolio to include automotive connectors, serving Tier 1 and Tier 2 suppliers." },
     { year: 2021, title: "Operations Scaled", description: "Achieved a milestone of 100+ active industrial clients. Commenced operations in multiple cities." },
-    { year: 2023, title: "Battery Materials", description: "Launched the Battery Accessories division specifically aimed at India\'s growing EV manufacturing sector." },
+    { year: 2023, title: "Battery Materials", description: "Launched the Battery Accessories division specifically aimed at India's growing EV manufacturing sector." },
+    { year: 2025, title: "Export Expansion", description: "Established export channels to European and US markets. Began serving international B2B clients with compliant documentation, HS codes, and global logistics support." },
   ];
 
   return (
@@ -64,7 +90,7 @@ const About = () => {
       />
 
       {/* SECTION 1 — HERO */}
-      <section ref={heroRef} className="relative bg-[#1A1A1A] min-h-[480px] overflow-hidden">
+      <section ref={heroRef} className="relative bg-[#050805] min-h-[480px] overflow-hidden">
         {/* Full-bleed background image on the right */}
         <div className="absolute right-0 top-0 w-[100%] lg:w-[55%] h-full">
           <img
@@ -72,46 +98,48 @@ const About = () => {
             alt="MEEHAAN Foundation"
             fetchpriority="high"
             loading="eager"
-            className="w-full h-full object-cover opacity-[0.15] filter brightness-[0.4]"
+            className="w-full h-full object-cover opacity-[0.18] filter brightness-[0.5]"
           />
           {/* Gradient overlay to fade it securely out towards the left */}
-          <div className="absolute left-0 top-0 w-[60%] h-full bg-gradient-to-r from-[#1A1A1A] to-transparent"></div>
+          <div className="absolute left-0 top-0 w-[60%] h-full bg-gradient-to-r from-[#050805] to-transparent"></div>
         </div>
 
         <div className="relative z-10 px-6 py-12 lg:px-[80px] lg:py-[80px] max-w-[620px]">
-          <p className="font-mono text-[11px] text-[#555] m-0">Home / About Us</p>
-          
-          <div className="mt-6 inline-block border font-mono text-[10px] text-[#F5A623] border-[#F5A623]/25 bg-[#F5A623]/[0.06] px-[14px] py-[4px] rounded-full">
+          <p className="font-mono text-[11px] text-[#64748B] m-0">Home / About Us</p>
+
+          <div ref={heroBadgeRef} className="mt-6 inline-block border font-mono text-[10px] text-[#F5A623] border-[#F5A623]/25 bg-[#F5A623]/[0.06] px-[14px] py-[4px] rounded-full">
             EST. 2018 · PUNE, MAHARASHTRA
           </div>
 
-          <h1 className="font-syne font-extrabold text-[32px] lg:text-[52px] text-white leading-none mt-5">
+          <h1 ref={heroH1Ref} className="font-syne font-extrabold text-[32px] lg:text-[52px] text-white leading-none mt-5">
             Built on Trust.<br />
             Driven by Precision.
           </h1>
 
-          <div className="w-[48px] h-[3px] bg-[#F5A623] my-6"></div>
+          <svg ref={heroDividerRef} width="48" height="3" viewBox="0 0 48 3" className="my-6" aria-hidden="true">
+            <line x1="0" y1="1.5" x2="48" y2="1.5" stroke="#F5A623" strokeWidth="3" strokeLinecap="round" />
+          </svg>
 
-          <p className="font-dm text-[15px] text-[#999] max-w-[480px] leading-[1.8]">
+          <p className="font-dm text-[15px] text-[#94A3B8] max-w-[480px] leading-[1.8]">
             MEEHAAN Enterprise was founded with a single belief — that manufacturers deserve a supplier who understands their floor, their deadlines, and their standards. Seven years on, that belief drives everything we do.
           </p>
 
           <div className="mt-10 inline-flex flex-row gap-0">
-            <div className="pr-[28px] pl-0 flex flex-col justify-center h-[48px] border-r border-[#2A2A2A]">
+            <div className="pr-[28px] pl-0 flex flex-col justify-center h-[48px] border-r border-white/10">
               <span className="font-syne font-bold text-[26px] text-[#F5A623] leading-none">{heroInView ? <CountUp end={2018} duration={1.8} separator="" /> : '—'}</span>
-              <span className="font-mono text-[10px] text-[#555] mt-[5px]">Founded</span>
+              <span className="font-mono text-[10px] text-[#64748B] mt-[5px]">Founded</span>
             </div>
-            <div className="px-[28px] flex flex-col justify-center h-[48px] border-r border-[#2A2A2A]">
+            <div className="px-[28px] flex flex-col justify-center h-[48px] border-r border-white/10">
               <span className="font-syne font-bold text-[26px] text-[#F5A623] leading-none">{heroInView ? <CountUp end={7} duration={1.4} suffix="+" /> : '0+'}</span>
-              <span className="font-mono text-[10px] text-[#555] mt-[5px]">Years Active</span>
+              <span className="font-mono text-[10px] text-[#64748B] mt-[5px]">Years Active</span>
             </div>
-            <div className="px-[28px] flex flex-col justify-center h-[48px] border-r border-[#2A2A2A]">
+            <div className="px-[28px] flex flex-col justify-center h-[48px] border-r border-white/10">
               <span className="font-syne font-bold text-[26px] text-[#F5A623] leading-none">{heroInView ? <CountUp end={500} duration={1.8} suffix="+" /> : '0+'}</span>
-              <span className="font-mono text-[10px] text-[#555] mt-[5px]">Clients Served</span>
+              <span className="font-mono text-[10px] text-[#64748B] mt-[5px]">Clients Served</span>
             </div>
             <div className="px-[28px] flex flex-col justify-center h-[48px]">
               <span className="font-syne font-bold text-[26px] text-[#F5A623] leading-none">{heroInView ? <CountUp end={2} duration={1.2} /> : '0'}</span>
-              <span className="font-mono text-[10px] text-[#555] mt-[5px]">Product Divisions</span>
+              <span className="font-mono text-[10px] text-[#64748B] mt-[5px]">Product Divisions</span>
             </div>
           </div>
         </div>
@@ -128,7 +156,7 @@ const About = () => {
           {/* LEFT (48%) */}
           <div className="w-full lg:w-[48%] lg:sticky lg:top-[80px]">
             <p className="font-mono text-[11px] text-[#F5A623]">OUR STORY</p>
-            <h2 className="font-syne font-bold text-[36px] text-[#1A1A1A] mt-3 leading-[1.15]">
+            <h2 className="font-syne font-bold text-[36px] text-[#050805] mt-3 leading-[1.15]">
               From a Vision to<br />a Trusted Brand
             </h2>
             <div className="w-[36px] h-[2px] bg-[#F5A623] my-5"></div>
@@ -139,11 +167,11 @@ const About = () => {
               className="w-full h-[280px] object-cover rounded-[4px] border border-[#E8E8E4] mt-7"
             />
             {/* Floating quote block outside the image directly beneath it visually */}
-            <div className="bg-[#1A1A1A] p-5 lg:px-6 lg:py-5 rounded-[4px] -mt-[1px] border-l-[3px] border-[#F5A623] relative w-11/12 lg:w-4/5">
-              <p className="font-dm italic text-[13px] text-[#888] leading-[1.6]">
+            <div className="bg-[#184D3A] p-5 lg:px-6 lg:py-5 rounded-[4px] -mt-[1px] border-l-[3px] border-[#F5A623] relative w-11/12 lg:w-4/5">
+              <p className="font-dm italic text-[13px] text-[#A0C4B8] leading-[1.6]">
                 "Precision in supply is as important as precision in manufacturing."
               </p>
-              <p className="font-mono text-[11px] text-[#555] mt-[10px]">— MEEHAAN Philosophy</p>
+              <p className="font-mono text-[11px] text-[#7AA89A] mt-[10px]">— MEEHAAN Philosophy</p>
             </div>
           </div>
 
@@ -153,7 +181,7 @@ const About = () => {
               <div className="inline-block border border-opacity-[0.2] border-[#F5A623] font-mono text-[11px] text-[#F5A623] px-[10px] py-[3px] rounded-full">
                 2018 — THE BEGINNING
               </div>
-              <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mt-3">
+              <h3 className="font-syne font-semibold text-[18px] text-[#050805] mt-3">
                 Manufacturing Industrial Oils
               </h3>
               <p className="font-dm text-[14px] text-[#666] leading-[1.8] mt-3">
@@ -171,7 +199,7 @@ const About = () => {
               <div className="inline-block border border-opacity-[0.2] border-[#F5A623] font-mono text-[11px] text-[#F5A623] px-[10px] py-[3px] rounded-full">
                 2019 — EXPANDING THE PORTFOLIO
               </div>
-              <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mt-3">
+              <h3 className="font-syne font-semibold text-[18px] text-[#050805] mt-3">
                 Adding Automotive Connectors
               </h3>
               <p className="font-dm text-[14px] text-[#666] leading-[1.8] mt-3">
@@ -183,7 +211,7 @@ const About = () => {
               <div className="inline-block border border-opacity-[0.2] border-[#F5A623] font-mono text-[11px] text-[#F5A623] px-[10px] py-[3px] rounded-full">
                 2021–2023 — STRENGTHENING & SCALING
               </div>
-              <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mt-3">
+              <h3 className="font-syne font-semibold text-[18px] text-[#050805] mt-3">
                 Battery Accessories & Pan-India Reach
               </h3>
               <p className="font-dm text-[14px] text-[#666] leading-[1.8] mt-3">
@@ -204,7 +232,7 @@ const About = () => {
           animate={diffInView ? "visible" : "hidden"}
         >
           <p className="font-mono text-[11px] text-[#888]">THE MEEHAAN DIFFERENCE</p>
-          <h2 className="font-syne font-bold text-[36px] text-[#1A1A1A] mt-2 leading-[1.2]">
+          <h2 className="font-syne font-bold text-[36px] text-[#050805] mt-2 leading-[1.2]">
             Not Just a Supplier.<br />A Partner Who Understands Your Industry.
           </h2>
           <p className="font-dm text-[14px] text-[#888] mt-4 leading-[1.7]">
@@ -229,7 +257,7 @@ const About = () => {
           ].map((b, i) => (
             <div key={i} className="bg-white p-8 lg:px-7 lg:py-8 block group w-full h-full hover:bg-[#FAFAF8] transition-colors">
               <span className="font-mono text-[13px] text-[#F5A623]">{b.n}</span>
-              <h3 className="font-syne font-semibold text-[16px] text-[#1A1A1A] mt-4">{b.t}</h3>
+              <h3 className="font-syne font-semibold text-[16px] text-[#050805] mt-4">{b.t}</h3>
               <div className="divider w-[28px] h-[2px] bg-[#E8E8E4] my-[14px] transition-colors duration-300 group-hover:bg-[#F5A623]"></div>
               <p className="font-dm text-[13px] text-[#888] leading-[1.65]">
                 {b.d}
@@ -240,9 +268,9 @@ const About = () => {
       </section>
 
       {/* SECTION 4 — BY THE NUMBERS */}
-      <section ref={numbersRef} className="bg-[#1A1A1A] py-12 lg:py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div 
+      <section ref={numbersRef} className="bg-[#F8FAFC] py-12 lg:py-20 border-t border-[#E8E8E4]">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-y-10"
             variants={fadeUp}
             initial="hidden"
@@ -254,24 +282,24 @@ const About = () => {
               { n: '13+', l: 'Connector Brands', d: 'Authorized distributor for global connector manufacturers' },
               { n: '2', l: 'Business Divisions', d: 'Industrial Oils, Connectors, and Battery Accessories' }
             ].map((stat, i) => (
-              <div key={i} className={`text-center px-4 lg:px-10 ${i % 2 === 0 ? 'border-r border-[#2A2A2A] lg:border-r' : ''} ${i === 1 ? 'lg:border-r border-[#2A2A2A]' : ''} ${i === 3 ? 'border-r-0' : ''}`}>
+              <div key={i} className={`text-center px-4 lg:px-10 ${i % 2 === 0 ? 'border-r border-[#E8E8E4] lg:border-r' : ''} ${i === 1 ? 'lg:border-r border-[#E8E8E4]' : ''} ${i === 3 ? 'border-r-0' : ''}`}>
                 <div className="font-syne font-extrabold text-[52px] text-[#F5A623] leading-none">{stat.n}</div>
-                <div className="font-syne font-medium text-[15px] text-white mt-3">{stat.l}</div>
-                <div className="font-dm text-[13px] text-[#666] mt-2 leading-[1.5]">{stat.d}</div>
+                <div className="font-syne font-medium text-[15px] text-[#050805] mt-3">{stat.l}</div>
+                <div className="font-dm text-[13px] text-[#888] mt-2 leading-[1.5]">{stat.d}</div>
               </div>
             ))}
           </motion.div>
 
           <motion.div
-            className="mt-[72px] pt-[56px] border-t border-[#2A2A2A] text-center px-6"
+            className="mt-[72px] pt-[56px] border-t border-[#E8E8E4] text-center px-6"
             variants={fadeUp}
             initial="hidden"
             animate={numbersInView ? "visible" : "hidden"}
           >
-            <p className="font-dm italic text-[20px] text-[#777] max-w-[680px] mx-auto leading-[1.7]">
+            <p className="font-dm italic text-[20px] text-[#555] max-w-[680px] mx-auto leading-[1.7]">
               "We started with one product category and one city. Seven years later, we serve hundreds of clients across India with multiple product divisions. The constants have always been the same — genuine products, honest pricing, and people who pick up the phone."
             </p>
-            <p className="font-mono text-[12px] text-[#444] mt-5">— MEEHAAN Enterprise, Pune, Maharashtra</p>
+            <p className="font-mono text-[12px] text-[#888] mt-5">— MEEHAAN Enterprise, Pune, Maharashtra</p>
           </motion.div>
         </div>
       </section>
@@ -280,40 +308,69 @@ const About = () => {
       <section ref={divisionsRef} className="bg-[#FAFAF8] py-14 lg:py-20 border-t border-[#E8E8E4] px-6 lg:px-[80px]">
         <div className="max-w-[1100px] mx-auto">
           <p className="font-mono text-[11px] text-[#888]">WHAT WE DO</p>
-          <h2 className="font-syne font-bold text-[32px] text-[#1A1A1A] mt-2">
+          <h2 className="font-syne font-bold text-[32px] text-[#050805] mt-2">
             Two Divisions, One Partner
           </h2>
 
           <motion.div
-            className="grid grid-cols-1 gap-5 mt-10"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10"
             variants={fadeUp}
             initial="hidden"
             animate={divisionsInView ? "visible" : "hidden"}
           >
-            {/* Industrial */}
+            {/* Division 1 — Manufacturing */}
             <div className="bg-white border border-[#E8E8E4] border-t-[3px] border-t-[#F5A623] rounded-[4px] p-8 lg:p-[32px_28px] hover:-translate-y-[2px] hover:border-[#F5A623] transition-all duration-200">
-              <img src="/meehaan_logo/LUBO Logo Without Bg-01.png" alt="LUBO" className="h-[24px] mb-5 object-contain" />
-              <h3 className="font-syne font-semibold text-[20px] text-[#1A1A1A]">Industrial Solutions</h3>
+              <img src="/meehaan_logo/LUBO Logo Without Bg-01.png" alt="LUBO brand" className="h-[24px] mb-5 object-contain" />
+              <h3 className="font-syne font-semibold text-[20px] text-[#050805]">Manufacturing — Industrial Oils</h3>
               <p className="font-dm text-[14px] text-[#888] mt-[10px] leading-[1.7]">
-                Industrial oils under the LUBO brand, automotive connectors from 13+ global manufacturers, and battery accessories for EV and solar applications.
+                In-house LUBO-brand oil manufacturing with 100–500 tons annual capacity. Heat treatment, metalworking, and specialty fluids for oil & gas, automotive, and industrial sectors.
               </p>
-              
               <div className="mt-5">
                 {[
-                  "LUBO Industrial Oils — 10 product categories",
-                  "Automotive Connectors — Yazaki, Sumitomo, TE & more",
-                  "Battery Accessories — FRP sheets, terminals, connectors"
+                  "100–500 tons annual production capacity",
+                  "LUBO brand — 10+ oil categories",
+                  "ISO-certified facility in Pune, Maharashtra"
                 ].map((row, i) => (
                   <div key={i} className="flex gap-[10px] items-center py-2 border-b border-[#F5F5F0]">
-                    <div className="w-[6px] h-[6px] bg-[#F5A623] rounded-sm"></div>
+                    <div className="w-[6px] h-[6px] bg-[#F5A623] rounded-sm" />
                     <span className="font-dm text-[13px] text-[#555]">{row}</span>
                   </div>
                 ))}
               </div>
-
               <div className="mt-6">
-                <Link to="/solutions/industrial" className="font-dm font-medium text-[13px] text-[#F5A623] hover:underline">
-                  Explore Industrial Solutions →
+                <Link to="/solutions/industrial/oils" className="font-dm font-medium text-[13px] text-[#F5A623] hover:underline">
+                  Explore Industrial Oils →
+                </Link>
+              </div>
+            </div>
+
+            {/* Division 2 — Trading */}
+            <div className="bg-white border border-[#E8E8E4] border-t-[3px] border-t-[#184D3A] rounded-[4px] p-8 lg:p-[32px_28px] hover:-translate-y-[2px] hover:border-[#184D3A] transition-all duration-200">
+              <div className="h-[24px] mb-5 flex items-center">
+                <span className="font-mono text-[10px] tracking-[0.12em] text-[#888] uppercase border border-[#E8E8E4] px-[10px] py-[3px] rounded-full">Authorized Distribution</span>
+              </div>
+              <h3 className="font-syne font-semibold text-[20px] text-[#050805]">Trading — Connectors & Battery</h3>
+              <p className="font-dm text-[14px] text-[#888] mt-[10px] leading-[1.7]">
+                Authorized distributor for 13+ global connector brands and specialist battery accessories for EV and solar manufacturing supply chains.
+              </p>
+              <div className="mt-5">
+                {[
+                  "Automotive Connectors — Yazaki, Sumitomo, TE, Molex & more",
+                  "Battery Accessories — Anderson, Degson, FRP, Terminal blocks",
+                  "Pan-India delivery from Pune logistics hub"
+                ].map((row, i) => (
+                  <div key={i} className="flex gap-[10px] items-center py-2 border-b border-[#F5F5F0]">
+                    <div className="w-[6px] h-[6px] bg-[#184D3A] rounded-sm" />
+                    <span className="font-dm text-[13px] text-[#555]">{row}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 flex gap-4">
+                <Link to="/solutions/industrial/connectors" className="font-dm font-medium text-[13px] text-[#184D3A] hover:underline">
+                  Connectors →
+                </Link>
+                <Link to="/solutions/industrial/battery" className="font-dm font-medium text-[13px] text-[#184D3A] hover:underline">
+                  Battery Accessories →
                 </Link>
               </div>
             </div>
@@ -326,7 +383,7 @@ const About = () => {
       <section ref={valuesRef} className="bg-white py-14 lg:py-20 border-t border-[#E8E8E4] px-6 lg:px-[80px]">
         <div className="max-w-[1100px] mx-auto">
           <p className="font-mono text-[11px] text-[#F5A623]">OUR VALUES</p>
-          <h2 className="font-syne font-bold text-[32px] text-[#1A1A1A] mt-2">What We Stand For</h2>
+          <h2 className="font-syne font-bold text-[32px] text-[#050805] mt-2">What We Stand For</h2>
 
           <motion.div 
             className="grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-[#E8E8E4] border border-[#E8E8E4] rounded-[8px] overflow-hidden mt-10"
@@ -339,7 +396,7 @@ const About = () => {
                <div className="w-[40px] h-[40px] bg-[#FFFBF0] border border-[#FFE4A8] rounded-[4px] flex items-center justify-center">
                  <FiCheckCircle className="text-[#F5A623]" size={20} />
                </div>
-               <h3 className="font-syne font-semibold text-[17px] text-[#1A1A1A] mt-[20px]">Uncompromising Quality</h3>
+               <h3 className="font-syne font-semibold text-[17px] text-[#050805] mt-[20px]">Uncompromising Quality</h3>
                <div className="w-[28px] h-[2px] bg-[#F5A623] my-[14px]"></div>
                <p className="font-dm text-[13px] text-[#888] leading-[1.7]">
                   We source only genuine, certified products from authorized channels. If we can't guarantee authenticity, we don't supply it.
@@ -347,12 +404,12 @@ const About = () => {
             </div>
 
             {/* Value 2 */}
-            <div className="bg-white p-8 lg:p-[32px_28px] border-t-[3px] border-t-[#1A1A1A]">
-               <div className="w-[40px] h-[40px] bg-[#F5F5F0] border border-[#E8E8E4] rounded-[4px] flex items-center justify-center">
-                 <FiShield className="text-[#1A1A1A]" size={20} />
+            <div className="bg-white p-8 lg:p-[32px_28px] border-t-[3px] border-t-[#184D3A]">
+               <div className="w-[40px] h-[40px] bg-[#EEF5F1] border border-[#C8DDD5] rounded-[4px] flex items-center justify-center">
+                 <FiShield className="text-[#184D3A]" size={20} />
                </div>
-               <h3 className="font-syne font-semibold text-[17px] text-[#1A1A1A] mt-[20px]">Reliable, Every Time</h3>
-               <div className="w-[28px] h-[2px] bg-[#1A1A1A] my-[14px]"></div>
+               <h3 className="font-syne font-semibold text-[17px] text-[#050805] mt-[20px]">Reliable, Every Time</h3>
+               <div className="w-[28px] h-[2px] bg-[#184D3A] my-[14px]"></div>
                <p className="font-dm text-[13px] text-[#888] leading-[1.7]">
                   We show up — with the right product, at the right time, at the right price. Reliability isn't a promise, it's our operating standard.
                </p>
@@ -363,7 +420,7 @@ const About = () => {
                <div className="w-[40px] h-[40px] bg-[#FFFBF0] border border-[#FFE4A8] rounded-[4px] flex items-center justify-center">
                  <FiTarget className="text-[#F5A623]" size={20} />
                </div>
-               <h3 className="font-syne font-semibold text-[17px] text-[#1A1A1A] mt-[20px]">Partnership Mindset</h3>
+               <h3 className="font-syne font-semibold text-[17px] text-[#050805] mt-[20px]">Partnership Mindset</h3>
                <div className="w-[28px] h-[2px] bg-[#F5A623] my-[14px]"></div>
                <p className="font-dm text-[13px] text-[#888] leading-[1.7]">
                  We invest in understanding your business — your processes, your volumes, your deadlines. Long-term relationships are more valuable to us than one-time transactions.
@@ -377,7 +434,7 @@ const About = () => {
       <section ref={journeyRef} className="bg-[#FAFAF8] py-14 lg:py-20 border-t border-[#E8E8E4] px-6 lg:px-[80px]">
         <div className="max-w-[900px] mx-auto">
           <p className="font-mono text-[11px] text-[#888]">OUR JOURNEY</p>
-          <h2 className="font-syne font-bold text-[32px] text-[#1A1A1A] mt-2">Seven Years of Growth</h2>
+          <h2 className="font-syne font-bold text-[32px] text-[#050805] mt-2">Seven Years of Growth</h2>
 
           <div className="relative mt-14 pt-[4px]">
              {/* Center Line */}
@@ -401,7 +458,7 @@ const About = () => {
                      <div className="font-mono text-[12px] font-medium text-[#F5A623] bg-[#F5A623]/[0.07] border border-[#F5A623]/20 px-[12px] py-[4px] rounded-full inline-block">
                        {ms.year}
                      </div>
-                     <h3 className="font-syne font-semibold text-[16px] text-[#1A1A1A] mt-3">
+                     <h3 className="font-syne font-semibold text-[16px] text-[#050805] mt-3">
                        {ms.title}
                      </h3>
                      <p className="font-dm text-[13px] text-[#777] mt-2 leading-[1.65]">
@@ -419,29 +476,55 @@ const About = () => {
       </section>
 
       {/* SECTION 7B — EXPORT CAPABILITY */}
-      <section className="bg-white py-14 lg:py-20 border-t border-[#E8E8E4] px-6 lg:px-[80px]">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.1em] uppercase">Global Reach</p>
-            <h2 className="font-syne font-bold text-[36px] text-[#1A1A1A] mt-2 leading-[1.2]">
-              Export-Ready Supplier for<br/>International Markets
-            </h2>
-            <p className="font-dm text-[14px] text-[#888] mt-4 max-w-[600px] mx-auto leading-[1.7]">
-              MEEHAAN has established export capabilities and is actively expanding into US, European, and global markets with manufacturing-backed solutions.
-            </p>
-          </motion.div>
+      <section className="bg-white py-[72px] lg:py-[104px] border-t border-[#E8E8E4]">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+          {/* Header — asymmetric 2-col */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+            <div>
+              <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.14em] uppercase mb-3">Global Reach</p>
+              <h2 className="font-syne font-bold text-[#050805] leading-[1.15]" style={{ fontSize: 'clamp(28px, 3vw, 44px)' }}>
+                Export-Ready Supplier for<br />International Markets
+              </h2>
+            </div>
+            <p className="font-dm text-[14px] text-[#888] max-w-[360px] leading-[1.75]">
+              Established export capabilities with manufacturing-backed solutions actively expanding into US, European, and global markets.
+            </p>
+          </div>
+
+          {/* Cards — flush grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-[#E8E8E4]">
             {[
-              { title: 'Manufacturing Credentials', desc: 'ISO certifications, oil & gas industry compliance, and facility audits support international contracts.' },
-              { title: 'Logistics & Documentation', desc: 'Experience with international shipping, customs documentation, HS codes, and DDP/CIF arrangements.' },
-              { title: 'Compliance & Standards', desc: 'RoHS, REACH, and regional certifications ensure products meet international market requirements.' }
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                ),
+                label: 'Manufacturing Credentials',
+                desc: 'ISO certifications, oil & gas compliance, and facility audits that support international contracts and buyer due diligence.',
+                tag: 'ISO · CE · REACH'
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                ),
+                label: 'Logistics & Documentation',
+                desc: 'Full experience with international shipping, HS codes, customs clearance, and DDP/CIF trade terms for seamless delivery.',
+                tag: 'DDP · CIF · EXW'
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                ),
+                label: 'Compliance & Standards',
+                desc: 'RoHS, REACH, and regional certifications ensure products meet regulatory requirements across international markets.',
+                tag: 'RoHS · REACH · CE'
+              }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -449,54 +532,80 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-[#FAFAF8] border border-[#E8E8E4] rounded-[4px] p-6"
+                className="bg-white p-8 lg:p-10 group hover:bg-[#FAFAF8] transition-colors duration-200"
               >
-                <h3 className="font-syne font-semibold text-[16px] text-[#1A1A1A] mb-2">{item.title}</h3>
-                <p className="font-dm text-[13px] text-[#666] leading-[1.7]">{item.desc}</p>
+                <div className="w-10 h-10 bg-[#FFFBF0] border border-[#FFE4A8] rounded-[4px] flex items-center justify-center text-[#F5A623] mb-6">
+                  {item.icon}
+                </div>
+                <h3 className="font-syne font-semibold text-[16px] text-[#050805] mb-3 leading-snug">{item.label}</h3>
+                <p className="font-dm text-[13px] text-[#888] leading-[1.75] mb-6">{item.desc}</p>
+                <span className="font-mono text-[10px] tracking-[0.08em] text-[#F5A623] bg-[#F5A623]/[0.07] border border-[#F5A623]/20 px-[10px] py-[4px] rounded-full">
+                  {item.tag}
+                </span>
               </motion.div>
+            ))}
+          </div>
+
+          {/* Proof bar */}
+          <div className="mt-10 pt-8 border-t border-[#E8E8E4] grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { n: 'US & EU', l: 'Export Markets' },
+              { n: 'DDP/CIF', l: 'Trade Terms Supported' },
+              { n: 'ISO', l: 'Certified Facility' },
+              { n: '24 hrs', l: 'Export Quote Turnaround' },
+            ].map((s, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="font-syne font-bold text-[22px] text-[#050805] leading-none">{s.n}</span>
+                <span className="font-mono text-[10px] text-[#888] mt-2 tracking-[0.05em]">{s.l}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* SECTION 8 — TEAM & LEADERSHIP */}
-      <section className="py-[64px] lg:py-[96px] px-6 lg:px-[80px] bg-[#FAFAF8]">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.1em] uppercase">Leadership</p>
-            <h2 className="font-syne font-bold text-[36px] text-[#1A1A1A] mt-2 leading-[1.2]">
-              Meet Our Team
-            </h2>
-            <p className="font-dm text-[14px] text-[#888] mt-4 max-w-[600px] mx-auto leading-[1.7]">
-              Industry veterans with deep expertise in manufacturing, supply chain, and technical support.
-            </p>
-          </motion.div>
+      <section className="py-[72px] lg:py-[104px] bg-[#FAFAF8] border-t border-[#E8E8E4]">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Header — asymmetric 2-col */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+            <div>
+              <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.14em] uppercase mb-3">Leadership</p>
+              <h2 className="font-syne font-bold text-[#050805] leading-[1.15]" style={{ fontSize: 'clamp(28px, 3vw, 44px)' }}>
+                The Team Behind<br />Every Delivery
+              </h2>
+            </div>
+            <p className="font-dm text-[14px] text-[#888] max-w-[360px] leading-[1.75]">
+              Industry veterans with deep expertise in manufacturing, supply chain, and technical applications.
+            </p>
+          </div>
+
+          {/* Cards — flush grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-[#E8E8E4]">
             {[
               {
+                initials: 'ML',
                 name: 'Manufacturing Lead',
                 role: 'Oil Production & Quality Control',
-                bio: 'Oversees manufacturing operations, ISO compliance, and product quality for 100-500 tons annual capacity.',
-                expertise: ['Oil Manufacturing', 'ISO Standards', 'Quality Assurance']
+                bio: 'Oversees manufacturing operations, ISO compliance, and product quality for LUBO-brand oils at 100–500 tons annual capacity.',
+                expertise: ['Oil Manufacturing', 'ISO Standards', 'Quality Assurance'],
+                years: '12'
               },
               {
+                initials: 'TS',
                 name: 'Technical Specialist',
                 role: 'Applications & Specifications',
-                bio: 'Provides technical guidance on oil & connector specifications for oil & gas, automotive, and EV sectors.',
-                expertise: ['Lubrication Engineering', 'Connector Specs', 'Industry Standards']
+                bio: 'Provides technical guidance on lubrication and connector specifications for oil & gas, automotive, and EV battery sectors.',
+                expertise: ['Lubrication Engineering', 'Connector Specs', 'EV Standards'],
+                years: '9'
               },
               {
+                initials: 'SM',
                 name: 'Supply Chain Manager',
                 role: 'Logistics & Distribution',
-                bio: 'Manages export operations, international shipping, and supply chain for US, Europe, and Asia markets.',
-                expertise: ['Export Compliance', 'Logistics', 'International Trade']
+                bio: 'Manages export documentation, international shipping, and supply chain operations for US, European, and Asia-Pacific markets.',
+                expertise: ['Export Compliance', 'Logistics', 'International Trade'],
+                years: '11'
               }
             ].map((member, i) => (
               <motion.div
@@ -505,26 +614,46 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border border-[#E8E8E4] rounded-[4px] p-8"
+                className="bg-white p-8 lg:p-10 flex flex-col group hover:bg-[#FAFAF8] transition-colors duration-200"
               >
-                <div className="mb-6">
-                  <div className="w-12 h-12 bg-[#F5A623] rounded-[4px] mb-4" />
-                  <h3 className="font-syne font-semibold text-[18px] text-[#1A1A1A] mb-1">{member.name}</h3>
-                  <p className="font-mono text-[11px] text-[#F5A623] tracking-[0.1em] uppercase">{member.role}</p>
+                {/* Avatar + name */}
+                <div className="flex items-center gap-4 mb-7">
+                  <div className="w-12 h-12 bg-[#050805] rounded-[4px] flex items-center justify-center shrink-0">
+                    <span className="font-syne font-bold text-[13px] text-white">{member.initials}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-syne font-semibold text-[15px] text-[#050805] leading-tight">{member.name}</h3>
+                    <p className="font-mono text-[10px] text-[#F5A623] tracking-[0.08em] uppercase mt-[3px]">{member.role}</p>
+                  </div>
                 </div>
-                <p className="font-dm text-[13px] text-[#666] leading-[1.7] mb-4">{member.bio}</p>
-                <div className="flex flex-wrap gap-2">
-                  {member.expertise.map((skill, j) => (
-                    <span key={j} className="font-mono text-[10px] bg-[#F5F5F0] text-[#666] px-2 py-1 rounded">
-                      {skill}
-                    </span>
-                  ))}
+
+                {/* Years badge */}
+                <div className="mb-5">
+                  <span className="font-mono text-[10px] text-[#888] border border-[#E8E8E4] px-[10px] py-[4px] rounded-full">
+                    {member.years}+ yrs experience
+                  </span>
+                </div>
+
+                <p className="font-dm text-[13px] text-[#888] leading-[1.75] flex-1 mb-7">{member.bio}</p>
+
+                {/* Divider */}
+                <div className="border-t border-[#E8E8E4] pt-5">
+                  <div className="flex flex-wrap gap-[6px]">
+                    {member.expertise.map((skill, j) => (
+                      <span key={j} className="font-mono text-[10px] bg-[#F5F5F0] border border-[#E8E8E4] text-[#555] px-[10px] py-[4px] rounded-full">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* CLIENT TESTIMONIALS */}
+      <ClientTestimonials />
 
       {/* SECTION 9 — FINAL CTA */}
       <section ref={ctaRef} className="bg-[#F5A623] py-[44px] lg:py-[72px] px-6 lg:px-[80px]">
@@ -535,22 +664,22 @@ const About = () => {
            animate={ctaInView ? "visible" : "hidden"}
          >
            <div className="text-center lg:text-left">
-             <h2 className="font-syne font-bold text-[28px] text-[#1A1A1A]">Ready to partner with MEEHAAN?</h2>
+             <h2 className="font-syne font-bold text-[28px] text-[#050805]">Ready to partner with MEEHAAN?</h2>
              <p className="font-dm text-[14px] text-black/60 mt-[10px]">
                At any industrial scale, let's start with a conversation.
              </p>
            </div>
            
            <div className="flex flex-col lg:flex-row gap-3 w-full lg:w-auto">
-             <Link 
+             <Link
                to="/contact"
-               className="bg-[#1A1A1A] text-white font-dm font-medium text-[13px] py-[12px] px-[28px] rounded-[4px] text-center transition-opacity hover:opacity-90"
+               className="bg-[#184D3A] text-white font-dm font-medium text-[13px] py-[12px] px-[28px] rounded-[4px] text-center transition-opacity hover:opacity-90"
              >
                Contact Us
              </Link>
-             <Link 
+             <Link
                to="/solutions/industrial"
-               className="bg-transparent border-[1.5px] border-black/20 text-[#1A1A1A] font-dm font-medium text-[13px] py-[12px] px-[28px] rounded-[4px] text-center transition-colors hover:bg-black/5"
+               className="bg-transparent border-[1.5px] border-[#050805]/20 text-[#050805] font-dm font-medium text-[13px] py-[12px] px-[28px] rounded-[4px] text-center transition-colors hover:bg-[#050805]/5"
              >
                Explore Products
              </Link>

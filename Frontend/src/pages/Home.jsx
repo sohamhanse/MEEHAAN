@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { ShieldCheck, Boxes, Users, Clock4, ArrowRight, Zap } from 'lucide-react';
+import { ShieldCheck, Boxes, Users, Clock4, ArrowRight, Zap, Globe2, MessageSquare, FileText, Truck, CheckCircle2 } from 'lucide-react';
+import ClientTestimonials from '../components/ClientTestimonials';
+import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+
+gsap.registerPlugin(SplitText, ScrambleTextPlugin, DrawSVGPlugin);
 
 const DashIcon = () => (
   <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px', flexShrink: 0, marginTop: '3px' }}>
@@ -53,7 +61,7 @@ const IndustryCard = ({ industry, col = 'left', gridCol, gridRow, delay = 0 }) =
       </div>
 
       {/* Title */}
-      <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#111111', marginBottom: '12px', fontFamily: 'Syne, sans-serif' }}>
+      <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#050805', marginBottom: '12px', fontFamily: 'Syne, sans-serif' }}>
         {industry.name}
       </h3>
 
@@ -116,6 +124,23 @@ const Home = () => {
   const [brandsRef, brandsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.15 });
 
+  const heroH1Ref = useRef(null);
+  const heroBadgeTextRef = useRef(null);
+  const heroLineRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const split = SplitText.create(heroH1Ref.current, { type: 'words', mask: 'words' });
+      gsap.from(split.words, { yPercent: 110, stagger: 0.06, duration: 0.9, ease: 'power3.out', delay: 0.3 });
+      gsap.to(heroBadgeTextRef.current, {
+        scrambleText: { text: 'Global Supply · 7+ Years · 500+ Clients', chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·', revealDelay: 0.2, speed: 0.8 },
+        duration: 1.8, delay: 0.5,
+      });
+      gsap.from(heroLineRef.current, { drawSVG: 0, duration: 1.2, ease: 'power2.inOut', delay: 1.0 });
+    });
+    return () => ctx.revert();
+  }, []);
+
   const industries = [
     {
       name: 'Metal Works',
@@ -165,12 +190,74 @@ const Home = () => {
 
   const pageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://www.meehaan.com/#webpage",
-    "url": "https://www.meehaan.com/",
-    "name": "Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise",
-    "isPartOf": { "@id": "https://www.meehaan.com/#website" },
-    "about": { "@id": "https://www.meehaan.com/#organization" }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.meehaan.com/#webpage",
+        "url": "https://www.meehaan.com/",
+        "name": "Industrial Lubricants, Connectors & Battery Accessories — MEEHAAN Enterprise",
+        "isPartOf": { "@id": "https://www.meehaan.com/#website" },
+        "about": { "@id": "https://www.meehaan.com/#organization" },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", ".hero-description"]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.meehaan.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What industrial oils does MEEHAAN Enterprise supply?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MEEHAAN Enterprise supplies LUBO-branded industrial oils including heat treatment oils, metalworking fluids, cutting coolants, rust preventives, fire-resistant hydraulic fluids, die casting release agents, and industrial cleaners. Manufacturing capacity is 100–500 tons annually from our Pune facility."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does MEEHAAN supply automotive connectors for EV manufacturers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. MEEHAAN is an authorized distributor for 13+ global connector brands including Yazaki, Sumitomo, TE Connectivity, Molex, and JST. We supply sealed connectors, high-current Anderson connectors, and OEM-grade connectors suitable for EV battery pack assembly and wire harness manufacturing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is MEEHAAN Enterprise located and do they export internationally?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MEEHAAN Enterprise is headquartered at Gat No. 1326, Unit-II, Shelarvasti, Chikhali, Pune 411062, Maharashtra, India. We export to the United States, Germany, United Kingdom, and other markets with DDP (Delivered Duty Paid) and CIF logistics arrangements available."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What battery accessories does MEEHAAN supply for EV and solar applications?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MEEHAAN supplies FRP (Fiber Reinforced Plastic) insulation sheets, epoxy insulation materials, panel terminal blocks, Anderson high-current connectors, Degson energy storage connectors, and PG glands for EV battery pack assembly and solar energy applications. All products meet RoHS compliance and automotive-grade specifications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I get a quote from MEEHAAN Enterprise?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can request a quote by visiting meehaan.com/contact, calling +91 99235 88450, or emailing sales@meehaan.com. MEEHAAN also responds via WhatsApp at the same number for faster B2B inquiries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What certifications and compliance standards does MEEHAAN meet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MEEHAAN's products meet ISO standards for industrial applications, RoHS compliance for electronic components, REACH compliance for EU markets, and OEM specifications for automotive Tier-1 suppliers. Technical Data Sheets (TDS) are available on request for all LUBO-branded oils."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
@@ -197,18 +284,23 @@ const Home = () => {
           {/* Trust badge */}
           <div className="inline-flex items-center gap-2 bg-white/80 border border-[#E8DFD4] rounded-full px-4 py-1.5 mb-8">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="font-mono text-[10px] tracking-[0.1em] text-[#777] uppercase">Global Supply · 7+ Years · 500+ Clients</span>
+            <span ref={heroBadgeTextRef} className="font-mono text-[10px] tracking-[0.1em] text-[#777] uppercase">Global Supply · 7+ Years · 500+ Clients</span>
           </div>
 
           <h1
+            ref={heroH1Ref}
             className="font-serif font-bold italic text-nearBlack leading-[1.1] flex flex-col items-center"
-            style={{ fontSize: 'clamp(16px, 4.5vw, 52px)' }}
+            style={{ fontSize: 'clamp(26px, 4.5vw, 52px)' }}
           >
             <span className="whitespace-nowrap">Industrial Oil Manufacturer</span>
             <span className="whitespace-nowrap">&amp; Global B2B Solution Provider</span>
           </h1>
 
-          <p className="font-dm text-[15px] text-[#666] mt-6 leading-[1.8] max-w-[480px] mx-auto">
+          <svg ref={heroLineRef} width="80" height="3" viewBox="0 0 80 3" className="mx-auto mt-6" aria-hidden="true">
+            <line x1="0" y1="1.5" x2="80" y2="1.5" stroke="#F5A623" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+
+          <p className="font-dm text-[15px] text-[#666] mt-4 leading-[1.8] max-w-[480px] mx-auto">
             Precision-grade lubricants, automotive connectors, and battery components — sourced from global brands, delivered to manufacturers worldwide.
           </p>
 
@@ -216,7 +308,7 @@ const Home = () => {
             <Link
               to="/solutions/industrial"
               className="font-dm font-semibold text-[14px] px-[28px] py-[14px] rounded-[4px] inline-flex items-center gap-2 cursor-pointer"
-              style={{ background: 'var(--orange)', color: '#1A1A1A', transition: 'transform 180ms ease, box-shadow 180ms ease' }}
+              style={{ background: 'var(--orange)', color: '#050805', transition: 'transform 180ms ease, box-shadow 180ms ease' }}
               onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(245,166,35,0.35)'; }}
               onMouseOut={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
             >
@@ -269,7 +361,7 @@ const Home = () => {
               >
                 Industries We Serve
               </motion.p>
-              <h2 className="font-syne max-w-2xl" style={{ fontSize: 'clamp(1.75rem, 3vw, 3rem)', fontWeight: 800, lineHeight: '120%', color: '#111111' }}>
+              <h2 className="font-syne max-w-2xl" style={{ fontSize: 'clamp(1.75rem, 3vw, 3rem)', fontWeight: 800, lineHeight: '120%', color: '#050805' }}>
                 Built for the industries that build the world.
               </h2>
             </motion.div>
@@ -319,7 +411,7 @@ const Home = () => {
               <p className="font-mono uppercase mb-3" style={{ color: '#FF6600', fontSize: '0.75rem', letterSpacing: '0.08em' }}>
                 Industries We Serve
               </p>
-              <h2 className="font-syne mb-10" style={{ fontSize: 'clamp(1.6rem, 6vw, 2rem)', fontWeight: 800, lineHeight: '120%', color: '#111111' }}>
+              <h2 className="font-syne mb-10" style={{ fontSize: 'clamp(1.6rem, 6vw, 2rem)', fontWeight: 800, lineHeight: '120%', color: '#050805' }}>
                 Built for the industries that build the world.
               </h2>
             </motion.div>
@@ -412,6 +504,68 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ═══════════════════════════ SECTION 4B: HOW WE WORK ═══════════════════════════ */}
+      <section className="bg-[#FAFAF8] py-[72px] lg:py-[104px] border-t border-[var(--border)]">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16"
+          >
+            <div>
+              <p className="font-mono text-[11px] tracking-[0.14em] text-[var(--orange)] mb-3 uppercase">How It Works</p>
+              <h2 className="font-syne font-bold text-nearBlack" style={{ fontSize: 'clamp(28px, 3vw, 42px)' }}>
+                From Inquiry to Delivery
+              </h2>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 font-dm font-medium text-[13px] text-[var(--orange)] hover:underline shrink-0"
+            >
+              Start your inquiry <ArrowRight size={14} />
+            </Link>
+          </motion.div>
+
+          {/* Steps */}
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Desktop connector line */}
+            <div className="absolute hidden lg:block top-[21px] left-[calc(12.5%+26px)] right-[calc(12.5%+26px)] h-px bg-[#DDD]" />
+
+            {[
+              { step: '01', title: 'Send Inquiry', desc: 'Share your requirement via WhatsApp or our form. Product, quantity, and application — that\'s all we need.', Icon: MessageSquare },
+              { step: '02', title: 'Technical Review', desc: 'Our team reviews your application and recommends the right product specifications for your process.', Icon: CheckCircle2 },
+              { step: '03', title: 'Receive Quote', desc: 'Detailed pricing, MOQ, and lead time within 24 business hours. Transparent, no hidden charges.', Icon: FileText },
+              { step: '04', title: 'Delivery', desc: 'Pan-India dispatch from Pune. Tracking provided, delivery to your manufacturing hub on schedule.', Icon: Truck },
+            ].map(({ step, title, desc, Icon }, i) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="relative px-8 py-10 border-b sm:border-b-0 sm:border-r border-[#E8E8E0] last:border-0 lg:border-r lg:last:border-r-0 group"
+              >
+                {/* Step circle */}
+                <div className="relative z-10 w-[42px] h-[42px] rounded-full border-2 border-[var(--orange)] bg-white flex items-center justify-center mb-8 group-hover:bg-[var(--orange)] transition-colors duration-200">
+                  <span className="font-mono text-[11px] font-bold text-[var(--orange)] group-hover:text-white transition-colors duration-200">{step}</span>
+                </div>
+
+                {/* Ghost number background */}
+                <span className="absolute top-8 right-6 font-syne font-extrabold text-[80px] leading-none text-[#F5A623] opacity-[0.05] select-none pointer-events-none">{step}</span>
+
+                <Icon size={26} className="text-[var(--orange)] mb-5" strokeWidth={1.5} />
+                <h3 className="font-syne font-semibold text-[17px] text-nearBlack mb-3">{title}</h3>
+                <p className="font-dm text-[13px] text-[#777] leading-[1.85]">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* ═══════════════════════════ SECTION 5: TRUSTED BRANDS ═══════════════════════════ */}
       <section ref={brandsRef} className="bg-warmWhite py-[56px] lg:px-[48px] border-t border-[var(--border)]">
         <div className="max-w-[1400px] mx-auto text-center px-6 lg:px-0">
@@ -451,40 +605,48 @@ const Home = () => {
       </section>
 
       {/* ═══════════════════════════ SECTION 5B: INTERNATIONAL REACH ═══════════════════════════ */}
-      <section className="py-[56px] lg:py-[88px] px-6 lg:px-[80px] bg-[#F5F5F0] border-t border-[var(--border)]">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-[72px] lg:py-[104px] bg-[#F5F5F0] border-t border-[var(--border)]">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+          {/* Header row */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14"
           >
-            <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.1em] uppercase mb-3">Global Reach</p>
-            <h2 className="font-syne font-bold text-[32px] lg:text-[36px] text-nearBlack leading-[1.2]">
-              Export-Ready for Global Markets
-            </h2>
-            <p className="font-dm text-[14px] text-[#666] mt-4 max-w-[650px] mx-auto leading-[1.7]">
-              MEEHAAN is actively expanding into US, European, and Asian markets with manufacturing-backed solutions and international compliance.
+            <div>
+              <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.1em] uppercase mb-3">Global Reach</p>
+              <h2 className="font-syne font-bold text-nearBlack leading-[1.15]" style={{ fontSize: 'clamp(28px, 3vw, 44px)' }}>
+                Export-Ready for<br className="hidden lg:block" /> Global Markets
+              </h2>
+            </div>
+            <p className="font-dm text-[14px] text-[#666] max-w-[380px] leading-[1.75]">
+              Expanding into US, European, and Asian markets with manufacturing-backed solutions and international compliance documentation.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {/* 3 region tiles — full-width, flush grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#DDDDD5]">
             {[
               {
-                region: '🌍 Europe',
+                region: 'Europe',
                 markets: ['Germany', 'UK', 'France', 'Benelux'],
-                signal: 'CE & REACH Compliant'
+                signal: 'CE & REACH Compliant',
+                detail: 'Serving EU manufacturing & distribution sectors'
               },
               {
-                region: '🇺🇸 North America',
+                region: 'North America',
                 markets: ['USA', 'Canada'],
-                signal: 'FDA-compatible Products'
+                signal: 'FDA-compatible Products',
+                detail: 'US industrial and specialty lubricant requirements'
               },
               {
-                region: '🌏 Asia-Pacific',
+                region: 'Asia-Pacific',
                 markets: ['Singapore', 'Thailand', 'India'],
-                signal: 'ISO & Local Standards'
+                signal: 'ISO & Local Standards',
+                detail: 'Pan-Asia manufacturing and battery supply chains'
               }
             ].map((market, i) => (
               <motion.div
@@ -493,35 +655,60 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-[4px] p-6 border border-[#E8E8E4] text-center"
+                className="bg-white p-8 lg:p-10 flex flex-col group hover:bg-[#FEFEFE] transition-colors duration-200"
               >
-                <p className="font-syne font-bold text-[18px] text-nearBlack mb-3">{market.region}</p>
-                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-9 h-9 rounded-full bg-[#FFF8EE] border border-[#F5A623]/20 flex items-center justify-center shrink-0">
+                    <Globe2 size={16} className="text-[var(--orange)]" />
+                  </div>
+                  <h3 className="font-syne font-bold text-[22px] text-nearBlack">{market.region}</h3>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-6">
                   {market.markets.map((m, j) => (
-                    <span key={j} className="font-dm text-[12px] bg-[#F5F5F0] text-[#666] px-3 py-1 rounded-full">
+                    <span key={j} className="font-dm text-[12px] bg-[#F5F5F0] text-[#555] px-3 py-[5px] rounded-[3px]">
                       {m}
                     </span>
                   ))}
                 </div>
-                <p className="font-mono text-[11px] text-[var(--orange)] tracking-[0.05em] uppercase">{market.signal}</p>
+
+                <p className="font-dm text-[13px] text-[#888] leading-[1.7] flex-1">{market.detail}</p>
+
+                <div className="mt-7 pt-5 border-t border-[#F0F0E8]">
+                  <p className="font-mono text-[10px] text-[var(--orange)] tracking-[0.1em] uppercase">{market.signal}</p>
+                </div>
               </motion.div>
             ))}
           </div>
 
+          {/* Credentials proof bar */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.65, delay: 0.3 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.25 }}
             viewport={{ once: true }}
-            className="mt-10 p-6 bg-white rounded-[4px] border-l-4 border-[var(--orange)] text-center"
+            className="mt-px grid grid-cols-1 lg:grid-cols-3 gap-px bg-[#DDDDD5]"
           >
-            <p className="font-dm text-[13px] text-[#666] leading-[1.7]">
-              <strong>Manufacturing Credentials:</strong> ISO certifications, oil & gas compliance, and facility audits support international supply contracts.
-              <strong className="ml-2">Export-Ready Documentation:</strong> HS codes, DDP/CIF logistics, and customs procedures.
-            </p>
+            {[
+              { title: 'Manufacturing Credentials', desc: 'ISO certifications, oil & gas compliance, and facility audits for international contracts.' },
+              { title: 'Export Documentation', desc: 'HS codes, commercial invoices, DDP/CIF logistics, and customs procedure support.' },
+              { title: 'Compliance & Standards', desc: 'RoHS, REACH, CE marking, and regional certifications for key markets.' },
+            ].map((cred, i) => (
+              <div key={i} className="bg-white px-8 py-6 flex items-start gap-4">
+                <div className="w-[3px] min-h-[40px] self-stretch bg-[var(--orange)] rounded-full shrink-0 mt-1" />
+                <div>
+                  <p className="font-syne font-semibold text-[14px] text-nearBlack">{cred.title}</p>
+                  <p className="font-dm text-[12px] text-[#777] mt-1.5 leading-[1.65]">{cred.desc}</p>
+                </div>
+              </div>
+            ))}
           </motion.div>
+
         </div>
       </section>
+
+      {/* ═══════════════════════════ CLIENT TESTIMONIALS ═══════════════════════════ */}
+      <ClientTestimonials />
 
       {/* ═══════════════════════════ SECTION 6: CTA SPLIT ═══════════════════════════ */}
       <section ref={ctaRef} className="border-t border-[var(--border)]">
@@ -529,23 +716,41 @@ const Home = () => {
           variants={fadeUp}
           initial="hidden"
           animate={ctaInView ? 'visible' : 'hidden'}
-          className="bg-[var(--orange)] p-12 lg:p-[56px_48px]"
+          className="grid lg:grid-cols-2"
         >
-          <p className="font-mono text-[11px] tracking-wide text-black/50 mb-3 uppercase">
-            For Manufacturers & OEMs
-          </p>
-          <h3 className="font-syne font-bold text-nearBlack text-3xl lg:text-[26px] leading-tight max-w-sm">
-            Need industrial lubricants or connectors?
-          </h3>
-          <p className="font-dm text-[14px] text-black/65 mt-4 max-w-sm leading-[1.6]">
-            Get a quote for LUBO oils, automotive connectors, or battery accessories.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-nearBlack text-white font-dm font-medium text-[14px] px-7 py-[14px] rounded-[4px] mt-8 hover:bg-black transition-colors"
-          >
-            Get a Quote
-          </Link>
+          {/* Left — forest panel for export */}
+          <div className="bg-[#184D3A] p-12 lg:p-[56px_48px]">
+            <p className="font-mono text-[11px] tracking-wide text-[#7AA89A] mb-3 uppercase">Export & Bulk Orders</p>
+            <h3 className="font-syne font-bold text-white text-[22px] lg:text-[26px] leading-tight max-w-sm">
+              Sourcing at scale? We supply globally.
+            </h3>
+            <p className="font-dm text-[14px] text-[#A0C4B8] mt-4 max-w-sm leading-[1.6]">
+              From sample orders to 500-ton annual contracts. Export documentation and international logistics support included.
+            </p>
+            <a
+              href="mailto:sales@meehaan.com"
+              className="inline-flex items-center gap-2 text-white font-dm font-medium text-[14px] mt-8 border border-white/20 px-7 py-[14px] rounded-[4px] hover:bg-white/10 transition-colors"
+            >
+              Email Export Team <ArrowRight size={14} />
+            </a>
+          </div>
+
+          {/* Right — orange panel for domestic */}
+          <div className="bg-[var(--orange)] p-12 lg:p-[56px_48px]">
+            <p className="font-mono text-[11px] tracking-wide text-black/50 mb-3 uppercase">For Manufacturers & OEMs</p>
+            <h3 className="font-syne font-bold text-nearBlack text-[22px] lg:text-[26px] leading-tight max-w-sm">
+              Need industrial lubricants or connectors?
+            </h3>
+            <p className="font-dm text-[14px] text-black/65 mt-4 max-w-sm leading-[1.6]">
+              Get a quote for LUBO oils, automotive connectors, or battery accessories. 24-hour response.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-block bg-nearBlack text-white font-dm font-medium text-[14px] px-7 py-[14px] rounded-[4px] mt-8 hover:bg-black transition-colors"
+            >
+              Get a Quote
+            </Link>
+          </div>
         </motion.div>
       </section>
 
