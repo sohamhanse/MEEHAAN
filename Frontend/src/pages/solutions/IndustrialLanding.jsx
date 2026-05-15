@@ -228,6 +228,10 @@ const IndustrialLanding = () => {
         description="Oil manufacturing and specialty lubricants (heat treatment, metalworking). Automotive connectors (Yazaki, TE, Molex), battery accessories. Oil & gas certified. 100-500 tons capacity. Export to US, Europe."
         canonical="/solutions/industrial"
         jsonLd={industrialServiceSchema}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Industrial Solutions', path: '/solutions/industrial' },
+        ]}
       />
 
       {/* ═══════════════════════════════ SECTION 1: HERO ═══════════════════════════════ */}
@@ -313,7 +317,7 @@ const IndustrialLanding = () => {
           </motion.h1>
 
           {/* Subline */}
-          <motion.h2
+          <motion.p
             initial="hidden"
             animate="visible"
             variants={fadeUp}
@@ -322,7 +326,7 @@ const IndustrialLanding = () => {
             style={{ color: '#888' }}
           >
             Lubricants · Connectors · Battery Accessories
-          </motion.h2>
+          </motion.p>
 
           {/* Description */}
           <motion.p

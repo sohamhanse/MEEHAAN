@@ -29,5 +29,20 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+User-agent: Gemini-crawler
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 Sitemap: https://www.meehaan.com/sitemap.xml
 LLMs: https://www.meehaan.com/llms.txt

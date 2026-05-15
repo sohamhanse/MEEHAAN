@@ -14,12 +14,16 @@
 :root {
   --orange: #F5A623;
   --teal: #00B8A0;
-  --black: #1A1A1A;
+  --black: #050805;
   --white: #FFFFFF;
   --warm-white: #FAFAF8;
   --muted: #6B6B6B;
   --border: #E8E8E4;
   --surface: #242424;
+  --forest: #184D3A;
+  --lime: #D4F565;
+  --lime-deep: #C6E84F;
+  --ink: #050805;
 }
 
 html {

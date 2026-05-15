@@ -4,7 +4,7 @@
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-countup/build/index.js?commonjs-exports": [],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-Bqq1Dgsh.js"
+    "/assets/client-COLsComR.js"
   ],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000C:/Users/DELL/OneDrive/Desktop/Meehaan/MEEHAAN/Frontend/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -240,6 +240,13 @@
   "node_modules/framer-motion/dist/es/value/use-will-change/is.mjs": [],
   "node_modules/framer-motion/dist/es/value/utils/is-motion-value.mjs": [],
   "node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs": [],
+  "node_modules/gsap/CSSPlugin.js": [],
+  "node_modules/gsap/DrawSVGPlugin.js": [],
+  "node_modules/gsap/ScrambleTextPlugin.js": [],
+  "node_modules/gsap/SplitText.js": [],
+  "node_modules/gsap/gsap-core.js": [],
+  "node_modules/gsap/index.js": [],
+  "node_modules/gsap/utils/strings.js": [],
   "node_modules/invariant/browser.js": [],
   "node_modules/lucide-react/dist/esm/Icon.js": [],
   "node_modules/lucide-react/dist/esm/context.js": [],
@@ -247,7 +254,12 @@
   "node_modules/lucide-react/dist/esm/defaultAttributes.js": [],
   "node_modules/lucide-react/dist/esm/icons/arrow-right.js": [],
   "node_modules/lucide-react/dist/esm/icons/boxes.js": [],
+  "node_modules/lucide-react/dist/esm/icons/circle-check.js": [],
   "node_modules/lucide-react/dist/esm/icons/clock-4.js": [],
+  "node_modules/lucide-react/dist/esm/icons/earth.js": [],
+  "node_modules/lucide-react/dist/esm/icons/file-text.js": [],
+  "node_modules/lucide-react/dist/esm/icons/message-square.js": [],
+  "node_modules/lucide-react/dist/esm/icons/truck.js": [],
   "node_modules/lucide-react/dist/esm/icons/users.js": [],
   "node_modules/lucide-react/dist/esm/icons/zap.js": [],
   "node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.js": [],
@@ -290,7 +302,7 @@
   "node_modules/react-countup/build/index.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-Bqq1Dgsh.js"
+    "/assets/client-COLsComR.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
@@ -325,6 +337,7 @@
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.DTTf7HZy.mjs": [],
   "node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js": [],
   "src/App.jsx": [],
+  "src/components/ClientTestimonials.jsx": [],
   "src/components/ContactForm.jsx": [],
   "src/components/Footer.jsx": [],
   "src/components/Layout.jsx": [],
@@ -340,6 +353,7 @@
   "src/components/ui/vapour-text-effect.jsx": [],
   "src/context/LoadingContext.jsx": [],
   "src/data/batteryData.js": [],
+  "src/data/clientTestimonials.js": [],
   "src/data/productCategoryData.js": [],
   "src/hooks/useLoadingFetch.js": [],
   "src/hooks/usePageTracking.js": [],

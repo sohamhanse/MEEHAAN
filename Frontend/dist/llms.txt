@@ -69,6 +69,7 @@ MEEHAAN is an export-ready supplier serving international markets:
 - **Export Markets**: United States, Germany, United Kingdom, and expanding to additional EU countries
 - **Logistics**: DDP (Delivered Duty Paid) and CIF arrangements available
 - **Documentation**: Familiar with HS codes, GSTIN compliance, customs procedures
+- **GSTIN**: 27ACXPH9352F1Z2 (Maharashtra, India)
 - **Certifications**: ISO standards met for export markets, RoHS compliance, REACH compliance
 - **Lead Times**: Standard 15-30 days for standard products, expedited options available
 
